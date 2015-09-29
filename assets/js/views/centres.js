@@ -9,7 +9,7 @@ _.templateSettings = {
 module.exports = Backbone.View.extend({
   el: '#centres',
   model: new model(),
-  template: _.template("Centre: {{name}}"),
+  template: _.template("<li><h2>{{name}}</h2><span>{{male_capacity}} male beds available</span><span>{{female_capacity}} female beds available</span></li>"),
 
   initialize: function() {
     this.model.on('change',this.render, this);
