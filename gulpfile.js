@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 
-var uglify      = require('gulp-uglify');
 var source      = require('vinyl-source-stream'); // makes browserify bundle compatible with gulp
-var streamify   = require('gulp-streamify');
 var browserify  = require('browserify');
+//var uglify      = require('gulp-uglify');
+//var streamify   = require('gulp-streamify');
 
 gulp.task('test', function() {
   return gulp
@@ -19,12 +19,8 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./public/'));
 });
 
-/*
-gulp.task('default', ['test'], function() {
-  gulp.watch(['public/js/*.js', 'test/*.js'], function() {
-    gulp.run('test');
-  });
+gulp.task('default', ['test', 'scripts'], function() {
+  gulp.watch(['assets/js/*.js', 'test/*.js'],['test','scripts']);
 });
-*/
 
-gulp.task('default', ['test','scripts']);
+//gulp.task('default', ['test','scripts']);

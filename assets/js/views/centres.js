@@ -1,6 +1,7 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
 var model = require('../models/centres');
+var templates = require('../templates');
 
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
@@ -9,11 +10,10 @@ _.templateSettings = {
 module.exports = Backbone.View.extend({
   el: '#centres',
   model: new model(),
-  template: _.template("<li><h2>{{name}}</h2><span>{{male_capacity}} male beds available</span><span>{{female_capacity}} female beds available</span></li>"),
+  template: _.template(templates.centre),
 
   initialize: function() {
     this.model.on('change',this.render, this);
-
     this.model.fetch()
   },
 

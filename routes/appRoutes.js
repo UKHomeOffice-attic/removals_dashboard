@@ -5,22 +5,22 @@ var indexData = {
   centres: [{
     name: 'Heathrow',
     centre_id: 1,
-    male_capacity: 33,
-    female_capacity: 35,
+    male_available: 33,
+    female_available: 35,
     booked: 20,
     reserved: 47
   },{
     name: 'Colnbrook',
     centre_id: 2,
-    male_capacity: 12,
-    female_capacity: 23,
+    male_available: 12,
+    female_available: 23,
     booked: 9,
     reserved: 27
   },{
     name: 'Harmandsworth',
     centre_id: 3,
-    male_capacity: 30,
-    female_capacity: 20,
+    male_available: 30,
+    female_available: 20,
     booked: 0,
     reserved: 0
   }]
