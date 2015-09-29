@@ -33,7 +33,13 @@ var appRoutes = {
   "/": {
     method: 'get',
     fn: function(req, res) {
-      res.render('index', {title: 'Express', data: indexData});
+      res.render('index', {title: 'Express'});
+    }
+  },
+  "/centres": {
+    method: 'get',
+    fn: function(req, res) {
+      res.json(indexData);
     }
   }
 };
