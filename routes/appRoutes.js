@@ -5,27 +5,24 @@ var indexData = {
   centres: [{
     name: 'Heathrow',
     centre_id: 1,
-    full_capacity: 300,
-    male_capacity: 180,
-    female_capacity: 120,
-    current_male_beds: 40,
-    current_female_beds: 35
+    male_capacity: 33,
+    female_capacity: 35,
+    booked: 20,
+    reserved: 47
   },{
     name: 'Colnbrook',
     centre_id: 2,
-    full_capacity: 200,
-    male_capacity: 80,
-    female_capacity: 120,
-    current_male_beds: 50,
-    current_female_beds: 15
+    male_capacity: 12,
+    female_capacity: 23,
+    booked: 9,
+    reserved: 27
   },{
     name: 'Harmandsworth',
     centre_id: 3,
-    full_capacity: 250,
-    male_capacity: 180,
-    female_capacity: 70,
-    current_male_beds: 20,
-    current_female_beds: 100
+    male_capacity: 30,
+    female_capacity: 20,
+    booked: 0,
+    reserved: 0
   }]
 };
 
