@@ -1,6 +1,6 @@
 var $ = require('jquery');
-var lib = require('./lib');
+var view = require('./views/centres');
 
 $(function() {
-  var view = new lib.centresView();
+  new view();
 });
