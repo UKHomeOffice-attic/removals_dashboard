@@ -6,3 +6,10 @@ describe('add()', function() {
     expect(lib.add(1, 1)).to.equal(2);
   });
 });
+
+describe('centres model', function() {
+  it('should have a urlRoot', function() {
+    var model = new lib.centresModel();
+    expect(model.urlRoot).to.equal('/centres');
+  });
+});
