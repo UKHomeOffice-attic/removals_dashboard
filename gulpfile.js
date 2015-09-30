@@ -6,6 +6,8 @@ var browserify  = require('browserify');
 //var uglify      = require('gulp-uglify');
 //var streamify   = require('gulp-streamify');
 
+var sass = require('gulp-sass');
+
 gulp.task('test', function() {
   return gulp
     .src('test/*.js')
@@ -19,8 +21,19 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./public/'));
 });
 
-gulp.task('default', ['test', 'scripts'], function() {
+gulp.task('default', ['test', 'scripts', 'sass'], function() {
   gulp.watch(['assets/js/*.js', 'test/*.js'],['test','scripts']);
+  gulp.watch('./assets/scss/*.scss', ['sass']);
 });
 
 //gulp.task('default', ['test','scripts']);
+
+gulp.task('sass', function() {
+  gulp.src('./assets/scss/styles.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./public/css'));
+});
+
+//gulp.task('sass:watch', function() {
+  //gulp.watch('./assets/**/*.scss', ['sass']);
+//});
