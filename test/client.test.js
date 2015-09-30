@@ -11,7 +11,7 @@ _.templateSettings = {
 describe('centres model', function() {
   it('should have a urlRoot', function() {
     var model = new models.centres();
-    expect(model.urlRoot).to.equal('/centres');
+    expect(model.urlRoot).to.equal('/centres.json');
   });
 });
 

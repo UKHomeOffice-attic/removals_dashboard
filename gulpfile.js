@@ -46,9 +46,14 @@ gulp.task('hbs', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['test', 'scripts', 'sass', 'hbs']);
+gulp.task('copy', function() {
+  gulp.src('./assets/json/*.json')
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default', ['test', 'scripts', 'sass', 'hbs', 'copy']);
 
 gulp.task('watch', ['default'], function() {
-  gulp.watch(['./assets/js/*.js', './test/*.js'],['test','scripts']);
-  gulp.watch('./assets/scss/*.scss', ['sass']);
+  gulp.watch(['./assets/js/**/*.js', './test/*.js'],['test','scripts']);
+  gulp.watch(['./assets/scss/*.scss'], ['sass']);
 });
