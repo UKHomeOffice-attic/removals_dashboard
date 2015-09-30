@@ -14,11 +14,12 @@ module.exports = Backbone.View.extend({
 
   initialize: function() {
     this.model.on('change',this.render, this);
-    this.model.fetch()
+    this.model.fetch();
   },
 
   render: function() {
-    _.each(this.model.get('centres'), function(item) {
+    _.each(this.model.attributes, function(item) {
+      item.booked_and_reserved = item.booked + item.reserved;
       this.$el.append(this.template(item));
     }, this)
   }
