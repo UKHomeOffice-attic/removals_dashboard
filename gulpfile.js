@@ -16,24 +16,19 @@ gulp.task('test', function() {
 
 gulp.task('scripts', function() {
   return browserify('./assets/js/app.js').bundle()
-    .pipe(source('all.min.js'))
+    .pipe(source('all.js'))
+    //.pipe(source('all.min.js'))
     //.pipe(streamify(uglify()))
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest('./dist/js/'));
+});
+
+gulp.task('sass', function() {
+  gulp.src('./assets/scss/styles.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('default', ['test', 'scripts', 'sass'], function() {
   gulp.watch(['assets/js/*.js', 'test/*.js'],['test','scripts']);
   gulp.watch('./assets/scss/*.scss', ['sass']);
 });
-
-//gulp.task('default', ['test','scripts']);
-
-gulp.task('sass', function() {
-  gulp.src('./assets/scss/styles.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./public/css'));
-});
-
-//gulp.task('sass:watch', function() {
-  //gulp.watch('./assets/**/*.scss', ['sass']);
-//});
