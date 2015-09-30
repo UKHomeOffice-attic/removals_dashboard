@@ -46,7 +46,9 @@ gulp.task('hbs', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['test', 'scripts', 'sass', 'hbs'], function() {
+gulp.task('default', ['test', 'scripts', 'sass', 'hbs']);
+
+gulp.task('watch', ['default'], function() {
   gulp.watch(['./assets/js/*.js', './test/*.js'],['test','scripts']);
   gulp.watch('./assets/scss/*.scss', ['sass']);
 });
