@@ -8,6 +8,9 @@ var browserify  = require('browserify');
 
 var sass = require('gulp-sass');
 
+var handlebars = require('gulp-compile-handlebars');
+var rename = require('gulp-rename');
+
 gulp.task('test', function() {
   return gulp
     .src('test/*.js')
@@ -28,7 +31,22 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('default', ['test', 'scripts', 'sass'], function() {
-  gulp.watch(['assets/js/*.js', 'test/*.js'],['test','scripts']);
+gulp.task('hbs', function() {
+  var templateData = {
+    "title": "Removals Dashboard"
+  };
+  var options = {
+    ignorePartials: true,
+    batch : ['./views']
+  };
+
+  return gulp.src('./views/layout.hbs')
+    .pipe(handlebars(templateData,options))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default', ['test', 'scripts', 'sass', 'hbs'], function() {
+  gulp.watch(['./assets/js/*.js', './test/*.js'],['test','scripts']);
   gulp.watch('./assets/scss/*.scss', ['sass']);
 });
