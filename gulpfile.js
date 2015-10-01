@@ -57,3 +57,7 @@ gulp.task('watch', ['default'], function() {
   gulp.watch(['./assets/js/**/*.js', './test/*.js'],['test','scripts']);
   gulp.watch(['./assets/scss/*.scss'], ['sass']);
 });
+
+gulp.task('watch:test', ['test'], function() {
+  gulp.watch(['./assets/js/**/*.js', './test/*.js'],['test']);
+});

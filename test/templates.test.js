@@ -1,16 +1,11 @@
 var expect = require('expect.js');
 var _ = require('underscore');
 
-var models = require('../assets/js/models');
 var templates = require('../assets/js/templates');
 
 _.templateSettings = {
   interpolate: /\{\{(.+?)\}\}/g
 };
-
-describe('centres model', function() {
-
-});
 
 describe('templates', function() {
   describe('centres', function() {
