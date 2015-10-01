@@ -10,18 +10,19 @@ _.templateSettings = {
 
 module.exports = Backbone.View.extend({
   el: '#centres',
-  collection: new collection(),
   template: _.template(templates.centre),
 
-  initialize: function() {
-    var $this = this;
+  initialize: function(options) {
+    this.collection = new collection({},options);
 
     this.collection.on('add',this.render, this);
     this.collection.fetch();
 
-    //setInterval(function(){
-    //  $this.model.fetch();
-    //},3000);
+    setInterval(this.poll.bind(this),1000);
+  },
+
+  poll: function() {
+    this.collection.fetch();
   },
 
   render: function() {
