@@ -5,4 +5,4 @@
 - Clone repo
 - `npm install`
 - `gulp watch`
-- Serve generated `dist` folder
+- `npm start` (will use Python SimpleHTTPServer to serve `./dist` on port 8000)
