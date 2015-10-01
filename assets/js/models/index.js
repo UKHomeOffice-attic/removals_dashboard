@@ -1,5 +1,3 @@
-var centres = require('./centres');
-
 module.exports = {
-  centres: centres
+  Centre: require('./centre')
 };
