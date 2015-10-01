@@ -1,6 +1,7 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
-var model = require('../models/centres');
+
+var model = require('../models/centre');
 var templates = require('../templates');
 
 _.templateSettings = {
