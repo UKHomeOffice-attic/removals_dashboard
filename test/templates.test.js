@@ -14,9 +14,9 @@ describe('templates', function() {
       var output = compiled({name: 'Heathrow',male_available: 0, female_available: 0, booked_and_reserved: 0});
 
       expect(output).to.contain('<h2>Heathrow</h2>');
-      expect(output).to.contain('<span>0 male beds available</span>');
-      expect(output).to.contain('<span>0 female beds available</span>');
-      expect(output).to.contain('<span>0 beds booked and reserved</span>');
+      expect(output).to.contain('<span class=\'bed-count-figure\'>0</span> <span class=\'bed-count-label\'>male beds available</span>');
+      expect(output).to.contain('<span class=\'bed-count-figure\'>0</span> <span class=\'bed-count-label\'>female beds available</span>');
+      expect(output).to.contain('<span class=\'bed-count-figure\'>0</span> <span class=\'bed-count-label\'>beds booked and reserved</span>');
 
     });
   });

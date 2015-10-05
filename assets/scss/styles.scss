@@ -1,7 +1,51 @@
-@import "../../node_modules/govuk_frontend_toolkit/stylesheets/_font_stack";
-@import "../../node_modules/govuk_frontend_toolkit/stylesheets/_typography";
+@import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/alpha-beta";
 
-body {
-  color: white;
-  background-color: grey;
+#page-container {
+  @extend %site-width-container;
+}
+
+.grid-row {
+  @extend %grid-row;
+}
+
+.column-half {
+  @include grid-column( 1/2 );
+  padding: 15px;
+}
+
+#centres {
+  padding: 0;
+  .panel {
+    margin: 0 40px;
+    border: 1em solid lightgray;
+    ul {
+      padding:0;
+      list-style-type: none;
+    }
+    li {
+      margin: 0 15px;
+    }
+    strong {
+      @include bold-48;
+    }
+    h2 {
+      padding: 15px 15px 0;
+    }
+  }
+}
+
+.bed-count-figure {
+  @include bold-48;
+  line-height: 0.9;
+  display: inline-block;
+  vertical-align: initial;
+  width: 20%;
+}
+
+.bed-count-label {
+  display: inline-block;
+  padding-left: 0.5em;
+  white-space: normal;
+  width: 30%;
+  line-height: 0.9;
 }
