@@ -1,4 +1,5 @@
 @import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/alpha-beta";
+@import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/buttons";
 
 #page-container {
   @extend %site-width-container;
@@ -31,7 +32,26 @@
     h2 {
       padding: 15px 15px 0;
     }
+    a {
+      display: block;
+      text-align: right;
+    }
   }
+}
+
+.phase-banner  {
+  @include phase-banner(alpha);
+}
+
+.button{
+  @include button;
+  vertical-align: super;
+}
+.button-secondary{
+  @include button($grey-3);
+}
+.button-warning{
+  @include button($red);
 }
 
 .bed-count-figure {
@@ -39,13 +59,13 @@
   line-height: 0.9;
   display: inline-block;
   vertical-align: initial;
-  width: 20%;
+  min-width: 20%;
 }
 
 .bed-count-label {
   display: inline-block;
   padding-left: 0.5em;
   white-space: normal;
-  width: 30%;
+  width: 40%;
   line-height: 0.9;
 }

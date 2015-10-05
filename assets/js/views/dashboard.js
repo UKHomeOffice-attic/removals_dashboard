@@ -18,7 +18,7 @@ module.exports = Backbone.View.extend({
     this.collection.on('add',this.render, this);
     this.collection.fetch();
 
-    //setInterval(this.poll.bind(this),1000);
+    setInterval(this.poll.bind(this),1000);
   },
 
   poll: function() {
