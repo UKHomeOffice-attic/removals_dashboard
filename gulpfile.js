@@ -13,7 +13,7 @@ var rename = require('gulp-rename');
 
 var hogan = require('gulp-hogan-compile');
 
-gulp.task('test', function() {
+gulp.task('test', ['scripts'], function() {
   return gulp
     .src('test/*.js')
     .pipe(mocha());
@@ -67,7 +67,7 @@ gulp.task('copy', function() {
   gulp.src('./node_modules/govuk_template_mustache/assets/stylesheets/*.css').pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('default', ['test', 'scripts', 'sass', 'hbs', 'copy']);
+gulp.task('default', ['scripts', 'test', 'sass', 'hbs', 'copy']);
 
 gulp.task('watch', ['default'], function() {
   gulp.watch(['./assets/js/**/*.js', './test/*.js'],['scripts','test']);
