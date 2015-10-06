@@ -2,15 +2,11 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 
 var collection = require('../collections/centres');
-var templates = require('../templates');
-
-_.templateSettings = {
-  interpolate: /\{\{(.+?)\}\}/g
-};
+var templates = require('../../generated/templates');
 
 module.exports = Backbone.View.extend({
   el: '#centres',
-  template: _.template(templates.centre),
+  template: templates.centre,
 
   initialize: function(options) {
     this.collection = new collection({},options);
@@ -30,7 +26,8 @@ module.exports = Backbone.View.extend({
 
     _.each(this.collection.models, function(model) {
       model.set('booked_and_reserved', model.get('booked') + model.get('reserved'));
-      this.$el.append(this.template(model.toJSON()));
+
+      this.$el.append(this.template.render(model.toJSON()));
     }, this)
   }
 });
