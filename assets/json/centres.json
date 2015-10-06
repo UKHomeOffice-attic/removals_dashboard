@@ -1,6 +1,13 @@
 [{
   "name": "Heathrow",
   "centre_id": 1,
+  "beds": [{
+    "type": "male",
+    "available": 53
+  },{
+    "type": "female",
+    "available": 35
+  }],
   "male_available": 33,
   "female_available": 35,
   "booked": 20,
@@ -8,6 +15,13 @@
 },{
   "name": "Colnbrook",
   "centre_id": 2,
+  "beds": [{
+    "type": "male",
+    "available": 53
+  },{
+    "type": "female",
+    "available": 35
+  }],
   "male_available": 12,
   "female_available": 23,
   "booked": 9,
@@ -15,6 +29,13 @@
 },{
   "name": "Harmandsworth",
   "centre_id": 3,
+  "beds": [{
+    "type": "male",
+    "available": 53
+  },{
+    "type": "female",
+    "available": 35
+  }],
   "male_available": 30,
   "female_available": 20,
   "booked": 0,

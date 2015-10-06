@@ -38,7 +38,8 @@ gulp.task('hbs', function() {
     "title": "IRC Bed Management",
     "headerClass": "with-proposition",
     "propositionHeader": "<div class='header-proposition'><div class='content'><a href='/' id='proposition-name'>IRC Bed Management</a></div></div>",
-    "assetPath": ""
+    "assetPath": "",
+    "cookieMessage": "Oooooh! COOKIES!"
   };
   var options = {
     ignorePartials: true,
@@ -63,6 +64,7 @@ gulp.task('copy', function() {
   gulp.src('./assets/json/*.json').pipe(gulp.dest('./dist'));
   gulp.src('./node_modules/govuk_template_mustache/assets/images/*/**').pipe(gulp.dest('./dist/images'));
   gulp.src('./node_modules/govuk_template_mustache/assets/javascripts/*/**').pipe(gulp.dest('./dist/js'));
+  gulp.src('./node_modules/govuk_template_mustache/assets/javascripts/*.js').pipe(gulp.dest('./dist/js'));
   gulp.src('./node_modules/govuk_template_mustache/assets/stylesheets/*/**').pipe(gulp.dest('./dist/css'));
   gulp.src('./node_modules/govuk_template_mustache/assets/stylesheets/*.css').pipe(gulp.dest('./dist/css'));
 });
