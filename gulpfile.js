@@ -11,13 +11,15 @@ var sass = require('gulp-sass');
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 
-gulp.task('test', function() {
+var hogan = require('gulp-hogan-compile');
+
+gulp.task('test', ['scripts'], function() {
   return gulp
     .src('test/*.js')
     .pipe(mocha());
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['templates'], function() {
   return browserify('./assets/js/app.js').bundle()
     .pipe(source('all.js'))
     //.pipe(source('all.min.js'))
@@ -43,11 +45,18 @@ gulp.task('hbs', function() {
     batch : ['./views']
   };
 
-
   return gulp.src('./views/layout.hbs')
     .pipe(handlebars(templateData,options))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('templates', function() {
+  gulp.src('./assets/templates/**/*.html')
+    .pipe(hogan('templates.js',{
+      wrapper: 'commonjs'
+    }))
+    .pipe(gulp.dest('./assets/generated'));
 });
 
 gulp.task('copy', function() {
@@ -58,12 +67,10 @@ gulp.task('copy', function() {
   gulp.src('./node_modules/govuk_template_mustache/assets/stylesheets/*.css').pipe(gulp.dest('./dist/css'));
 });
 
-
-
-gulp.task('default', ['test', 'scripts', 'sass', 'hbs', 'copy']);
+gulp.task('default', ['scripts', 'test', 'sass', 'hbs', 'copy']);
 
 gulp.task('watch', ['default'], function() {
-  gulp.watch(['./assets/js/**/*.js', './test/*.js'],['test','scripts']);
+  gulp.watch(['./assets/js/**/*.js', './test/*.js'],['scripts','test']);
   gulp.watch(['./assets/scss/*.scss'], ['sass']);
 });
 
