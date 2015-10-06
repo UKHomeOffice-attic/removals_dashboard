@@ -69,3 +69,203 @@
   width: 40%;
   line-height: 0.9;
 }
+
+/*  ============================================================================
+    Tabs
+    ========================================================================  */
+
+.nav-tabs {
+  zoom: 1;
+  background: lightgray;
+  padding: 0 15px;
+  margin: 0 40px;
+  position: relative;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  ol,
+  ul,
+  .tabs-nav {
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+
+    @include ie-lte(7) {
+      overflow: hidden;
+      padding: 1px 1px 0 0;
+    }
+
+
+  }
+
+  li,
+  .tabs-nav li {
+    @include core-16;
+    padding: 0;
+    margin: 0;
+    float: left;
+
+
+
+    a {
+      border: none;
+      float:left;
+      height: 2.25em;
+      line-height: 2.25em;
+      margin-bottom: -1px;
+      padding: 0 1em 0 1em;
+      position: relative;
+      text-align: center;
+      top: 0;
+
+      @include ie-lte(7) {
+        background-image: none;
+        padding: 0 0.5em;
+      }
+
+
+
+      &:hover {
+        background-color: $border-colour;
+      }
+    }
+
+    &.active a {
+      background-color: #fff;
+      border: solid 1px $border-colour;
+      border-bottom: solid 1px #fff;
+      color: $text-colour;
+      position: relative;
+      text-decoration: none;
+      z-index: 5;
+
+      @include ie-lte(7) {
+        bottom: -1px;
+      }
+
+
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    &:first-child a {
+      margin-left: 0;
+
+
+    }
+  }
+}
+
+.tab-content {
+  margin: 0 40px;
+
+
+  .tab-pane {
+    padding: 1em 1em 0 1em;
+    border-top: solid 1px $border-colour;
+    clear: both;
+    width:auto;
+
+
+  }
+
+  .inner {
+    padding: 0em 2.5em 1em;
+
+
+  }
+
+  h1.visuallyhidden + h2 {
+    margin-top: 2em;
+  }
+
+  p {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  em {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  nav {
+    margin: 1em -1.375em 0;
+  }
+}
+
+.js-tab-content {
+  .programme-progression li,
+  .js-heading-tab {
+    border-bottom: solid 1px $border-colour;
+    list-style: none;
+
+    a,
+    h1 {
+      @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
+      background: #FFF image-url('accordian-arrow.png') no-repeat 100% -2px;
+      display: block;
+      padding: 0 16px;
+      position: relative;
+      text-align: left;
+      text-decoration:underline;
+      top: 0;
+
+      @include device-pixel-ratio() {
+        background-image: image-url("accordian-arrow-2x.png");
+        background-size: 45px 90px;
+      }
+
+      &:hover {
+        background-color: $grey-3;
+      }
+    }
+
+    &.active {
+      text-decoration: none;
+
+      a, h1 {
+        background-position: 100% -48px;
+        background-color: $grey-3;
+        color: $text-colour;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .js-heading-tab {
+    margin:0;
+    clear:both;
+
+    h1 {
+      padding:0;
+    }
+  }
+
+
+  .tab-shiftlink {
+    @include core-19();
+    position: absolute;
+    left: -9999em;
+
+
+  }
+
+
+}
+
+.transaction .js-tab-content {
+  overflow: hidden;
+}
