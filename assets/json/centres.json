@@ -8,8 +8,6 @@
     "type": "female",
     "available": 35
   }],
-  "male_available": 33,
-  "female_available": 35,
   "booked": 20,
   "reserved": 47
 },{
@@ -22,8 +20,6 @@
     "type": "female",
     "available": 35
   }],
-  "male_available": 12,
-  "female_available": 23,
   "booked": 9,
   "reserved": 27
 },{
@@ -36,8 +32,6 @@
     "type": "female",
     "available": 35
   }],
-  "male_available": 30,
-  "female_available": 20,
   "booked": 0,
   "reserved": 0
 }]
