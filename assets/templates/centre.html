@@ -15,8 +15,55 @@
         </ul>
     </div>
     <div class="js-tab-content tab-content">
-        <div class="js-tab-pane tab-pane" id="#beds_{{centre_id}}_booked">
-            Booked beds
+        <div class="js-tab-pane tab-pane tab-beds tab-beds-booked" id="#beds_{{centre_id}}_booked">
+            <p>Click a booking to edit, hit return to save</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>CID</th>
+                  <th>Staff</th>
+                  <th colspan="2">Actioned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10:08:14</td>
+                  <td><a href="#">347659222</a></td>
+                  <td><a href="#">Judy</a></td>
+                  <td><a href="#">X</a></td>
+                  <td><input type="checkbox" value="checked"></td>
+                </tr>
+                <tr>
+                  <td>10:04:14</td>
+                  <td><a href="#">676762379</a></td>
+                  <td><a href="#">Stuart</a></td>
+                  <td><a href="#">X</a></td>
+                  <td><input type="checkbox" value="checked"></td>
+                </tr>
+                <tr>
+                  <td>10:01:14</td>
+                  <td><a href="#">879926728</a></td>
+                  <td><a href="#">Abdul</a></td>
+                  <td><a href="#">X</a></td>
+                  <td><input type="checkbox" value="checked"></td>
+                </tr>
+                <tr>
+                  <td>9:55:09</td>
+                  <td><input type="text" value="526449404"></td>
+                  <td><input type="text" value="Judy"></td>
+                  <td><a href="#">X</a></td>
+                  <td><input type="checkbox" value="checked"></td>
+                </tr>
+                <tr>
+                  <td>9:52:34</td>
+                  <td><a href="#">787846764</a></td>
+                  <td><a href="#">Christina</a></td>
+                  <td><a href="#">X</a></td>
+                  <td><input type="checkbox" value="checked"></td>
+                </tr>
+              </tbody>
+            </table>
         </div>
         <div class="js-tab-pane tab-pane" id="#beds_{{centre_id}}_reserved">
             Reserved beds

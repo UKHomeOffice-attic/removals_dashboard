@@ -4,16 +4,13 @@
 #page-container {
   @extend %site-width-container;
 }
-
 .grid-row {
   @extend %grid-row;
 }
-
 .column-half {
   @include grid-column( 1/2 );
   padding: 15px;
 }
-
 #centres {
   padding: 0;
   .panel {
@@ -38,11 +35,9 @@
     }
   }
 }
-
 .phase-banner  {
   @include phase-banner(alpha);
 }
-
 .button{
   @include button;
   vertical-align: super;
@@ -53,7 +48,6 @@
 .button-warning{
   @include button($red);
 }
-
 .bed-count-figure {
   @include bold-48;
   line-height: 0.9;
@@ -61,7 +55,6 @@
   vertical-align: initial;
   min-width: 20%;
 }
-
 .bed-count-label {
   display: inline-block;
   padding-left: 0.5em;
@@ -80,7 +73,6 @@
   padding: 0 15px;
   margin: 0 40px;
   position: relative;
-
   &:after {
     content: ".";
     display: block;
@@ -88,7 +80,6 @@
     clear: both;
     visibility: hidden;
   }
-
   ol,
   ul,
   .tabs-nav {
@@ -98,24 +89,17 @@
     padding: 0;
     position: relative;
     z-index: 5;
-
     @include ie-lte(7) {
       overflow: hidden;
       padding: 1px 1px 0 0;
     }
-
-
   }
-
   li,
   .tabs-nav li {
     @include core-16;
     padding: 0;
     margin: 0;
     float: left;
-
-
-
     a {
       border: none;
       float:left;
@@ -126,19 +110,14 @@
       position: relative;
       text-align: center;
       top: 0;
-
       @include ie-lte(7) {
         background-image: none;
         padding: 0 0.5em;
       }
-
-
-
       &:hover {
         background-color: $border-colour;
       }
     }
-
     &.active a {
       background-color: #fff;
       border: solid 1px $border-colour;
@@ -147,55 +126,37 @@
       position: relative;
       text-decoration: none;
       z-index: 5;
-
       @include ie-lte(7) {
         bottom: -1px;
       }
-
-
-
       &:hover {
         color: inherit;
       }
     }
-
     &:first-child a {
       margin-left: 0;
-
-
     }
   }
 }
-
 .tab-content {
   margin: 0 40px;
-
-
   .tab-pane {
-    padding: 1em 1em 0 1em;
+    padding: 0.5em 0.5em 0 0.5em;
     border-top: solid 1px $border-colour;
     clear: both;
     width:auto;
-
-
   }
-
   .inner {
     padding: 0em 2.5em 1em;
-
-
   }
-
   h1.visuallyhidden + h2 {
     margin-top: 2em;
   }
-
   p {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
   }
-
   em {
     font-style: normal;
     font-weight: bold;
@@ -205,13 +166,11 @@
     margin: 1em -1.375em 0;
   }
 }
-
 .js-tab-content {
   .programme-progression li,
   .js-heading-tab {
     border-bottom: solid 1px $border-colour;
     list-style: none;
-
     a,
     h1 {
       @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
@@ -222,20 +181,16 @@
       text-align: left;
       text-decoration:underline;
       top: 0;
-
       @include device-pixel-ratio() {
         background-image: image-url("accordian-arrow-2x.png");
         background-size: 45px 90px;
       }
-
       &:hover {
         background-color: $grey-3;
       }
     }
-
     &.active {
       text-decoration: none;
-
       a, h1 {
         background-position: 100% -48px;
         background-color: $grey-3;
@@ -244,28 +199,39 @@
       }
     }
   }
-
   .js-heading-tab {
     margin:0;
     clear:both;
-
     h1 {
       padding:0;
     }
   }
-
-
   .tab-shiftlink {
     @include core-19();
     position: absolute;
     left: -9999em;
-
-
   }
-
-
 }
-
 .transaction .js-tab-content {
   overflow: hidden;
+}
+.tab-beds {
+  table, p {
+    @include core-14;
+    margin: 0.5em 0;
+    td {
+      width: 30%;
+      input {
+        @include core-14;
+        width: 90%;
+      }
+      input[type="checkbox"] {
+        @include core-19;
+      }
+    }
+    td:nth-child(4),
+    td:nth-child(5) {
+      width: 5%;
+    }
+  }
 }
