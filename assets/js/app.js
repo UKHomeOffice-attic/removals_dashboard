@@ -3,6 +3,11 @@ var _ = require('underscore');
 
 var view = require('./views/dashboard');
 
+// example of adding jQ tabs plugin
+//var tabs = require('./vendor/jquery.tabs');
+//var x = $('h1');
+//console.log(x.tabs);
+
 $(function() {
   var options = {};
   var params = document.location.search.replace("?","").split("&");
