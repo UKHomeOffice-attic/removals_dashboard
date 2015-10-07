@@ -28,7 +28,10 @@ module.exports = Backbone.View.extend({
       model.set('booked_and_reserved', model.get('booked') + model.get('reserved'));
 
       this.$el.append(this.template.render(model.toJSON(), {
-        bed: templates.bed
+        bed: templates.bed,
+        booked: templates.booked,
+        reserved: templates.reserved,
+        tabs: templates.tabs
       }));
     }, this)
   }
