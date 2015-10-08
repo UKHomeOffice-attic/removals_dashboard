@@ -219,6 +219,12 @@
   table, p {
     @include core-14;
     margin: 0.5em 0;
+    tr:nth-child(odd) {
+      background: #fff;
+    }
+    tr:nth-child(even) {
+      background: lightgray;
+    }
     td {
       width: 30%;
       input {
@@ -233,5 +239,6 @@
     td:nth-child(5) {
       width: 5%;
     }
+
   }
 }

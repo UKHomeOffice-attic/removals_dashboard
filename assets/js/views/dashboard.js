@@ -1,6 +1,7 @@
 var Backbone = require('backbone');
+var $ = require('jquery');
 var _ = require('underscore');
-
+var tabs = require('../vendor/jquery.tabs');
 var collection = require('../collections/centres');
 var templates = require('../../generated/templates');
 
@@ -31,8 +32,18 @@ module.exports = Backbone.View.extend({
         bed: templates.bed,
         booked: templates.booked,
         reserved: templates.reserved,
-        tabs: templates.tabs
+        tabs: templates.tabbed
       }));
     }, this)
+
+    var $container = $('section.tabstuff');
+
+    if ($container.find('.js-tabs').length) {
+      $container.tabs({
+        scrollOnload: true,
+        trackState: false
+      });
+    }
+
   }
 });
