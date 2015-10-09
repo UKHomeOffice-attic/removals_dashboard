@@ -1,23 +1,30 @@
 <div class='column-half'>
-    <div class='panel'>
-        <h2>{{name}}</h2>
-        <ul>
+  <h2>{{name}}</h2>
+  <div class='panel'>
+    <section class="tabstuff" id="centre_{{centre_id}}">
+      <div class="js-tabs nav-tabs">
+        {{> tabContent}}
+      </div>
+      <div class="js-tab-content tab-content">
+        <div class="js-tab-pane tab-pane tab-beds tab-beds-available" id="beds_{{centre_id}}_available">
+          <ul>
             {{#beds}}
               {{> bed}}
             {{/beds}}
-        </ul>
-    </div>
-    <section class="tabstuff">
-        <div class="js-tabs nav-tabs">
-            {{> tabs}}
+          </ul>
         </div>
-        <div class="js-tab-content tab-content">
-            <div class="js-tab-pane tab-pane tab-beds tab-beds-booked" id="beds_{{centre_id}}_booked">
-              {{> booked}}
-            </div>
-            <div class="js-tab-pane tab-pane tab-beds tab-beds-reserved" id="beds_{{centre_id}}_reserved">
-              {{> reserved}}
-            </div>
+        <div class="js-tab-pane tab-pane tab-beds tab-beds-booked" id="beds_{{centre_id}}_booked">
+          {{> booked}}
         </div>
-      </section>
+        <div class="js-tab-pane tab-pane tab-beds tab-beds-reserved" id="beds_{{centre_id}}_reserved">
+          {{> reserved}}
+        </div>
+        <div class="js-tab-pane tab-pane tab-beds tab-beds-latest" id="beds_{{centre_id}}_latest">
+          {{> latest}}
+        </div>
+      </div>
+    </section>
+
+  </div>
+
 </div>

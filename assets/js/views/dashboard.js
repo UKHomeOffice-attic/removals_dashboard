@@ -32,17 +32,24 @@ module.exports = Backbone.View.extend({
         bed: templates.bed,
         booked: templates.booked,
         reserved: templates.reserved,
-        tabs: templates.tabbed
+        latest: templates.latest,
+        tabContent: templates.tabbed
       }));
     }, this);
 
     var $container = $('section.tabstuff');
 
+
+
     if ($container.find('.js-tabs').length) {
-      $container.tabs({
-        scrollOnload: true,
-        trackState: false
+      $.each($container,function(index,div){
+          //$(div).css("background-color","yellow");
+          $(div).tabs({
+            scrollOnload: true,
+            trackState: false
+          });
       });
+
     }
 
   }

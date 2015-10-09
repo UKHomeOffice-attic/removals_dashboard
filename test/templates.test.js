@@ -9,6 +9,7 @@ describe('templates', function() {
 
       var output = templates.centre.render({
         name: 'Heathrow',
+        centre_id: 1,
         beds: [{
           type: "male",
           available: 0
@@ -24,7 +25,7 @@ describe('templates', function() {
       expect(output).to.contain('<h2>Heathrow</h2>');
       expect(output).to.contain('<span class=\'bed-count-figure\'>0</span> <span class=\'bed-count-label\'>male beds available</span>');
       expect(output).to.contain('<span class=\'bed-count-figure\'>0</span> <span class=\'bed-count-label\'>female beds available</span>');
-      //expect(output).to.contain('<span class=\'bed-count-figure\'>0</span> <span class=\'bed-count-label\'>beds booked and reserved</span>');
+      expect(output).to.contain('Ring-fence beds');
 
     });
   });
