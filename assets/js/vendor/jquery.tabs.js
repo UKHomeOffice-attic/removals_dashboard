@@ -138,7 +138,7 @@
       }
 
       //body is nav's next sibling
-      var tabsBody = $(".js-tab-content");
+      var tabsBody = tabs.find(".js-tab-content");
 
       var tabIDprefix = 'tab-';
 

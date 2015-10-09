@@ -12,7 +12,7 @@ module.exports = Backbone.View.extend({
   initialize: function(options) {
     this.collection = new collection({},options);
 
-    this.collection.on('add',this.render, this);
+    this.collection.on('update',this.render, this);
     this.collection.fetch();
 
     //setInterval(this.poll.bind(this),1000);
