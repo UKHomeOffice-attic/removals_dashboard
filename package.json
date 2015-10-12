@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "pushd ./dist; python -m SimpleHTTPServer; popd"
+    "start": "pushd ./dist; python -m SimpleHTTPServer; popd",
+    "postinstall": "./node_modules/gulp/bin/gulp.js"
   },
   "dependencies": {},
   "devDependencies": {

@@ -2,8 +2,15 @@
 
 ## Quick start
 
+This will install dependencies and build the application for deployment in the `dist` folder.
+
 - Clone repo
 - `npm install`
+
+## Build / serve for development
+
+Both steps are ongoing processes so two terminal windows are needed:
+
 - `gulp watch`
 - `npm start` (will use Python SimpleHTTPServer to serve `./dist` on port 8000)
 
