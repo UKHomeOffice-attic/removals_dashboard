@@ -1,8 +1,5 @@
 var Backbone = require('backbone');
 
-var socket = require('socket-io-mock');
-var sailsIOClient = require('sails.io.js');
-
 var templates = require('../../generated/templates');
 var models = require('../models');
 
@@ -11,13 +8,7 @@ module.exports = Backbone.View.extend({
   template: templates.centre,
 
   initialize: function(options) {
-    var io = sailsIOClient(options.socket);
-
-    io.sails.autoConnect = false;
-
-    var socket0 = io.sails.connect();
-
-    this.model = new models.Centre([], { socket: socket0 });
+    this.model = new models.Centre([], options);
 
     this.model.on('change',this.render, this);
   },

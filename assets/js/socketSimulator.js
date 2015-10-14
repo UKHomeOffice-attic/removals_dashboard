@@ -30,6 +30,8 @@ var start = function() {
 
   setInterval(function() {
     server.emit('populate', {
+      name: "Heathrow",
+      centre_id: 1,
       beds: [{
         type: "male",
         available: _.random(0,50),
