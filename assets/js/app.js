@@ -21,7 +21,7 @@ $(function() {
   var io = sailsIOClient(socketio);
 
   io.sails.autoConnect = false;
-  io.sails.url = 'http://localhost:8080';
+  if (!simulatorParam) io.sails.url = 'http://localhost:8080';
 
   new view({
     socket: io.sails.connect()
