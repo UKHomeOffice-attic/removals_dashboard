@@ -18,7 +18,8 @@ $(function() {
     var simulator = require('./socketSimulator');
     socketio = simulator.client;
 
-    //simulator.start();
+    // to start the simulator manually
+    // simulator.start();
   }
 
   io = sailsIOClient(socketio);
@@ -30,8 +31,6 @@ $(function() {
 
   socket0.get('/centre', function serverResponded(payload) {
     _.each(payload, function(item,idx) {
-      console.log(item);
-
       container.append('<div id="item'+idx+'"></div>');
 
       var thisView = new view({

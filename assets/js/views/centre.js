@@ -4,7 +4,6 @@ var templates = require('../../generated/templates');
 var models = require('../models');
 
 module.exports = Backbone.View.extend({
-  //el: '#centres',
   template: templates.centre,
 
   initialize: function(options) {

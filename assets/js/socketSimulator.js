@@ -55,8 +55,6 @@ var fakeData = function() {
 var start = function() {
   console.log('simulator starting');
 
-  //server.emit('populate', fakeData());
-
   setInterval(function() {
     server.emit('populate', fakeData());
   },1000);
