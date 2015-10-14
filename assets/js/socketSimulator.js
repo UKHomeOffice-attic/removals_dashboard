@@ -9,10 +9,8 @@ var fakeio = function(server) {
   }
 };
 
-var start = function() {
-  console.log('simulator starting');
-
-  server.emit('populate', {
+var fakeData = function() {
+  return {
     name: "Heathrow",
     centre_id: 1,
     beds: [{
@@ -26,24 +24,16 @@ var start = function() {
     }],
     booked: _.random(0,50),
     reserved: _.random(0,50)
-  });
+  }
+}
+
+var start = function() {
+  console.log('simulator starting');
+
+  server.emit('populate', fakeData());
 
   setInterval(function() {
-    server.emit('populate', {
-      name: "Heathrow",
-      centre_id: 1,
-      beds: [{
-        type: "male",
-        available: _.random(0,50),
-        ooc: 3
-      },{
-        type: "female",
-        available: _.random(0,50),
-        ooc: 2
-      }],
-      booked: _.random(0,50),
-      reserved: _.random(0,50)
-    });
+    server.emit('populate', fakeData());
   },1000);
 
 };
