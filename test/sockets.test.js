@@ -12,6 +12,9 @@ describe('sails.io client', function() {
       }
     };
 
+    // ensure the fake socket is 'connected' so that sails.io doesn't indefinitely queue its requests
+    this.server.socketClient.connected = true;
+
   });
 
   it('should work', function(done) {
@@ -28,4 +31,45 @@ describe('sails.io client', function() {
 
     this.server.emit('message', 'test message');
   });
+
+  it('should respond to sails.io get messages', function(done) {
+    var io = sailsIOClient(this.fakeio(this.server));
+
+    io.sails.autoConnect = false;
+
+    var socket0 = io.sails.connect();
+
+    this.server.on('get', function(payload) {
+      return {
+        body: 'response body'
+      };
+    });
+
+    socket0.get('/centre', function(body) {
+      expect(body).to.be('response body');
+      done();
+    });
+
+  });
+
+  it('should respond to sails.io post messages', function(done) {
+    var io = sailsIOClient(this.fakeio(this.server));
+
+    io.sails.autoConnect = false;
+
+    var socket0 = io.sails.connect();
+
+    this.server.on('post', function(payload) {
+      return {
+        body: 'response body'
+      };
+    });
+
+    socket0.post('/centre', function(body) {
+      expect(body).to.be('response body');
+      done();
+    });
+
+  });
+
 });
