@@ -121,21 +121,5 @@ describe('models', function() {
       });
 
     });
-
-    xit('should update its data on subsequent payloads', function(done) {
-      var model = new models.Centre([], { socket: this.socket0 });
-
-      model.set('booked',20);
-
-      model.on('change:booked', function() {
-        expect(model.get('booked')).to.be(21);
-        done();
-      });
-
-      this.server.emit('update', {
-        booked: 21
-      });
-
-    });
   });
 });
