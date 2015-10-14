@@ -3,6 +3,15 @@ var _ = require('underscore');
 var socket = require('socket-io-mock');
 var server = new socket();
 
+server.socketClient.connected = true;
+
+server.on('get', function(payload) {
+  //console.log(payload);
+  return {
+    body: fakeData()
+  }
+});
+
 var fakeio = function(server) {
   return function() {
     return server.socketClient;
@@ -23,9 +32,19 @@ var fakeData = function() {
       ooc: 2
     }],
     booked: _.random(0,50),
-    reserved: _.random(0,50)
+    reserved: _.random(0,50),
+    links: [{
+      rel: "self",
+      href: "centre/1"
+    },{
+      rel: "events",
+      href: "centre/1/events"
+    },{
+      rel: "book",
+      href: "centre/1/book"
+    }]
   }
-}
+};
 
 var start = function() {
   console.log('simulator starting');

@@ -8,9 +8,15 @@ module.exports = Backbone.View.extend({
   template: templates.centre,
 
   initialize: function(options) {
-    this.model = new models.Centre([], options);
+    this.socket = options.socket;
+
+    var model = this.model = new models.Centre([], options);
 
     this.model.on('change',this.render, this);
+
+    this.socket.get('/centre', function serverResponded(body) {
+      model.set(body);
+    });
   },
 
   render: function() {
