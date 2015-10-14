@@ -7,6 +7,8 @@ server.socketClient.connected = true;
 
 server.on('get', function(payload) {
   //console.log(payload);
+  start();
+
   return {
     body: fakeData()
   }
@@ -49,7 +51,7 @@ var fakeData = function() {
 var start = function() {
   console.log('simulator starting');
 
-  server.emit('populate', fakeData());
+  //server.emit('populate', fakeData());
 
   setInterval(function() {
     server.emit('populate', fakeData());
