@@ -1,5 +1,4 @@
 var Backbone = require('backbone');
-var _ = require('underscore');
 
 var socket = require('socket-io-mock');
 var sailsIOClient = require('sails.io.js');
@@ -11,15 +10,10 @@ module.exports = Backbone.View.extend({
   el: '#centres',
   template: templates.centre,
 
-  initialize: function() {
-    var server = new socket();
-    var fakeio = function(server) {
-      return function() {
-        return server.socketClient;
-      }
-    };
+  initialize: function(options) {
+    //console.log(options);
 
-    var io = sailsIOClient(fakeio(server));
+    var io = sailsIOClient(options.socket);
 
     io.sails.autoConnect = false;
 
@@ -28,38 +22,6 @@ module.exports = Backbone.View.extend({
     this.model = new models.Centre([], { socket: socket0 });
 
     this.model.on('change',this.render, this);
-
-    server.emit('populate', {
-      name: "Heathrow",
-      centre_id: 1,
-      beds: [{
-        type: "male",
-        available: _.random(0,50),
-        ooc: 3
-      },{
-        type: "female",
-        available: _.random(0,50),
-        ooc: 2
-      }],
-      booked: _.random(0,50),
-      reserved: _.random(0,50)
-    });
-
-    setInterval(function() {
-      server.emit('populate', {
-        beds: [{
-          type: "male",
-          available: _.random(0,50),
-          ooc: 3
-        },{
-          type: "female",
-          available: _.random(0,50),
-          ooc: 2
-        }],
-        booked: _.random(0,50),
-        reserved: _.random(0,50)
-      });
-    },1000);
   },
 
   render: function() {
