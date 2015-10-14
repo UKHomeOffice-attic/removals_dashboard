@@ -10,7 +10,7 @@ server.on('get', function(payload) {
   start();
 
   return {
-    body: fakeData()
+    body: _(3).times(fakeData)
   }
 });
 
@@ -20,10 +20,14 @@ var fakeio = function(server) {
   }
 };
 
+var centres = ['Heathrow','Harmandsworth','Colnbrook']
+
 var fakeData = function() {
+  var centre = _.random(0,2);
+
   return {
-    name: "Heathrow",
-    centre_id: 1,
+    name: centres[centre],
+    centre_id: centre,
     beds: [{
       type: "male",
       available: _.random(0,50),
@@ -37,13 +41,13 @@ var fakeData = function() {
     reserved: _.random(0,50),
     links: [{
       rel: "self",
-      href: "centre/1"
+      href: "centre/"+centre
     },{
       rel: "events",
-      href: "centre/1/events"
+      href: "centre/"+centre+"/events"
     },{
       rel: "book",
-      href: "centre/1/book"
+      href: "centre/"+centre+"/book"
     }]
   }
 };
