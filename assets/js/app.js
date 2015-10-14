@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var _ = require('underscore');
 
-var view = require('./views/dashboard');
+var view = require('./views/centre');
 
 $(function() {
   var options = {};
@@ -14,5 +14,5 @@ $(function() {
     options.url = endpointParam.split("=")[1];
   }
 
-  new view(options);
+  new view();
 });
