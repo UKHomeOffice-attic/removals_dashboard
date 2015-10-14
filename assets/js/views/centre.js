@@ -11,8 +11,6 @@ module.exports = Backbone.View.extend({
   template: templates.centre,
 
   initialize: function(options) {
-    //console.log(options);
-
     var io = sailsIOClient(options.socket);
 
     io.sails.autoConnect = false;
