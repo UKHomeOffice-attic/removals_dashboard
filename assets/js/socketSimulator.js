@@ -6,7 +6,6 @@ var server = new socket();
 server.socketClient.connected = true;
 
 server.on('get', function(payload) {
-  //console.log(payload);
   start();
 
   return {
