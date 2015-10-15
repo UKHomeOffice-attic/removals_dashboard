@@ -3,13 +3,13 @@
   "centre_id": 1,
   "beds": [{
     "type": "male",
-    "available": 53
+    "available": 33
   },{
     "type": "female",
     "available": 35
   }],
-  "booked": 20,
-  "reserved": 47
+  "booked": 10,
+  "reserved": 100
 },{
   "name": "Colnbrook",
   "centre_id": 2,
