@@ -67,17 +67,35 @@ describe('models', function() {
 
       this.socket0 = io.sails.connect();
     });
-    it('should be instantiated', function() {
+    describe('instantiation', function() {
       var model = new models.Centre();
 
-      expect(model).not.to.be(undefined);
-      expect(model.get('name')).to.be(undefined);
-      expect(model.get('centre_id')).to.be(undefined);
-      expect(model.get('beds')).to.eql([]);
-      expect(model.get('booked')).to.be(0);
-      expect(model.get('reserved')).to.be(0);
+      it('overall centre model instantiation', function() {
+        return expect(model).not.to.be(undefined);
+      });
+
+      it('centre name should be undefined', function() {
+        return expect(model.get('name')).to.be(undefined);
+      });
+
+      it('centre id should be undefined', function() {
+        return expect(model.get('centre_id')).to.be(undefined);
+      });
+
+      it('centre beds should be empty array', function() {
+        return expect(model.get('beds')).to.eql([]);
+      });
+
+      it('centre beds booked should be 0', function() {
+        return expect(model.get('booked')).to.be(0);
+      });
+
+      it('centre beds reserved should be 0', function() {
+        return expect(model.get('reserved')).to.be(0);
+      });
 
     });
+
 
     it('should respond to socket events', function(done) {
       var model = new models.Centre([], { socket: this.socket0 });
