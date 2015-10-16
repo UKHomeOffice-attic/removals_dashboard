@@ -67,42 +67,18 @@ describe('models', function() {
 
       this.socket0 = io.sails.connect();
     });
-    describe('instantiation', function() {
+
+    it('should be instantiated', function() {
       var model = new models.Centre();
-
-      it('overall centre model instantiation', function() {
-        return expect(model).not.to.be(undefined);
-      });
-
-      it('centre name should be undefined', function() {
-        return expect(model.get('name')).to.be(undefined);
-      });
-
-      it('centre id should be undefined', function() {
-        return expect(model.get('centre_id')).to.be(undefined);
-      });
-
-      it('centre beds should be empty array', function() {
-        return expect(model.get('beds')).to.eql([]);
-      });
-
-      it('centre beds booked should be 0', function() {
-        return expect(model.get('booked')).to.be(0);
-      });
-
-      it('centre beds reserved should be 0', function() {
-        return expect(model.get('reserved')).to.be(0);
-      });
-
+      return expect(model).not.to.be(undefined);
     });
-
 
     it('should respond to socket events', function(done) {
       var model = new models.Centre([], { socket: this.socket0 });
 
       model.socket.on('message', function(payload) {
         expect(payload).to.be('test message');
-        done();
+        return done();
       });
 
       this.server.emit('message','test message');
@@ -112,18 +88,12 @@ describe('models', function() {
       var model = new models.Centre([], { socket: this.socket0 });
 
       model.on('change', function() {
-        expect(model.get('name')).to.be('Heathrow');
-        expect(model.get('centre_id')).to.be(1);
-        expect(model.get('beds').length).to.be(2);
-        expect(model.get('booked')).to.be(20);
-        expect(model.get('reserved')).to.be(20);
-
-        expect(model.get('beds')[0].type).to.be("male");
-        done();
+        expect(model.toJSON()).to.have.keys(['name','centre_id','booked','reserved','beds','links']);
+        return done();
       });
 
       this.server.emit('populate', {
-        name: "Heathrow",
+        name: "First",
         centre_id: 1,
         beds: [{
           type: "male",
@@ -135,7 +105,8 @@ describe('models', function() {
           ooc: 2
         }],
         booked: 20,
-        reserved: 20
+        reserved: 20,
+        links: []
       });
 
     });

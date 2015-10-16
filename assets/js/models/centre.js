@@ -2,13 +2,6 @@ var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
   urlRoot: 'centres.json',
-  defaults: {
-    name: undefined,
-    centre_id: undefined,
-    beds: [],
-    booked: 0,
-    reserved: 0
-  },
 
   initialize: function(attributes, options) {
     this.socket = null;
