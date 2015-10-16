@@ -3,9 +3,11 @@ var _ = require('underscore');
 var socket = require('socket-io-mock');
 var server = new socket();
 
+var faker = require('../simulator/faker');
+
 server.socketClient.connected = true;
 
-server.on('get', function(payload) {
+server.on('get', function() {
   start();
 
   return {
@@ -19,36 +21,8 @@ var fakeio = function(server) {
   }
 };
 
-var centres = ['Heathrow','Harmandsworth','Colnbrook']
-
 var fakeData = function() {
-  var centre = _.random(0,2);
-
-  return {
-    name: centres[centre],
-    centre_id: centre,
-    beds: [{
-      type: "male",
-      available: _.random(0,50),
-      ooc: 3
-    },{
-      type: "female",
-      available: _.random(0,50),
-      ooc: 2
-    }],
-    booked: _.random(0,50),
-    reserved: _.random(0,50),
-    links: [{
-      rel: "self",
-      href: "centre/"+centre
-    },{
-      rel: "events",
-      href: "centre/"+centre+"/events"
-    },{
-      rel: "book",
-      href: "centre/"+centre+"/book"
-    }]
-  }
+  return faker.Centre(_.random(0,2));
 };
 
 var start = function() {
