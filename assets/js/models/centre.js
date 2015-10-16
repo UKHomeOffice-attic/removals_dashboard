@@ -30,6 +30,8 @@ module.exports = Backbone.Model.extend({
       return item.type === 'female';
     });
 
+    var all_beds = 0;
+
     this.set('capacity', _.reduce(beds, function(memo, item){
       return memo + item.capacity;
     }, 0));
@@ -42,8 +44,16 @@ module.exports = Backbone.Model.extend({
       return memo + item.prebooked;
     }, 0));
 
-    if (male_beds) this.set('male_available', male_beds.capacity - (male_beds.booked + male_beds.prebooked + male_beds.ooc));
-    if (female_beds) this.set('female_available', female_beds.capacity - (female_beds.booked + female_beds.prebooked + female_beds.ooc));
+    if (male_beds) {
+      this.set('male_available', male_beds.capacity - (male_beds.booked + male_beds.prebooked + male_beds.ooc));
+      all_beds = (male_beds.capacity - (male_beds.booked + male_beds.prebooked + male_beds.ooc));
+    }
+    if (female_beds) {
+      this.set('female_available', female_beds.capacity - (female_beds.booked + female_beds.prebooked + female_beds.ooc));
+      all_beds += (female_beds.capacity - (female_beds.booked + female_beds.prebooked + female_beds.ooc));
+    }
+
+    this.set('all_available', all_beds);
   }
 
 });

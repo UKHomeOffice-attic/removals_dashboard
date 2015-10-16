@@ -5,7 +5,7 @@ var centres = [null,'First','Second','Third'];
 var beds = function(type) {
   return {
     type: type,
-    capacity: _.random(0,100),
+    capacity: _.random(40,100),
     booked: _.random(0,20),
     prebooked: _.random(0,10),
     ooc: _.random(0,10)
