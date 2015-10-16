@@ -1,6 +1,6 @@
 var _ = require('underscore');
 
-var centres = ['First','Second','Third'];
+var centres = [null,'First','Second','Third'];
 
 var beds = function(type) {
   return {

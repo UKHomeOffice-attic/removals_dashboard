@@ -5,24 +5,15 @@ var server = new socket();
 
 var faker = require('../simulator/faker');
 
-server.socketClient.connected = true;
-
-server.on('get', function() {
-  start();
-
-  return {
-    body: _(3).times(fakeData)
-  }
-});
-
 var fakeio = function(server) {
   return function() {
     return server.socketClient;
   }
 };
 
-var fakeData = function() {
-  return faker.Centre(_.random(0,2));
+var fakeData = function(centre) {
+  var centre = centre || _.random(1,3);
+  return faker.Centre(centre);
 };
 
 var start = function() {
@@ -33,6 +24,16 @@ var start = function() {
   },1000);
 
 };
+
+server.socketClient.connected = true;
+
+server.on('get', function() {
+  start();
+
+  return { body: _(3).times(function(idx) {
+    return fakeData(idx+1);
+  }) };
+});
 
 module.exports = {
   server: server,
