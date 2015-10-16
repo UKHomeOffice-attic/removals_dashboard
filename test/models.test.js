@@ -5,6 +5,7 @@ var sailsIOClient = require('sails.io.js');
 
 var collections = require('../assets/js/collections');
 var models = require('../assets/js/models');
+var faker = require('../assets/simulator/faker');
 
 describe('collections', function () {
   describe('centres', function() {
@@ -88,26 +89,11 @@ describe('models', function() {
       var model = new models.Centre([], { socket: this.socket0 });
 
       model.on('change', function() {
-        expect(model.toJSON()).to.have.keys(['name','centre_id','booked','reserved','beds','links']);
+        expect(model.toJSON()).to.have.keys(['name','centre_id','beds','links']);
         return done();
       });
 
-      this.server.emit('populate', {
-        name: "First",
-        centre_id: 1,
-        beds: [{
-          type: "male",
-          available: 35,
-          ooc: 3
-        },{
-          type: "female",
-          available: 53,
-          ooc: 2
-        }],
-        booked: 20,
-        reserved: 20,
-        links: []
-      });
+      this.server.emit('populate', faker.Centre(_.random(0,2)));
 
     });
   });
