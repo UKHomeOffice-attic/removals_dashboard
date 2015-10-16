@@ -114,6 +114,38 @@ describe('models', function() {
 
     });
 
+    it('should calculate overall booked', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        booked: 10
+      },{
+        booked: 13
+      }];
+
+      model.on('change', function() {
+        expect(model.get('booked')).to.be(23);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
+    it('should calculate overall prebooked', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        prebooked: 50
+      },{
+        prebooked: 20
+      }];
+
+      model.on('change', function() {
+        expect(model.get('prebooked')).to.be(70);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
     it('should calculate male available beds', function(done) {
       var model = new models.Centre();
       var data = [{
