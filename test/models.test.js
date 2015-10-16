@@ -182,6 +182,31 @@ describe('models', function() {
       model.set('beds',data);
     });
 
+    it('should calculate all available beds', function(done) {
+      var model = new models.Centre();
+      // get all male and female beds into seperate array
+      var data = [{
+        type: 'female',
+        capacity: 100,
+        booked: 10,
+        prebooked: 50,
+        ooc: 5
+      },{
+        type: 'male',
+        capacity: 100,
+        booked: 10,
+        prebooked: 50,
+        ooc: 5
+      }];
+
+      model.on('change', function() {
+        expect(model.get('all_available')).to.be(70);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
 
   });
 });
