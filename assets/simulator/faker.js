@@ -7,7 +7,7 @@ var beds = function(type) {
     type: type,
     capacity: _.random(0,100),
     booked: _.random(0,20),
-    reserved: _.random(0,10),
+    prebooked: _.random(0,10),
     ooc: _.random(0,10)
   }
 };

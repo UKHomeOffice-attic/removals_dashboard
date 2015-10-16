@@ -96,5 +96,60 @@ describe('models', function() {
       this.server.emit('populate', faker.Centre(_.random(0,2)));
 
     });
+
+    it('should calculate overall capacity', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        capacity: 100
+      },{
+        capacity: 150
+      }];
+
+      model.on('change', function() {
+        expect(model.get('capacity')).to.be(250);
+        return done();
+      });
+
+      model.set('beds',data);
+
+    });
+
+    it('should calculate male available beds', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        type: 'male',
+        capacity: 100,
+        booked: 10,
+        prebooked: 50,
+        ooc: 5
+      }];
+
+      model.on('change', function() {
+        expect(model.get('male_available')).to.be(35);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
+    it('should calculate female available beds', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        type: 'female',
+        capacity: 100,
+        booked: 10,
+        prebooked: 50,
+        ooc: 5
+      }];
+
+      model.on('change', function() {
+        expect(model.get('female_available')).to.be(35);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
+
   });
 });
