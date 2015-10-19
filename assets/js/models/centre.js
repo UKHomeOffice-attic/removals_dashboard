@@ -10,13 +10,8 @@ module.exports = Backbone.Model.extend({
 
     if (options && options.socket) this.socket = options.socket;
 
-    if (this.socket) {
-      this.socket.on('populate', function(payload) {
-        $this.set(payload);
-      });
-    }
-
     this.on('change:beds', this.calculateCapacities, this);
+    this.on('change:centre_id', this.subscribeToCentre, this);
   },
 
   calculateCapacities: function() {
@@ -54,6 +49,14 @@ module.exports = Backbone.Model.extend({
     }
 
     this.set('all_available', all_beds);
+  },
+
+  subscribeToCentre: function() {
+    var self = this;
+    this.socket.on('centre_id/' + this.get('centre_id'), function(payload) {
+      self.set(payload);
+    });
+    this.socket._raw.emit('subscribe', this.get('centre_id'));
   }
 
 });
