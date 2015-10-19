@@ -79,3 +79,7 @@ gulp.task('watch', ['default'], function() {
 gulp.task('watch:test', ['test'], function() {
   gulp.watch(['./assets/js/**/*.js', './test/*.js'],['test']);
 });
+
+gulp.task('env', function() {
+  require('fs').writeFileSync('dist/__/env.js', "window.API_ENDPOINT = window.API_ENDPOINT || 'http://localhost:8080';");
+});
