@@ -39,10 +39,10 @@ module.exports = Backbone.Model.extend({
 
   subscribeToCentre: function() {
     var self = this;
+
     this.socket.on('centre_id/' + this.get('centre_id'), function(payload) {
       self.set(payload);
     });
-    this.socket._raw.emit('subscribe', this.get('centre_id'));
   }
 
 });

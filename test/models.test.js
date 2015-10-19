@@ -2,10 +2,8 @@ var expect = require('expect.js');
 var _ = require('underscore');
 var socket = require('socket-io-mock');
 var sailsIOClient = require('sails.io.js');
-var sinon = require('sinon');
 
 var models = require('../assets/js/models');
-var faker = require('../assets/simulator/faker');
 
 describe('models', function() {
   describe('centre', function() {
@@ -123,22 +121,12 @@ describe('models', function() {
       model.set('beds',data);
     });
 
-    it('should subscribe to updates when centre_id is set', function(done) {
-      var model = new models.Centre([], { socket: this.socket0 });
-      var testSinon = sinon.spy(model.socket._raw, 'emit');
-      model.on('change', function() {
-        expect(testSinon.calledWith("subscribe")).to.be(true);
-        return done();
-      })
-      model.set('centre_id', 1);
-    });
-
     it('should respond to centre data being updated', function(done) {
       var model = new models.Centre([], { socket: this.socket0 });
       model.on('change:name', function() {
         expect(model.get('name')).to.be("first");
         return done();
-      })
+      });
       model.set('centre_id', 1);
       this.server.emit('centre_id/1', {
         name: 'first'

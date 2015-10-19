@@ -5,6 +5,8 @@ var server = new socket();
 
 var faker = require('../simulator/faker');
 
+var centresSimulated = 3;
+
 var fakeio = function(server) {
   return function() {
     return server.socketClient;
@@ -12,15 +14,24 @@ var fakeio = function(server) {
 };
 
 var fakeData = function(centre) {
-  var centre = centre || _.random(1,3);
+  var centre = centre || _.random(1,centresSimulated);
   return faker.Centre(centre);
+};
+
+var start = function() {
+  // start an event stream for n centres with each one emitting at a randomised interval
+  _(centresSimulated).times(function(idx) {
+    setInterval(function() {
+      server.emit('centre_id/'+(idx+1), fakeData(idx+1));
+    }, _.random(1000,3000));
+  });
 };
 
 server.socketClient.connected = true;
 
 server.on('get', function(payload) {
   if (payload.url == "/centre") {
-    return { body: _(3).times(function(idx) {
+    return { body: _(centresSimulated).times(function(idx) {
       return fakeData(idx+1);
     }) };
   } else {
@@ -28,15 +39,16 @@ server.on('get', function(payload) {
   }
 });
 
-server.on('subscribe', function(payload) {
-  console.log('dashboard subscribing to centre_id',payload);
-
-  setInterval(function() {
-    server.emit('centre_id/'+payload, fakeData(payload));
-  }, _.random(1000,3000));
-});
+//server.on('subscribe', function(payload) {
+//  console.log('dashboard subscribing to centre_id',payload);
+//
+//  setInterval(function() {
+//    server.emit('centre_id/'+payload, fakeData(payload));
+//  }, _.random(1000,3000));
+//});
 
 module.exports = {
   server: server,
-  client: fakeio(server)
+  client: fakeio(server),
+  start: start
 };

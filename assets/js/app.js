@@ -18,6 +18,7 @@ $(function() {
   if (simulatorParam) {
     var simulator = require('./socketSimulator');
     socketio = simulator.client;
+    simulator.start();
   }
 
   io = sailsIOClient(socketio);
