@@ -14,15 +14,11 @@ module.exports = Backbone.Model.extend({
   calculateCapacities: function() {
     var beds = this.get('beds');
 
-    var male_beds = _.find(beds, function(item) {
-      return item.type === 'male';
-    });
+    this.set('beds', _.map(beds, function(item) {
+      item.available = item.capacity - (item.occupied + item.ooc);
 
-    var female_beds = _.find(beds, function(item) {
-      return item.type === 'female';
-    });
-
-    var all_beds = 0;
+      return item;
+    }));
 
     this.set('capacity', _.reduce(beds, function(memo, item){
       return memo + item.capacity;
@@ -36,16 +32,9 @@ module.exports = Backbone.Model.extend({
       return memo + item.prebooked;
     }, 0));
 
-    if (male_beds) {
-      this.set('male_available', male_beds.capacity - (male_beds.booked + male_beds.prebooked + male_beds.ooc));
-      all_beds = (male_beds.capacity - (male_beds.booked + male_beds.prebooked + male_beds.ooc));
-    }
-    if (female_beds) {
-      this.set('female_available', female_beds.capacity - (female_beds.booked + female_beds.prebooked + female_beds.ooc));
-      all_beds += (female_beds.capacity - (female_beds.booked + female_beds.prebooked + female_beds.ooc));
-    }
-
-    this.set('all_available', all_beds);
+    this.set('all_available', _.reduce(beds, function(memo, item){
+      return memo + item.available;
+    }, 0));
   },
 
   subscribeToCentre: function() {

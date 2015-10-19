@@ -6,8 +6,7 @@ var beds = function(type) {
   return {
     type: type,
     capacity: _.random(40,100),
-    booked: _.random(0,20),
-    prebooked: _.random(0,10),
+    occupied: _.random(0,40),
     ooc: _.random(0,10)
   }
 };
