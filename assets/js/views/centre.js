@@ -19,9 +19,6 @@ module.exports = Backbone.View.extend({
 
     this.$el.append(this.template.render(this.model.toJSON(), {
       bed: templates.bed,
-      booked: templates.booked,
-      reserved: templates.reserved,
-      latest: templates.latest,
       tabContent: templates.tabbed
     }));
   }

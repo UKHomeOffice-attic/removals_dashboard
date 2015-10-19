@@ -1,7 +1,6 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var socketio = require('socket.io-client');
-var tabs = require('./vendor/jquery.tabs');
 var sailsIOClient = require('sails.io.js');
 
 var view = require('./views/centre');
@@ -42,14 +41,4 @@ $(function() {
 
   });
 
-  var $container = $('section.tabstuff');
-
-  if ($container.find('.js-tabs').length) {
-    $.each($container,function(index,div){
-        $(div).tabs({
-          scrollOnload: true,
-          trackState: false
-        });
-    });
-  }
 });
