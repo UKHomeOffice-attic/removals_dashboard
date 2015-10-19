@@ -2,11 +2,8 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 
 module.exports = Backbone.Model.extend({
-  urlRoot: 'centres.json',
-
   initialize: function(attributes, options) {
     this.socket = null;
-    var $this = this;
 
     if (options && options.socket) this.socket = options.socket;
 
