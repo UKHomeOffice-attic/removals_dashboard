@@ -18,21 +18,21 @@ var fakeData = function(centre) {
 
 var start = function() {
   console.log('simulator starting');
-
-  setInterval(function() {
-    server.emit('populate', fakeData());
-  },1000);
-
 };
 
 server.socketClient.connected = true;
 
-server.on('get', function() {
+server.on('get', function(payload) {
   start();
 
-  return { body: _(3).times(function(idx) {
-    return fakeData(idx+1);
-  }) };
+  if (payload.url == "/centre") {
+    return { body: _(3).times(function(idx) {
+      return fakeData(idx+1);
+    }) };
+  } else {
+    return fakeData(myString[payload.url.length - 1]);
+  }
+
 });
 
 module.exports = {
