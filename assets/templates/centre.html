@@ -8,7 +8,9 @@
       <div class="js-tab-content tab-content">
         <div class="js-tab-pane tab-pane tab-beds tab-beds-available" id="beds_{{centre_id}}_available">
           <ul>
-            {{> bed}}
+            {{#beds}}
+              {{> bed}}
+            {{/beds}}
           </ul>
         </div>
         <div class="js-tab-pane tab-pane tab-beds tab-beds-booked" id="beds_{{centre_id}}_booked">

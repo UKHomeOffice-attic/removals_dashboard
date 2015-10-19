@@ -58,50 +58,21 @@ describe('models', function() {
 
     });
 
-    it('should calculate overall booked', function(done) {
-      var model = new models.Centre();
-      var data = [{
-        booked: 10
-      },{
-        booked: 13
-      }];
-
-      model.on('change', function() {
-        expect(model.get('booked')).to.be(23);
-        return done();
-      });
-
-      model.set('beds',data);
-    });
-
-    it('should calculate overall prebooked', function(done) {
-      var model = new models.Centre();
-      var data = [{
-        prebooked: 50
-      },{
-        prebooked: 20
-      }];
-
-      model.on('change', function() {
-        expect(model.get('prebooked')).to.be(70);
-        return done();
-      });
-
-      model.set('beds',data);
-    });
-
     it('should calculate male available beds', function(done) {
       var model = new models.Centre();
       var data = [{
         type: 'male',
         capacity: 100,
-        booked: 10,
-        prebooked: 50,
+        occupied: 40,
         ooc: 5
       }];
 
       model.on('change', function() {
-        expect(model.get('male_available')).to.be(35);
+        var male_beds = _.find(model.get('beds'), function(item) {
+          return item.type === "male"
+        });
+
+        expect(male_beds.available).to.be(55);
         return done();
       });
 
@@ -113,13 +84,16 @@ describe('models', function() {
       var data = [{
         type: 'female',
         capacity: 100,
-        booked: 10,
-        prebooked: 50,
+        occupied: 40,
         ooc: 5
       }];
 
       model.on('change', function() {
-        expect(model.get('female_available')).to.be(35);
+        var female_beds = _.find(model.get('beds'), function(item) {
+          return item.type === "female"
+        });
+
+        expect(female_beds.available).to.be(55);
         return done();
       });
 
@@ -128,23 +102,21 @@ describe('models', function() {
 
     it('should calculate all available beds', function(done) {
       var model = new models.Centre();
-      // get all male and female beds into seperate array
+      // get all male and female beds into separate array
       var data = [{
         type: 'female',
         capacity: 100,
-        booked: 10,
-        prebooked: 50,
+        occupied: 40,
         ooc: 5
       },{
         type: 'male',
         capacity: 100,
-        booked: 10,
-        prebooked: 50,
+        occupied: 40,
         ooc: 5
       }];
 
       model.on('change', function() {
-        expect(model.get('all_available')).to.be(70);
+        expect(model.get('all_available')).to.be(110);
         return done();
       });
 
