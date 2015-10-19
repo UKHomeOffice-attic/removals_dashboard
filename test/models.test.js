@@ -4,7 +4,6 @@ var socket = require('socket-io-mock');
 var sailsIOClient = require('sails.io.js');
 var sinon = require('sinon');
 
-var collections = require('../assets/js/collections');
 var models = require('../assets/js/models');
 var faker = require('../assets/simulator/faker');
 
