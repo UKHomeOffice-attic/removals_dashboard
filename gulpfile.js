@@ -61,7 +61,6 @@ gulp.task('templates', function() {
 });
 
 gulp.task('copy', function() {
-  gulp.src('./assets/json/*.json').pipe(gulp.dest('./dist'));
   gulp.src('./node_modules/govuk_template_mustache/assets/images/*.**').pipe(gulp.dest('./dist/images'));
   gulp.src('./node_modules/govuk_template_mustache/assets/javascripts/*/**').pipe(gulp.dest('./dist/js'));
   gulp.src('./node_modules/govuk_template_mustache/assets/javascripts/*.js').pipe(gulp.dest('./dist/js'));
