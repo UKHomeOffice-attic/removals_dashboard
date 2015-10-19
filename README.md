@@ -16,6 +16,8 @@ Both steps are ongoing processes so two terminal windows are needed:
 
 ## Data endpoint
 
-By default the Javascript polls `centres.json` for data every 1000ms. To over-ride the URL and hook up to an active API pass an endpoint parameter.
+The API endpoint is set per environment in an ```env.js``` file. To generate a sample file run ```gulp env``` which sets the endpoint to ```http://localhost:8080```.
 
-e.g. `http://localhost:8000/?endpoint=http://localhost:8080/dashboard/`
+To over-ride the URL and kick off a local websocket simulator pass a ```simulator``` query parameter.
+
+e.g. `http://localhost:8000/?simulator`

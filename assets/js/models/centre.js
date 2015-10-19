@@ -16,7 +16,10 @@ module.exports = Backbone.Model.extend({
 
     this.set('beds', _.map(beds, function(item) {
       item.available = item.capacity - (item.occupied + item.ooc);
-
+      item.plurality = "s";
+      if (item.available === 1) {
+        item.plurality = "";
+      };
       return item;
     }));
 
@@ -39,10 +42,10 @@ module.exports = Backbone.Model.extend({
 
   subscribeToCentre: function() {
     var self = this;
+
     this.socket.on('centre_id/' + this.get('centre_id'), function(payload) {
       self.set(payload);
     });
-    this.socket._raw.emit('subscribe', this.get('centre_id'));
   }
 
 });
