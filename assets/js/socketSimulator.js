@@ -16,15 +16,9 @@ var fakeData = function(centre) {
   return faker.Centre(centre);
 };
 
-var start = function() {
-  console.log('simulator starting');
-};
-
 server.socketClient.connected = true;
 
 server.on('get', function(payload) {
-  start();
-
   if (payload.url == "/centre") {
     return { body: _(3).times(function(idx) {
       return fakeData(idx+1);
@@ -44,6 +38,5 @@ server.on('subscribe', function(payload) {
 
 module.exports = {
   server: server,
-  client: fakeio(server),
-  start: start
+  client: fakeio(server)
 };
