@@ -32,7 +32,14 @@ server.on('get', function(payload) {
   } else {
     return fakeData(myString[payload.url.length - 1]);
   }
+});
 
+server.on('subscribe', function(payload) {
+  console.log('dashboard subscribing to centre_id',payload);
+
+  setInterval(function() {
+    server.emit('centre_id/'+payload, fakeData(payload));
+  }, _.random(1000,3000));
 });
 
 module.exports = {
