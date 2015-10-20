@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of centre",
+      "type": "string",
+      "pattern": "^[a-z]{3,30}$"
+    },
+    "centre_id": {
+      "description": "Centre identifier",
+      "type": "integer"
+    },
+    "beds": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "Type of bed",
+              "type": "string",
+              "enum": [
+                "male",
+                "female"
+              ]
+            },
+            "capacity": {
+              "description": "Centre capacity of this bed type",
+              "type": "integer",
+              "minimum": 0
+            },
+            "occupied": {
+              "description": "Count of occupied beds of this type",
+              "type": "integer",
+              "minimum": 0
+            },
+            "ooc": {
+              "description": "Count of out of commission beds of this type",
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "links": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "rel": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "centre_id",
+    "beds",
+    "links"
+  ]
+}
