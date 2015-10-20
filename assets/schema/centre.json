@@ -1,15 +1,41 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "name": {
+  "definitions": {
+    "centre_name": {
       "description": "Name of centre",
       "type": "string",
       "pattern": "^[a-z]{3,30}$"
     },
     "centre_id": {
       "description": "Centre identifier",
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99
+    },
+    "bed_type": {
+      "description": "Type of bed",
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "bedcount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "$ref": "#/definitions/centre_name"
+    },
+    "centre_id": {
+      "$ref": "#/definitions/centre_id"
     },
     "beds": {
       "type": "array",
@@ -18,47 +44,44 @@
           "type": "object",
           "properties": {
             "type": {
-              "description": "Type of bed",
-              "type": "string",
-              "enum": [
-                "male",
-                "female"
-              ]
+              "$ref": "#/definitions/bed_type"
             },
             "capacity": {
-              "description": "Centre capacity of this bed type",
-              "type": "integer",
-              "minimum": 0
+              "$ref": "#/definitions/bedcount"
             },
             "occupied": {
-              "description": "Count of occupied beds of this type",
-              "type": "integer",
-              "minimum": 0
+              "$ref": "#/definitions/bedcount"
             },
             "ooc": {
-              "description": "Count of out of commission beds of this type",
-              "type": "integer",
-              "minimum": 0
+              "$ref": "#/definitions/bedcount"
             }
-          }
+          },
+          "required": [
+            "type",
+            "capacity",
+            "occupied",
+            "ooc"
+          ]
         }
-      ]
+      ],
+      "minItems": 1,
+      "uniqueItems": true
     },
     "links": {
       "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "rel": {
-              "type": "string"
-            },
-            "href": {
-              "type": "string"
-            }
-          }
-        }
-      ]
+      "items": [{
+        "rel": "self",
+        "href": "centre/{centre_id}"
+      },{
+        "rel": "events",
+        "href": "centre/{centre_id}/events"
+      },{
+        "rel": "bookings",
+        "href": "centre/{centre_id}/bookings"
+      },{
+        "rel": "prebookings",
+        "href": "centre/{centre_id}/prebookings"
+      }]
     }
   },
   "required": [
