@@ -1,3 +1,3 @@
 module.exports = {
-  Dashboard: require('./dashboard')
+  Centre: require('./centre')
 };
