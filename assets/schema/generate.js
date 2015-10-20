@@ -12,6 +12,17 @@ var schema = require('./' + args[0]);
 
 var number_of_fakes = args[1];
 
+json_schema_faker.extend('faker', function(faker) {
+  faker.custom = {
+    hateoasUrl: function() {
+      var verb = _.sample(["","events","bookings","prebookings"]);
+      return faker.internet.domainWord() + '/' + _.random(1,12) + '/' + verb;
+    }
+  };
+
+  return faker;
+});
+
 var fakes = _.map(_.range(number_of_fakes), function () {
   var faked_json = json_schema_faker(schema);
 

@@ -26,7 +26,8 @@
     },
     "uri": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "faker": "custom.hateoasUrl"
     }
   },
   "type": "object",
@@ -65,22 +66,31 @@
         }
       ],
       "minItems": 1,
+      "maxItems": 3,
       "uniqueItems": true
     },
     "links": {
       "type": "array",
       "items": [{
         "rel": "self",
-        "href": "centre/{centre_id}"
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
       },{
         "rel": "events",
-        "href": "centre/{centre_id}/events"
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
       },{
         "rel": "bookings",
-        "href": "centre/{centre_id}/bookings"
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
       },{
         "rel": "prebookings",
-        "href": "centre/{centre_id}/prebookings"
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
       }]
     }
   },
