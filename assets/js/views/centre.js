@@ -19,7 +19,6 @@ module.exports = Backbone.View.extend({
 
     this.$el.append(this.template.render(this.model.toJSON(), {
       bed: templates.bed,
-      tabContent: templates.tabbed
     }));
   }
 });
