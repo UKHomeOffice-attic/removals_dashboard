@@ -1,16 +1,12 @@
 <div class='column-half'>
   <h2>{{name}}</h2>
-  <div class='panel'>
-    <section class="tabstuff" id="centre_{{centre_id}}">
-      <div class="js-tab-content tab-content">
-        <div class="js-tab-pane tab-pane tab-beds tab-beds-available" id="beds_{{centre_id}}_available">
-          <ul>
-            {{#beds}}
-              {{> bed}}
-            {{/beds}}
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
+  <section class='panel' id="centre_{{centre_id}}">
+    <div class="panel-beds panel-beds-available" id="beds_{{centre_id}}_available">
+      <ul>
+        {{#beds}}
+          {{> bed}}
+        {{/beds}}
+      </ul>
+    </div>
+  </section>
 </div>
