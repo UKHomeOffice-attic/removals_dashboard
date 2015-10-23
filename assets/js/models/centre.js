@@ -23,6 +23,10 @@ module.exports = Backbone.Model.extend({
       return item;
     }));
 
+    this.set('time_updated', function(memo, item){
+      return _.random(10,24) + ":" + _.random(10,59) + ":" + _.random(10,59);
+    });
+
     this.set('capacity', _.reduce(beds, function(memo, item){
       return memo + item.capacity;
     }, 0));
@@ -38,6 +42,7 @@ module.exports = Backbone.Model.extend({
     this.set('all_available', _.reduce(beds, function(memo, item){
       return memo + item.available;
     }, 0));
+
   },
 
   subscribeToCentre: function() {

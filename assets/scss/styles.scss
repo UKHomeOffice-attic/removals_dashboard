@@ -95,6 +95,11 @@ $padding: 15px;
 .button-warning{
   @include button($red);
 }
+.bed-count-updated {
+  text-align: right;
+  margin-right: 70px;
+  color: red;
+}
 .bed-count-figure {
   @include bold-48;
   font-size: 48px;
