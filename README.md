@@ -21,3 +21,7 @@ The API endpoint is set per environment in an ```env.js``` file. To generate a s
 To over-ride the URL and kick off a local websocket simulator pass a ```simulator``` query parameter.
 
 e.g. `http://localhost:8000/?simulator`
+
+To start a static simulator (e.g. will populate the data once only) also pass a ```static``` query parameter.
+
+e.g. `http://localhost:8000/?simulator&static`
