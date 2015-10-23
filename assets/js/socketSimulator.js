@@ -3,7 +3,7 @@ var _ = require('underscore');
 var socket = require('socket-io-mock');
 var server = new socket();
 
-var faker = require('../simulator/faker');
+var generator = require('../schema/generate');
 
 var centresSimulated = 3;
 
@@ -15,7 +15,7 @@ var fakeio = function(server) {
 
 var fakeData = function(centre) {
   var centre = centre || _.random(1,centresSimulated);
-  return faker.Centre(centre);
+  return generator.Centre(centre);
 };
 
 var start = function() {
@@ -29,14 +29,10 @@ var start = function() {
 
 server.socketClient.connected = true;
 
-server.on('get', function(payload) {
-  if (payload.url == "/centre") {
-    return { body: _(centresSimulated).times(function(idx) {
-      return fakeData(idx+1);
-    }) };
-  } else {
-    return fakeData(myString[payload.url.length - 1]);
-  }
+server.on('get', function() {
+  return { body: _(centresSimulated).times(function(idx) {
+    return fakeData(idx+1);
+  }) };
 });
 
 module.exports = {
