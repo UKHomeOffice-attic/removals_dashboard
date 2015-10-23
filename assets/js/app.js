@@ -13,11 +13,16 @@ $(function() {
   var simulatorParam = _.find(params, function(item) {
     return item.match('simulator');
   });
+  var staticParam = _.find(params, function(item) {
+    return item.match('static');
+  });
 
   if (simulatorParam) {
     var simulator = require('./socketSimulator');
     socketio = simulator.client;
-    simulator.start();
+    if (!staticParam) {
+      simulator.start();
+    }
   }
 
   io = sailsIOClient(socketio);
