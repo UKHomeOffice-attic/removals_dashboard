@@ -62,8 +62,9 @@ $padding: 15px;
   .panel {
     background-color: #DEE0E2;
     margin: 0 50px 35px;
-    padding: $padding*2 $padding*2 0;
+    padding: $padding*2 $padding 0 $padding*2;
     width: 240px;
+    box-sizing: border-box;
     ul {
       padding: 0;
       margin: 0;
