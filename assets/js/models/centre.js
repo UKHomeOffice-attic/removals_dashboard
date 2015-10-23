@@ -1,5 +1,6 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
+var moment = require('moment');
 
 module.exports = Backbone.Model.extend({
   initialize: function(attributes, options) {
@@ -8,6 +9,7 @@ module.exports = Backbone.Model.extend({
     if (options && options.socket) this.socket = options.socket;
 
     this.on('change:beds', this.calculateCapacities, this);
+    this.on('change:updated', this.setReadableUpdated, this);
     this.on('change:centre_id', this.subscribeToCentre, this);
   },
 
@@ -22,10 +24,6 @@ module.exports = Backbone.Model.extend({
       };
       return item;
     }));
-
-    this.set('time_updated', function(memo, item){
-      return _.random(10,24) + ":" + _.random(10,59) + ":" + _.random(10,59);
-    });
 
     this.set('capacity', _.reduce(beds, function(memo, item){
       return memo + item.capacity;
@@ -43,6 +41,11 @@ module.exports = Backbone.Model.extend({
       return memo + item.available;
     }, 0));
 
+  },
+
+  setReadableUpdated: function() {
+    var updated = this.get('updated');
+    this.set('updated_formatted', moment(updated).format('HH:mm'));
   },
 
   subscribeToCentre: function() {

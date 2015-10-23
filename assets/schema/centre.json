@@ -4,7 +4,7 @@
     "centre_name": {
       "description": "Name of centre",
       "type": "string",
-      "pattern": "^[A-Z][a-z]{3,30}$",
+      "pattern": "^[a-z]{3,30}$",
       "faker": "custom.centreName"
     },
     "centre_id": {
@@ -13,6 +13,11 @@
       "minimum": 1,
       "maximum": 99,
       "faker": "custom.centreId"
+    },
+    "updated": {
+      "description": "Time the centre's data was last updated",
+      "type": "string",
+      "format": "date-time"
     },
     "bed_type": {
       "description": "Type of bed",
@@ -39,6 +44,9 @@
     },
     "centre_id": {
       "$ref": "#/definitions/centre_id"
+    },
+    "updated": {
+      "$ref": "#/definitions/updated"
     },
     "beds": {
       "type": "array",
@@ -99,6 +107,7 @@
   "required": [
     "name",
     "centre_id",
+    "updated",
     "beds",
     "links"
   ]
