@@ -4,13 +4,15 @@
     "centre_name": {
       "description": "Name of centre",
       "type": "string",
-      "pattern": "^[a-z]{3,30}$"
+      "pattern": "^[A-Z][a-z]{3,30}$",
+      "faker": "custom.centreName"
     },
     "centre_id": {
       "description": "Centre identifier",
       "type": "integer",
       "minimum": 1,
-      "maximum": 99
+      "maximum": 99,
+      "faker": "custom.centreId"
     },
     "bed_type": {
       "description": "Type of bed",
