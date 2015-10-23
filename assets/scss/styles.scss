@@ -1,45 +1,80 @@
 @import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/alpha-beta";
 @import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/buttons";
 
+$padding: 15px;
+
+/* Grid overrides */
 #page-container {
   @extend %site-width-container;
+  .phase-banner {
+    border-bottom: none;
+  }
 }
 .grid-row {
   @extend %grid-row;
 }
 .column-half {
   @include grid-column( 1/2 );
-  padding: 15px;
+  padding: $padding;
 }
-@media (min-width: 320px) {
+
+/* Header overrides */
+@media (min-width: 480px) {
   #global-header.with-proposition .header-wrapper .header-global {
     float: left;
-    width: 33.33%;
+    width: 10%;
   }
   #global-header.with-proposition .header-wrapper .header-proposition {
-    width: 66.66%;
+    width: 90%;
     float: left;
   }
+  #global-header .header-proposition {
+    padding-top: 0;
+  }
+  #global-header .header-proposition #proposition-name {
+    font-family: "nta", Arial, sans-serif;
+    font-size: 36px;
+    line-height: 1.25;
+    font-weight: 400;
+    text-transform: none;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
 }
+
+/* Footer overrides */
+#footer {
+  border-top: none;
+}
+
+/* Dashboard */
 #centres {
   padding: 0;
+  h1 {
+    padding: 0 $padding;
+  }
+  h2 {
+    padding-bottom: $padding;
+  }
   .panel {
     background-color: #DEE0E2;
-    margin: 0 50px;
-    padding: 30px 30px 0;
+    margin: 0 50px 50px;
+    padding: $padding*2 $padding*2 0;
     ul {
-      padding:0;
+      padding: 0;
+      margin: 0;
       list-style-type: none;
     }
     li {
       margin: 0 10px 0 0;
-      padding-bottom: 30px;
+      padding-bottom: $padding*2;
     }
     strong {
       @include bold-48;
     }
     h2 {
-      padding: 15px 15px 0;
+      padding: $padding $padding 0;
       @include core-24;
     }
     a {
@@ -66,40 +101,11 @@
   line-height: 0.9;
   display: inline-block;
   vertical-align: initial;
-  min-width: 20%;
+  padding-right: 10px;
 }
 .bed-count-label {
-  display: inline-block;
-  padding-left: 0.5em;
-  white-space: normal;
-  line-height: 0.9;
   @include core-19;
-}
-
-.panel-beds {
-  table, p {
-    @include core-14;
-    margin: 0.5em 0;
-    tr:nth-child(odd) {
-      background: #fff;
-    }
-    tr:nth-child(even) {
-      background: lightgray;
-    }
-    td {
-      width: 30%;
-      input {
-        @include core-14;
-        width: 90%;
-      }
-      input[type="checkbox"] {
-        @include core-19;
-      }
-    }
-    td:nth-child(4),
-    td:nth-child(5) {
-      width: 5%;
-    }
-
-  }
+  line-height: 0.9;
+  display: inline-block;
+  white-space: normal;
 }
