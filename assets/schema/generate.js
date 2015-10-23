@@ -19,7 +19,7 @@ var generate = function(schema, idx) {
         return idx;
       },
       centreName: function() {
-        return centres[idx];
+        return centres[idx] || faker.name.firstName();
       }
     };
 
