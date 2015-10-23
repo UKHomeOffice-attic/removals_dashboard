@@ -1,3 +1,4 @@
+var fs = require('fs');
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 
@@ -12,6 +13,19 @@ var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 
 var hogan = require('gulp-hogan-compile');
+
+var ensureExists = function(path, mask, callback) {
+  if (typeof mask == 'function') { // allow the `mask` parameter to be optional
+    callback = mask;
+    mask = 0777;
+  }
+  fs.mkdir(path, mask, function(err) {
+    if (err) {
+      if (err.code == 'EEXIST') callback(null); // ignore the error if the folder already exists
+      else callback(err); // something else went wrong
+    } else callback(null); // successfully created folder
+  });
+};
 
 gulp.task('test', ['scripts'], function() {
   return gulp
@@ -81,5 +95,26 @@ gulp.task('watch:test', ['test'], function() {
 });
 
 gulp.task('env', function() {
-  require('fs').writeFileSync('dist/__/env.js', "window.API_ENDPOINT = window.API_ENDPOINT || 'http://localhost:8080';");
+  ensureExists('dist', function(err) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      ensureExists('dist/__', function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          var path = 'dist/__/env.js';
+          var contents = "window.API_ENDPOINT = window.API_ENDPOINT || 'http://localhost:8080';";
+          fs.writeFile(path, contents, function(err) {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log('Wrote %s', path);
+            }
+          });
+        }
+      });
+    }
+  });
 });
