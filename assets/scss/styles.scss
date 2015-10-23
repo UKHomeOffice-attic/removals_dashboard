@@ -53,14 +53,17 @@ $padding: 15px;
   padding: 0;
   h1 {
     padding: 0 $padding;
+    font-size: 36px;
   }
   h2 {
-    padding-bottom: $padding;
+    padding-bottom: $padding+5;
+    line-height: 24px;
   }
   .panel {
     background-color: #DEE0E2;
-    margin: 0 50px 50px;
+    margin: 0 50px 35px;
     padding: $padding*2 $padding*2 0;
+    width: 240px;
     ul {
       padding: 0;
       margin: 0;
@@ -69,6 +72,7 @@ $padding: 15px;
     li {
       margin: 0 10px 0 0;
       padding-bottom: $padding*2;
+      line-height: 1;
     }
     strong {
       @include bold-48;
@@ -83,7 +87,7 @@ $padding: 15px;
   }
 }
 .phase-banner  {
-  @include phase-banner(alpha);
+  @include phase-banner($state: beta);
 }
 .button{
   @include button;
@@ -110,6 +114,7 @@ $padding: 15px;
 }
 .bed-count-label {
   @include core-19;
+  font-size: 19px;
   line-height: 0.9;
   display: inline-block;
   white-space: normal;
