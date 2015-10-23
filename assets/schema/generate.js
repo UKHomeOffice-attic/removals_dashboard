@@ -3,7 +3,7 @@ var _ = require('underscore');
 
 var schema = require('../schema/');
 
-var centres = [null,"First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eighth","Ninth","Tenth","Eleventh","Twelveth"];
+var centres = [null,"first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth","eleventh","twelveth"];
 
 var generate = function(schema, idx) {
   var json_schema_faker = require('json-schema-faker');
@@ -19,7 +19,7 @@ var generate = function(schema, idx) {
         return idx;
       },
       centreName: function() {
-        return centres[idx] || faker.name.firstName();
+        return centres[idx] || faker.internet.domainWord();
       }
     };
 

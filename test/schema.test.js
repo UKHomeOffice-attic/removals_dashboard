@@ -6,7 +6,7 @@ describe('Schema', function() {
   it('should generate valid JSON', function() {
     var output = generator.Centre();
 
-    expect(output).to.have.keys(['name','centre_id','beds','links']);
+    expect(output).to.have.keys(['name','centre_id','updated','beds','links']);
   });
 
   it('should generate valid JSON with a specific centre ID when one is given', function() {

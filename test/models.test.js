@@ -209,6 +209,18 @@ describe('models', function() {
       model.set('beds',data);
     });
 
+    it('should hold a human readable date', function(done) {
+      var model = new models.Centre();
+
+      model.on('change:updated', function() {
+        expect(model.get('updated_formatted')).to.be('17:26');
+        return done();
+      });
+
+      model.set('updated', '2015-10-23T17:26:00');
+
+    });
+
     it('should respond to centre data being updated', function(done) {
       var model = new models.Centre([], { socket: this.socket0 });
       model.on('change:name', function() {

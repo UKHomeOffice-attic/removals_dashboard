@@ -25,6 +25,7 @@
     "jsdom": "^6.5.1",
     "json-schema-faker": "^0.2.2",
     "mocha": "^2.3.3",
+    "moment": "^2.10.6",
     "sails.io.js": "^0.11.7",
     "sinon": "^1.17.1",
     "socket-io-mock": "^1.0.1",
