@@ -14,7 +14,7 @@ $padding: 15px;
   @extend %grid-row;
 }
 .column-half {
-  @include grid-column( 1/2 );
+  @include grid-column( 1/1 );
   padding: $padding;
 }
 
@@ -63,8 +63,8 @@ $padding: 15px;
     background-color: #DEE0E2;
     margin: 0 50px 35px;
     padding: $padding*2 $padding 0 $padding*2;
-    width: 240px;
     box-sizing: border-box;
+    width: 60%;
     ul {
       padding: 0;
       margin: 0;
@@ -74,6 +74,7 @@ $padding: 15px;
       margin: 0 10px 0 0;
       padding-bottom: $padding*2;
       line-height: 1;
+      white-space: nowrap;
     }
     strong {
       @include bold-48;
