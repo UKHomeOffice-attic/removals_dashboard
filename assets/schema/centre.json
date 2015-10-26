@@ -29,7 +29,8 @@
     },
     "bedcount": {
       "type": "integer",
-      "minimum": 0
+      "minimum": 0,
+      "maximum": 999
     },
     "uri": {
       "type": "string",
@@ -50,33 +51,31 @@
     },
     "beds": {
       "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "$ref": "#/definitions/bed_type"
-            },
-            "capacity": {
-              "$ref": "#/definitions/bedcount"
-            },
-            "occupied": {
-              "$ref": "#/definitions/bedcount"
-            },
-            "ooc": {
-              "$ref": "#/definitions/bedcount"
-            }
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/definitions/bed_type"
           },
-          "required": [
-            "type",
-            "capacity",
-            "occupied",
-            "ooc"
-          ]
-        }
-      ],
+          "capacity": {
+            "$ref": "#/definitions/bedcount"
+          },
+          "occupied": {
+            "$ref": "#/definitions/bedcount"
+          },
+          "ooc": {
+            "$ref": "#/definitions/bedcount"
+          }
+        },
+        "required": [
+          "type",
+          "capacity",
+          "occupied",
+          "ooc"
+        ]
+      },
       "minItems": 1,
-      "maxItems": 3,
+      "maxItems": 2,
       "uniqueItems": true
     },
     "links": {
@@ -86,17 +85,17 @@
         "href": {
           "$ref": "#/definitions/uri"
         }
-      },{
+      }, {
         "rel": "events",
         "href": {
           "$ref": "#/definitions/uri"
         }
-      },{
+      }, {
         "rel": "bookings",
         "href": {
           "$ref": "#/definitions/uri"
         }
-      },{
+      }, {
         "rel": "prebookings",
         "href": {
           "$ref": "#/definitions/uri"
