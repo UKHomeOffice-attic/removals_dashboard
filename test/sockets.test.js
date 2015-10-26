@@ -1,4 +1,4 @@
-var expect = require('expect.js');
+var expect = require('chai').expect;
 var socket = require('socket-io-mock');
 var sailsIOClient = require('sails.io.js');
 
@@ -25,7 +25,7 @@ describe('sails.io client', function() {
     var socket0 = io.sails.connect();
 
     socket0.on('message',function(payload) {
-      expect(payload).to.be('test message');
+      expect(payload).to.eql('test message');
       done();
     });
 
@@ -46,7 +46,7 @@ describe('sails.io client', function() {
     });
 
     socket0.get('/centre', function(body) {
-      expect(body).to.be('response body');
+      expect(body).to.eql('response body');
       done();
     });
 
@@ -66,7 +66,7 @@ describe('sails.io client', function() {
     });
 
     socket0.post('/centre', function(body) {
-      expect(body).to.be('response body');
+      expect(body).to.eql('response body');
       done();
     });
 
