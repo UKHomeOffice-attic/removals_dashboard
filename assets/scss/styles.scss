@@ -76,6 +76,9 @@ $padding: 15px;
       padding-bottom: $padding*2;
       line-height: 1;
       white-space: nowrap;
+      p {
+        margin: 0.5em 0 0;
+      }
     }
     strong {
       @include bold-48;
