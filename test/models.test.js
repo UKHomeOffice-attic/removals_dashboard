@@ -77,6 +77,27 @@ describe('models', function() {
       model.set('beds',data);
     });
 
+    it('should return out of commission male beds', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        type: 'male',
+        capacity: 100,
+        occupied: 40,
+        ooc: 5
+      }];
+
+      model.on('change', function() {
+        var male_beds = _.find(model.get('beds'), function(item) {
+          return item.type === "male"
+        });
+
+        expect(male_beds.ooc).to.be(5);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
     it('should check whether there is only 1 male bed', function(done) {
       var model = new models.Centre();
       var data = [{
@@ -136,6 +157,27 @@ describe('models', function() {
         });
 
         expect(female_beds.available).to.be(55);
+        return done();
+      });
+
+      model.set('beds',data);
+    });
+
+    it('should return out of commission female beds', function(done) {
+      var model = new models.Centre();
+      var data = [{
+        type: 'female',
+        capacity: 100,
+        occupied: 40,
+        ooc: 5
+      }];
+
+      model.on('change', function() {
+        var female_beds = _.find(model.get('beds'), function(item) {
+          return item.type === "female"
+        });
+
+        expect(female_beds.ooc).to.be(5);
         return done();
       });
 

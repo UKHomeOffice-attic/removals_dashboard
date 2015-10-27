@@ -37,6 +37,10 @@ module.exports = Backbone.Model.extend({
       return memo + item.prebooked;
     }, 0));
 
+    this.set('ooc', _.reduce(beds, function(memo, item){
+      return memo + item.ooc;
+    }, 0));
+
     this.set('all_available', _.reduce(beds, function(memo, item){
       return memo + item.available;
     }, 0));
