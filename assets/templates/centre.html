@@ -1,13 +1,43 @@
-<div class='column-half'>
-  <h2>{{name}}</h2>
-  <section class='panel' id="centre_{{centre_id}}">
-    <div class="panel-beds panel-beds-available" id="beds_{{centre_id}}_available">
-      <div class="bed-count-updated">{{updated_formatted}}</div>
-      <ul>
+<div class="column-two-thirds">
+  <table>
+    <thead>
+      <tr>
+        <th class="centre_name" scope="col">{{name}}</th>
         {{#beds}}
-          {{> bed}}
+        <th scope="col" class="numeric">{{type}} bed{{plurality}}</th>
         {{/beds}}
-      </ul>
-    </div>
-  </section>
+        <th class="numeric centre_updated" scope="col">Updated<br>{{updated_formatted}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row_centre_capacity">
+        <th scope="row">Capacity</th>
+        {{#beds}}
+        <td class="numeric">{{capacity}}</td>
+        {{/beds}}
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="row_centre_occupied">
+        <th scope="row">- Occupied</th>
+        {{#beds}}
+        <td class="numeric">{{occupied}}</td>
+        {{/beds}}
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="row_centre_ooc">
+        <th scope="row">- Beds out of commission</th>
+        {{#beds}}
+        <td class="numeric">{{ooc}}</td>
+        {{/beds}}
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="row_centre_availability">
+        <th scope="row">Availability</th>
+        {{#beds}}
+        <td class="numeric">{{available}}</td>
+        {{/beds}}
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
