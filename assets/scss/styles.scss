@@ -13,6 +13,10 @@ $padding: 15px;
 .grid-row {
   @extend %grid-row;
 }
+.column-half {
+  @include grid-column( 1/1 );
+  padding: $padding;
+}
 .column-two-thirds {
   @include grid-column( 2/3 );
   padding: $padding;
@@ -43,15 +47,128 @@ $padding: 15px;
   }
 }
 
+/* Dashboard */
 #centres {
+  padding: 0;
+  h1 {
+    padding: 0 $padding;
+    font-size: 36px;
+  }
+  h2 {
+    padding-bottom: $padding+5;
+    line-height: 24px;
+  }
+  .panel {
+    background-color: #DEE0E2;
+    margin: 0 50px 35px;
+    padding: $padding*2 $padding 0 $padding*2;
+    box-sizing: border-box;
+    width: 60%;
+    position: relative;
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+    li {
+      margin: 0 10px 0 0;
+      padding-bottom: $padding*2;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    strong {
+      @include bold-48;
+    }
+    h2 {
+      padding: $padding $padding 0;
+      @include core-24;
+    }
+    a {
+      display: block;
+    }
+  }
+}
+.phase-banner  {
+  @include phase-banner($state: beta);
+}
+.button{
+  @include button;
+  vertical-align: super;
+}
+.button-secondary{
+  @include button($grey-3);
+}
+.button-warning{
+  @include button($red);
+}
+.bed-count-updated {
+  text-align: right;
+  color: red;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.bed-count-figure {
+  @include bold-48;
+  font-size: 48px;
+  line-height: 0.9;
+  display: inline-block;
+  vertical-align: initial;
+  padding-right: 10px;
+}
+.bed-count-label {
+  @include core-19;
+  font-size: 19px;
+  line-height: 0.9;
+  display: inline-block;
+  white-space: normal;
+}
+
+/* Stats page */
+#stats {
+  h1 {
+    padding: $padding;
+  }
   table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     margin-bottom: 50px;
+    thead {
+      tr {
+        th,
+        td {
+          padding-top: 0;
+          padding-bottom: 16px;
+          white-space: nowrap;
+          vertical-align: bottom;
+        }
+        th:last-child {
+          text-align: right;
+        }
+      }
+    }
     thead,
     tbody {
       tr {
+        th {
+          &.numeric {
+            text-align: left;
+          }
+        }
+        td {
+          &.numeric {
+            font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.1428571429;
+            font-weight: 400;
+            text-transform: none;
+            @media (min-width: 641px) {
+              font-size: 16px;
+              line-height: 1.25;
+            }
+          }
+        }
         th,
         td {
           @include core-19;
@@ -101,42 +218,61 @@ $padding: 15px;
         }
       }
     }
-    thead {
-      tr {
-        th,
-        td {
-          padding-top: 0;
-          padding-bottom: 16px;
-          white-space: nowrap;
-          vertical-align: bottom;
-        }
-        th:last-child {
-          text-align: right;
+  }
+
+  @media (max-width: 480px) {
+    table    { display: block }
+    tr       { display: block }
+    td, th   { display: block; width: 100% !important; }
+    caption  { display: block }
+    table {
+      thead,
+      tbody {
+        tr {
+          th {
+            &.numeric {
+              text-align: left;
+            }
+          }
+          th,
+          td {
+            padding: 0;
+            text-align: left;
+            color: #0b0c0c;
+            border-bottom: none;
+            width: 100%;
+            &:first-child {
+              width: 50%;
+            }
+            &.centre_name {
+            }
+            &.centre_updated {
+            }
+            &:last-child {
+              width: 100%;
+              padding-right: 0;
+            }
+          }
+          &.row_centre_occupied,
+          &.row_centre_ooc {
+            th {
+              padding-left: 0;
+            }
+          }
+          &.row_centre_ooc {
+            th,
+            td {
+              border-bottom: none;
+            }
+          }
+          &.row_centre_availability {
+            th,
+            td {
+              border-bottom: none;
+            }
+          }
         }
       }
-    }
-  }
-
-  table th {
-    font-weight: 700;
-  }
-
-  table th.numeric {
-    text-align: left;
-  }
-
-  table td.numeric {
-    font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.1428571429;
-    font-weight: 400;
-    text-transform: none;
-  }
-
-  @media (min-width: 641px) {
-    table td.numeric {
-      font-size: 16px;
-      line-height: 1.25;
     }
   }
 }
