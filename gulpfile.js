@@ -83,6 +83,8 @@ gulp.task('copy', function() {
   gulp.src('./node_modules/govuk_template_mustache/assets/stylesheets/*.css').pipe(gulp.dest('./dist/css'));
 });
 
+gulp.task('build', ['scripts', 'sass', 'hbs', 'copy']);
+
 gulp.task('default', ['scripts', 'test', 'sass', 'hbs', 'copy']);
 
 gulp.task('watch', ['default'], function() {
