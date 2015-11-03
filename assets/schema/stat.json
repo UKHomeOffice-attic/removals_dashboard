@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "centre_name": {
+      "description": "Name of centre",
+      "type": "string",
+      "pattern": "^[a-z]{3,30}$",
+      "faker": "custom.centreName"
+    },
+    "centre_id": {
+      "description": "Centre identifier",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "faker": "custom.centreId"
+    },
+    "updated": {
+      "description": "Time the centre's data was last updated",
+      "type": "string",
+      "format": "date-time"
+    },
+    "bed_type": {
+      "description": "Type of bed",
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "bedcount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "faker": "custom.hateoasUrl"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "$ref": "#/definitions/centre_name"
+    },
+    "centre_id": {
+      "$ref": "#/definitions/centre_id"
+    },
+    "updated": {
+      "$ref": "#/definitions/updated"
+    },
+    "beds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/definitions/bed_type"
+          },
+          "capacity": {
+            "$ref": "#/definitions/bedcount"
+          },
+          "occupied": {
+            "$ref": "#/definitions/bedcount"
+          },
+          "ooc": {
+            "$ref": "#/definitions/bedcount"
+          }
+        },
+        "required": [
+          "type",
+          "capacity",
+          "occupied",
+          "ooc"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "links": {
+      "type": "array",
+      "items": [{
+        "rel": "self",
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
+      }, {
+        "rel": "events",
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
+      }, {
+        "rel": "bookings",
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
+      }, {
+        "rel": "prebookings",
+        "href": {
+          "$ref": "#/definitions/uri"
+        }
+      }]
+    }
+  },
+  "required": [
+    "name",
+    "centre_id",
+    "updated",
+    "beds",
+    "links"
+  ]
+}

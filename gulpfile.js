@@ -51,10 +51,10 @@ gulp.task('hbs', function() {
   var templateData = {
     "title": "IRC Bed Management",
     "headerClass": "with-proposition",
-    "propositionHeader": "<div class='header-proposition'><div class='content'><a href='/' id='proposition-name'>IRC Bed Management</a></div></div>",
     "assetPath": "",
     "cookieMessage": "Oooooh! COOKIES!"
   };
+
   var options = {
     ignorePartials: true,
     batch : ['./views']

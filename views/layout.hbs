@@ -88,7 +88,18 @@
           </div>
           {{{ insideHeader }}}
         </div>
-        {{{ propositionHeader }}}
+        <div class="header-proposition">
+          <div class="content">
+            <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+            <nav id="proposition-menu">
+              <a href="/dist" id="proposition-name">IRC Bed Management</a>
+              <ul id="proposition-links" class="">
+                <li><a href="/dist" class="active">Bed availability</a></li>
+                <li><a href="#statistics">Stats</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
     <!--end header-->
@@ -103,16 +114,16 @@
     <main id="page-container" role="main">
 
       <div class="phase-banner">
-    <p>
-      <strong class="phase-tag">BETA</strong>
-      <span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
-    </p>
-  </div>
+        <p>
+          <strong class="phase-tag">BETA</strong>
+          <span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
+        </p>
+      </div>
 
       <div class="grid-row">
-    {{> index}}
-  </div>
-  </main>
+        {{> index}}
+      </div>
+    </main>
 
 
     <footer class="group js-footer" id="footer" role="contentinfo">

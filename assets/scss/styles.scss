@@ -47,13 +47,14 @@ $padding: 15px;
   }
 }
 
+h1 {
+  padding: 0 $padding;
+  font-size: 36px;
+}
+
 /* Dashboard */
 #centres {
   padding: 0;
-  h1 {
-    padding: 0 $padding;
-    font-size: 36px;
-  }
   h2 {
     padding-bottom: $padding+5;
     line-height: 24px;
@@ -126,9 +127,6 @@ $padding: 15px;
 
 /* Stats page */
 #stats {
-  h1 {
-    padding: $padding;
-  }
   table {
     border-collapse: collapse;
     border-spacing: 0;

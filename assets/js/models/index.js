@@ -1,3 +1,4 @@
 module.exports = {
-  Centre: require('./centre')
+  Centre: require('./centre'),
+  Stat: require('./stat')
 };
