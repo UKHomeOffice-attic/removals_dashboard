@@ -24,26 +24,46 @@ $padding: 15px;
 
 /* Header overrides */
 @media (min-width: 480px) {
-  #global-header.with-proposition .header-wrapper .header-global {
-    float: left;
-    width: 10%;
-  }
-  #global-header.with-proposition .header-wrapper .header-proposition {
-    width: 90%;
-    float: left;
-  }
-  #global-header .header-proposition {
-    padding-top: 0;
-  }
-  #global-header .header-proposition #proposition-name {
-    font-family: "nta", Arial, sans-serif;
-    font-size: 36px;
-    line-height: 1.25;
-    font-weight: 400;
-    text-transform: none;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
+  #global-header {
+    &.with-proposition {
+      .header-wrapper {
+        .header-global {
+          float: left;
+          width: 10%;
+        }
+        .header-proposition {
+          width: 90%;
+          float: left;
+        }
+      }
+    }
+    .header-proposition {
+      padding-top: 0;
+      #proposition-name {
+        font-family: "nta", Arial, sans-serif;
+        font-size: 36px;
+        line-height: 1.25;
+        font-weight: 400;
+        text-transform: none;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+      }
+      #proposition-link,
+      #proposition-links {
+        a {
+          @include bold-19;
+        }
+      }
+      a.menu {
+        @include core-19;
+        &:after {
+          display: inline-block;
+          font-size: 10px;
+          height: 10px;
+        }
+      }
+    }
   }
 }
 
@@ -53,7 +73,7 @@ h1 {
 }
 
 /* Dashboard */
-#centres {
+.centre_data {
   padding: 0;
   h2 {
     padding-bottom: $padding+5;
@@ -126,7 +146,7 @@ h1 {
 }
 
 /* Stats page */
-#stats {
+.stat_data {
   table {
     border-collapse: collapse;
     border-spacing: 0;

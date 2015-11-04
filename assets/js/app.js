@@ -46,6 +46,7 @@ var myRouter = Backbone.Router.extend({
       socket0 = io.sails.connect();
 
       container.empty();
+      container.append("<h1>IRC bed availability</h1>");
 
       socket0.get('/centre', function serverResponded(payload) {
         _.each(payload.data, function(item,idx) {
@@ -57,8 +58,6 @@ var myRouter = Backbone.Router.extend({
           thisViewCentre.model.set(item);
         })
       });
-      $(".centre_data").wrapAll("<div id='centres' />");
-      $("<h1>IRC bed availability</h1>").insertBefore("#item0");
     },
 
     handleRouteStat: function () {
@@ -82,6 +81,7 @@ var myRouter = Backbone.Router.extend({
       socket1 = io.sails.connect();
 
       container.empty();
+      container.append("<h1>IRC bed stats</h1>");
 
       socket1.get('/centre', function serverResponded(payload) {
         _.each(payload.data, function(item,idx) {
@@ -93,8 +93,6 @@ var myRouter = Backbone.Router.extend({
           thisViewStat.model.set(item);
         })
       });
-      $(".stat_data").wrapAll("<div id='stats' />");
-      $("<h1>IRC bed stats</h1>").insertBefore("#stat0");
     }
 
 });
