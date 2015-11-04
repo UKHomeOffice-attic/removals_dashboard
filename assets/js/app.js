@@ -48,7 +48,7 @@ var myRouter = Backbone.Router.extend({
       container.empty();
 
       socket0.get('/centre', function serverResponded(payload) {
-        _.each(payload, function(item,idx) {
+        _.each(payload.data, function(item,idx) {
           container.append('<div class="centre_data" id="item'+idx+'"></div>');
           var thisViewCentre = new viewCentre({
             el: '#item'+idx,
@@ -83,8 +83,8 @@ var myRouter = Backbone.Router.extend({
 
       container.empty();
 
-      socket1.get('/stat', function serverResponded(payload) {
-        _.each(payload, function(item,idx) {
+      socket1.get('/centre', function serverResponded(payload) {
+        _.each(payload.data, function(item,idx) {
           container.append('<div class="stat_data" id="stat'+idx+'"></div>');
           var thisViewStat = new viewStat({
             el: '#stat'+idx,
