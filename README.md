@@ -1,5 +1,5 @@
 # Removals Dashboard
-
+ 
 ## Quick start
 
 This will install dependencies and build the application for deployment in the `dist` folder.
@@ -25,3 +25,4 @@ e.g. `http://localhost:8000/?simulator`
 To start a static simulator (e.g. will populate the data once only) also pass a ```static``` query parameter.
 
 e.g. `http://localhost:8000/?simulator&static`
+
