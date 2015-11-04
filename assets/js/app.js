@@ -7,11 +7,21 @@ var Backbone = require('backbone');
 var viewCentre = require('./views/centre');
 var viewStat = require('./views/stat');
 
+var params = document.location.search.replace("?","").split("&");
+var simulatorParam = _.find(params, function(item) {
+  return item.match('simulator');
+});
+var staticParam = _.find(params, function(item) {
+  return item.match('static');
+});
+
 var myRouter = Backbone.Router.extend({
 
     routes: {
       "": "handleRouteAvailability",
-      "simulator": "handleRouteAvailability",
+      "?simulator": "handleRouteAvailability",
+      "?simulator&static": "handleRouteAvailability",
+      "availability": "handleRouteAvailability",
       "statistics": "handleRouteStat"
     },
 
@@ -19,16 +29,23 @@ var myRouter = Backbone.Router.extend({
       var io;
       var socket0;
       var container = $('#content_container');
-      var simulator = require('./socketSimulator');
 
-      socketio = simulator.client;
-      simulator.start();
+      if (simulatorParam) {
+        var simulator = require('./socketSimulator');
+        socketio = simulator.client;
+        if (!staticParam) {
+          simulator.start();
+        }
+      }
 
       io = sailsIOClient(socketio);
 
       io.sails.autoConnect = false;
+      if (!simulatorParam) io.sails.url = 'http://localhost:8080';
 
       socket0 = io.sails.connect();
+
+      container.empty();
 
       socket0.get('/centre', function serverResponded(payload) {
         _.each(payload, function(item,idx) {
@@ -48,14 +65,19 @@ var myRouter = Backbone.Router.extend({
       var io;
       var socket1;
       var container = $('#content_container');
-      var simulator2 = require('./socketSimulator');
 
-      socketio = simulator2.client;
-      simulator2.start();
+      if (simulatorParam) {
+        var simulator = require('./socketSimulator');
+        socketio = simulator.client;
+        if (!staticParam) {
+          simulator.start();
+        }
+      }
 
       io = sailsIOClient(socketio);
 
       io.sails.autoConnect = false;
+      if (!simulatorParam) io.sails.url = 'http://localhost:8080';
 
       socket1 = io.sails.connect();
 
