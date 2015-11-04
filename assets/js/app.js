@@ -58,7 +58,7 @@ var myRouter = Backbone.Router.extend({
         })
       });
       $(".centre_data").wrapAll("<div id='centres' />");
-      $("<h1>IRC breakdown availability</h1>").insertBefore("#item0");
+      $("<h1>IRC bed availability</h1>").insertBefore("#item0");
     },
 
     handleRouteStat: function () {
@@ -94,7 +94,7 @@ var myRouter = Backbone.Router.extend({
         })
       });
       $(".stat_data").wrapAll("<div id='stats' />");
-      $("<h1>IRC bed availabilities</h1>").insertBefore("#stat0");
+      $("<h1>IRC bed stats</h1>").insertBefore("#stat0");
     }
 
 });
