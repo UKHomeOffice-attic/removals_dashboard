@@ -2,6 +2,8 @@
 @import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/buttons";
 
 $padding: 15px;
+$background-color: #DEE0E2;
+
 
 /* Grid overrides */
 #page-container {
@@ -19,6 +21,10 @@ $padding: 15px;
 }
 .column-two-thirds {
   @include grid-column( 2/3 );
+  padding: $padding;
+}
+.column-three-quarters {
+  @include grid-column( 3/4 );
   padding: $padding;
 }
 
@@ -80,7 +86,7 @@ h1 {
     line-height: 24px;
   }
   .panel {
-    background-color: #DEE0E2;
+    background-color: $background-color;
     margin: 0 50px 35px;
     padding: $padding*2 $padding 0 $padding*2;
     box-sizing: border-box;
@@ -147,68 +153,51 @@ h1 {
 
 /* Stats page */
 .stat_data {
+  h2 {
+    @include bold-24;
+  }
   table {
+    margin: 0 50px 50px;
     border-collapse: collapse;
     border-spacing: 0;
-    width: 100%;
-    margin-bottom: 50px;
+    box-sizing: border-box;
     thead {
       tr {
         th,
         td {
-          padding-top: 0;
-          padding-bottom: 16px;
+          padding: 0 1.25em 16px 0;
           white-space: nowrap;
           vertical-align: bottom;
-        }
-        th:last-child {
-          text-align: right;
+          &.numeric {
+            @include bold-19($tabular-numbers: true);
+            text-align: right;
+          }
+          &.centre_updated {
+            @include core-16;
+            color: red;
+            text-align: right;
+          }
+          &:last-child {
+            width: 10%;
+            padding-right: 0;
+          }
         }
       }
     }
-    thead,
     tbody {
+      background-color: $background-color;
       tr {
-        th {
-          &.numeric {
-            text-align: left;
-          }
-        }
-        td {
-          &.numeric {
-            font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.1428571429;
-            font-weight: 400;
-            text-transform: none;
-            @media (min-width: 641px) {
-              font-size: 16px;
-              line-height: 1.25;
-            }
-          }
-        }
         th,
         td {
           @include core-19;
           padding: 0.75em 1.25em 0.5625em 0;
           text-align: left;
           color: #0b0c0c;
-          border-bottom: 1px solid #6f777b;
           width: 25%;
           &:first-child {
             width: 50%;
             @include bold-19;
-          }
-          &.centre_name {
-            @include bold-24;
-          }
-          &.centre_updated {
-            @include core-16;
-          }
-          &:last-child {
-            width: 10%;
-            padding-right: 0;
-          }
+          }        
         }
         @media (min-width: 641px) {
           th,
@@ -216,10 +205,11 @@ h1 {
             @include bold-19;
           }
         }
-        &.row_centre_occupied,
-        &.row_centre_ooc {
-          th {
-            padding-left: 12px;
+        th,
+        td {
+          &.numeric {
+            @include core-19($tabular-numbers: true);
+            text-align: right;
           }
         }
         &.row_centre_ooc {
@@ -228,11 +218,36 @@ h1 {
             border-bottom: 2px solid #0b0c0c;
           }
         }
+        &.row_centre_occupied,
+        &.row_centre_capacity {
+          border-bottom: 1px solid #BFC1C3;
+        }
+        &.row_centre_capacity {
+          th,
+          td {
+            padding-top: 30px;
+          }
+        }
         &.row_centre_availability {
           th,
           td {
             border-bottom: none;
+            padding-bottom: 30px;
           }
+        }
+      }
+    }
+    thead {
+      tr {
+        th {
+          padding-bottom: 20px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        th {
+          padding-left: 30px;
         }
       }
     }
@@ -247,11 +262,6 @@ h1 {
       thead,
       tbody {
         tr {
-          th {
-            &.numeric {
-              text-align: left;
-            }
-          }
           th,
           td {
             padding: 0;
@@ -261,10 +271,6 @@ h1 {
             width: 100%;
             &:first-child {
               width: 50%;
-            }
-            &.centre_name {
-            }
-            &.centre_updated {
             }
             &:last-child {
               width: 100%;
