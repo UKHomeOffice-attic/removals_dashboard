@@ -1,12 +1,13 @@
-<div class="column-two-thirds">
+<div class="column-three-quarters">
+  <h2 class="centre_name">{{name}}</h2>
   <table>
     <thead>
       <tr>
-        <th class="centre_name" scope="col">{{name}}</th>
+        <th scope="col">&nbsp;</th>
         {{#beds}}
         <th scope="col" class="numeric">{{type}} bed{{plurality}}</th>
         {{/beds}}
-        <th class="numeric centre_updated" scope="col">Updated<br>{{updated_formatted}}</th>
+        <th class="numeric centre_updated" scope="col">{{updated_formatted}}</th>
       </tr>
     </thead>
     <tbody>
