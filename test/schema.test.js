@@ -1,4 +1,4 @@
-var expect = require('expect.js');
+var expect = require('chai').expect;
 
 var generator = require('../assets/schema/generate');
 
@@ -12,6 +12,6 @@ describe('Schema', function() {
   it('should generate valid JSON with a specific centre ID when one is given', function() {
     var output = generator.Centre(99);
 
-    expect(output.centre_id).to.be(99);
+    expect(output.centre_id).to.eql(99);
   });
 });

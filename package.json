@@ -11,7 +11,7 @@
   "devDependencies": {
     "backbone": "^1.2.3",
     "browserify": "^11.2.0",
-    "expect.js": "^0.3.1",
+    "chai": "^3.4.0",
     "govuk_frontend_toolkit": "^4.3.0",
     "govuk_template_mustache": "0.16.0",
     "gulp": "^3.9.0",
