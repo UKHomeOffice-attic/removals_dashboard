@@ -100,4 +100,4 @@ var myRouter = Backbone.Router.extend({
 $(function () {
   router = new myRouter();
   Backbone.history.start();
-})
+});
