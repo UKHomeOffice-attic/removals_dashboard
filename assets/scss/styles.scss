@@ -1,9 +1,8 @@
 @import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/alpha-beta";
 @import "../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/buttons";
 
-$padding: 15px;
+$padding: 1em;
 $background-color: #DEE0E2;
-
 
 /* Grid overrides */
 #page-container {
@@ -17,18 +16,21 @@ $background-color: #DEE0E2;
 }
 .column-half {
   @include grid-column( 1/1 );
-  padding: $padding;
+  position: relative;
 }
 .column-two-thirds {
   @include grid-column( 2/3 );
-  padding: $padding;
+  position: relative;
 }
 .column-three-quarters {
   @include grid-column( 3/4 );
-  padding: $padding;
+  position: relative;
 }
 
 /* Header overrides */
+.phase-banner  {
+  @include phase-banner($state: beta);
+}
 @media (min-width: 480px) {
   #global-header {
     &.with-proposition {
@@ -46,14 +48,7 @@ $background-color: #DEE0E2;
     .header-proposition {
       padding-top: 0;
       #proposition-name {
-        font-family: "nta", Arial, sans-serif;
-        font-size: 36px;
-        line-height: 1.25;
-        font-weight: 400;
-        text-transform: none;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
+        @include bold-36;
       }
       #proposition-link,
       #proposition-links {
@@ -73,17 +68,19 @@ $background-color: #DEE0E2;
   }
 }
 
-h1 {
-  padding: 0 $padding;
-  font-size: 36px;
+@mixin updated_timestamp {
+  text-align: right;
+  color: $red;
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
 }
 
 /* Dashboard */
 .centre_data {
   padding: 0;
   h2 {
-    padding-bottom: $padding+5;
-    line-height: 24px;
+    padding-bottom: $padding;
   }
   .panel {
     background-color: $background-color;
@@ -107,37 +104,20 @@ h1 {
       @include bold-48;
     }
     h2 {
-      padding: $padding $padding 0;
       @include core-24;
+      padding: $padding $padding 0;
     }
     a {
       display: block;
     }
   }
 }
-.phase-banner  {
-  @include phase-banner($state: beta);
-}
-.button{
-  @include button;
-  vertical-align: super;
-}
-.button-secondary{
-  @include button($grey-3);
-}
-.button-warning{
-  @include button($red);
-}
+
 .bed-count-updated {
-  text-align: right;
-  color: red;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  @include updated_timestamp;
 }
 .bed-count-figure {
   @include bold-48;
-  font-size: 48px;
   line-height: 0.9;
   display: inline-block;
   vertical-align: initial;
@@ -145,7 +125,6 @@ h1 {
 }
 .bed-count-label {
   @include core-19;
-  font-size: 19px;
   line-height: 0.9;
   display: inline-block;
   white-space: normal;
@@ -153,33 +132,30 @@ h1 {
 
 /* Stats page */
 .stat_data {
-  h2 {
-    @include bold-24;
+  position: relative;
+  .centre_updated {
+    @include updated_timestamp;
   }
   table {
-    margin: 0 50px 50px;
+    @include media(320px, 640px) {
+      margin: 0 0 2em;
+      width: 100%;
+    }
+    margin: 0 0 10% 15%;
     border-collapse: collapse;
     border-spacing: 0;
     box-sizing: border-box;
+    width: 85%;
     thead {
       tr {
         th,
         td {
-          padding: 0 1.25em 16px 0;
+          padding: 0.75em 1.25em 0.5625em 0;
           white-space: nowrap;
           vertical-align: bottom;
           &.numeric {
             @include bold-19($tabular-numbers: true);
             text-align: right;
-          }
-          &.centre_updated {
-            @include core-16;
-            color: red;
-            text-align: right;
-          }
-          &:last-child {
-            width: 10%;
-            padding-right: 0;
           }
         }
       }
@@ -192,12 +168,11 @@ h1 {
           @include core-19;
           padding: 0.75em 1.25em 0.5625em 0;
           text-align: left;
-          color: #0b0c0c;
           width: 25%;
           &:first-child {
             width: 50%;
             @include bold-19;
-          }        
+          }
         }
         @media (min-width: 641px) {
           th,
@@ -222,79 +197,19 @@ h1 {
         &.row_centre_capacity {
           border-bottom: 1px solid #BFC1C3;
         }
-        &.row_centre_capacity {
-          th,
-          td {
-            padding-top: 30px;
-          }
-        }
         &.row_centre_availability {
           th,
           td {
             border-bottom: none;
-            padding-bottom: 30px;
           }
-        }
-      }
-    }
-    thead {
-      tr {
-        th {
-          padding-bottom: 20px;
         }
       }
     }
     tbody {
       tr {
         th {
-          padding-left: 30px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    table    { display: block }
-    tr       { display: block }
-    td, th   { display: block; width: 100% !important; }
-    caption  { display: block }
-    table {
-      thead,
-      tbody {
-        tr {
-          th,
-          td {
-            padding: 0;
-            text-align: left;
-            color: #0b0c0c;
-            border-bottom: none;
-            width: 100%;
-            &:first-child {
-              width: 50%;
-            }
-            &:last-child {
-              width: 100%;
-              padding-right: 0;
-            }
-          }
-          &.row_centre_occupied,
-          &.row_centre_ooc {
-            th {
-              padding-left: 0;
-            }
-          }
-          &.row_centre_ooc {
-            th,
-            td {
-              border-bottom: none;
-            }
-          }
-          &.row_centre_availability {
-            th,
-            td {
-              border-bottom: none;
-            }
-          }
+          padding-left: 2em;
+          padding-right: 0;
         }
       }
     }
@@ -305,9 +220,8 @@ h1 {
 #footer {
   border-top: none;
 }
-.phase-banner  {
-  @include phase-banner($state: beta);
-}
+
+/* Buttons */
 .button{
   @include button;
   vertical-align: super;

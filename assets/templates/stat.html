@@ -1,44 +1,42 @@
-<div class="column-three-quarters">
-  <h2 class="centre_name">{{name}}</h2>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">&nbsp;</th>
-        {{#beds}}
-        <th scope="col" class="numeric">{{type}} bed{{plurality}}</th>
-        {{/beds}}
-        <th class="numeric centre_updated" scope="col">{{updated_formatted}}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="row_centre_capacity">
-        <th scope="row">Capacity</th>
-        {{#beds}}
-        <td class="numeric">{{capacity}}</td>
-        {{/beds}}
-        <td>&nbsp;</td>
-      </tr>
-      <tr class="row_centre_occupied">
-        <th scope="row">- Occupied</th>
-        {{#beds}}
-        <td class="numeric">{{occupied}}</td>
-        {{/beds}}
-        <td>&nbsp;</td>
-      </tr>
-      <tr class="row_centre_ooc">
-        <th scope="row">- Beds out of commission</th>
-        {{#beds}}
-        <td class="numeric">{{ooc}}</td>
-        {{/beds}}
-        <td>&nbsp;</td>
-      </tr>
-      <tr class="row_centre_availability">
-        <th scope="row">Availability</th>
-        {{#beds}}
-        <td class="numeric">{{available}}</td>
-        {{/beds}}
-        <td>&nbsp;</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="grid-row">
+  <div class="column-three-quarters">
+    <h2 class="centre_name">{{name}}</h2>
+    <div class="centre_updated">{{updated_formatted}}</div>
+    <table>
+      <thead>
+        <tr>
+          <td scope="col">&nbsp;</td>
+          {{#beds}}
+          <th scope="col" class="numeric">{{type}} bed{{plurality}}</th>
+          {{/beds}}
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row_centre_capacity">
+          <th scope="row">Capacity</th>
+          {{#beds}}
+          <td class="numeric">{{capacity}}</td>
+          {{/beds}}
+        </tr>
+        <tr class="row_centre_occupied">
+          <th scope="row">- Occupied</th>
+          {{#beds}}
+          <td class="numeric">{{occupied}}</td>
+          {{/beds}}
+        </tr>
+        <tr class="row_centre_ooc">
+          <th scope="row">- Beds out of commission</th>
+          {{#beds}}
+          <td class="numeric">{{ooc}}</td>
+          {{/beds}}
+        </tr>
+        <tr class="row_centre_availability">
+          <th scope="row">Availability</th>
+          {{#beds}}
+          <td class="numeric">{{available}}</td>
+          {{/beds}}
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
