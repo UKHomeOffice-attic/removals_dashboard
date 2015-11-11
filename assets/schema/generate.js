@@ -33,7 +33,11 @@ var generate = function(schema, idx) {
   if (validation_response.error !== null) {
     throw new Error(validation_response.error);
   }
-  return faked_json;
+  return {
+    verb: 'updated',
+    id: idx,
+    data: [faked_json]
+  };
 
 };
 

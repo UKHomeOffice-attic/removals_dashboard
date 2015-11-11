@@ -57,9 +57,8 @@ module.exports = Backbone.Model.extend({
 
     this.socket.on('centre', function(payload) {
       if (payload.verb === 'updated' && self.get('centre_id') === payload.id) {
-        self.set(payload.data);
+        self.set(payload.data[0]);
       }
     });
   }
-
 });

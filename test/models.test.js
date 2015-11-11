@@ -63,9 +63,9 @@ describe('models', function() {
       this.server.emit('centre', {
         verb: 'updated',
         id: 1,
-        data: {
+        data: [{
           name: 'first'
-        }
+        }]
       });
     });
 

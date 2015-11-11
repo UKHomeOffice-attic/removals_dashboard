@@ -22,7 +22,7 @@ var start = function() {
   // start an event stream for n centres with each one emitting at a randomised interval
   _(centresSimulated).times(function(idx) {
     setInterval(function() {
-      server.emit('centre_id/'+(idx+1), fakeData(idx+1));
+      server.emit('centre', fakeData(idx+1));
     }, _.random(1000,3000));
   });
 };
@@ -30,9 +30,7 @@ var start = function() {
 server.socketClient.connected = true;
 
 server.on('get', function() {
-  return { body: _(centresSimulated).times(function(idx) {
-    return fakeData(idx+1);
-  }) };
+  return { body: fakeData(1) };
 });
 
 module.exports = {
