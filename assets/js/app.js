@@ -39,6 +39,7 @@ var DashboardRouter = Backbone.Router.extend({
     io = sailsIOClient(socketio);
 
     io.sails.autoConnect = false;
+    io.sails.transports = ['polling'];
 
     if (!simulatorParam) io.sails.url = location.search.split('backend=')[1] || 'http://localhost:8080';
 
@@ -51,16 +52,17 @@ var DashboardRouter = Backbone.Router.extend({
 
     self.container.empty();
     self.container.append("<h1>IRC bed availability</h1>");
-
-    self.socket0.get('/centre', function serverResponded(payload) {
-      _.each(payload.data, function(item,idx) {
-        self.container.append('<div class="centre_data" id="item'+idx+'"></div>');
-        var thisViewCentre = new viewCentre({
-          el: '#item'+idx,
-          socket: self.socket0
-        });
-        thisViewCentre.model.set(item);
-      })
+    self.socket0.on('connect', function () {
+      self.socket0.get('/centre', function serverResponded(payload) {
+        _.each(payload.data, function (item, idx) {
+          self.container.append('<div class="centre_data" id="item' + idx + '"></div>');
+          var thisViewCentre = new viewCentre({
+            el: '#item' + idx,
+            socket: self.socket0
+          });
+          thisViewCentre.model.set(item);
+        })
+      });
     });
   },
 
@@ -69,16 +71,17 @@ var DashboardRouter = Backbone.Router.extend({
 
     self.container.empty();
     self.container.append("<h1>IRC bed stats</h1>");
-
-    self.socket0.get('/centre', function serverResponded(payload) {
-      _.each(payload.data, function(item,idx) {
-        self.container.append('<div class="stat_data" id="stat'+idx+'"></div>');
-        var thisViewStat = new viewStat({
-          el: '#stat'+idx,
-          socket: self.socket0
-        });
-        thisViewStat.model.set(item);
-      })
+    self.socket0.on('connect', function () {
+      self.socket0.get('/centre', function serverResponded(payload) {
+        _.each(payload.data, function (item, idx) {
+          self.container.append('<div class="stat_data" id="stat' + idx + '"></div>');
+          var thisViewStat = new viewStat({
+            el: '#stat' + idx,
+            socket: self.socket0
+          });
+          thisViewStat.model.set(item);
+        })
+      });
     });
   }
 });
