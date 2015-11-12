@@ -40,7 +40,7 @@ var DashboardRouter = Backbone.Router.extend({
 
     io.sails.autoConnect = false;
 
-    if (!simulatorParam) io.sails.url = 'http://localhost:8080';
+    if (!simulatorParam) io.sails.url = location.search.split('backend=')[1] || 'http://localhost:8080';
 
     this.container = $('#content_container');
     this.socket0 = io.sails.connect();
