@@ -55,9 +55,10 @@ module.exports = Backbone.Model.extend({
   subscribeToCentre: function() {
     var self = this;
 
-    this.socket.on('centre_id/' + this.get('centre_id'), function(payload) {
-      self.set(payload);
+    this.socket.on('centre', function(payload) {
+      if (payload.verb === 'updated' && self.get('centre_id') === payload.id) {
+        self.set(payload.data[0]);
+      }
     });
   }
-
 });

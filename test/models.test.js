@@ -60,8 +60,12 @@ describe('models', function() {
 
       model.set('centre_id', 1);
 
-      this.server.emit('centre_id/1', {
-        name: 'first'
+      this.server.emit('centre', {
+        verb: 'updated',
+        id: 1,
+        data: [{
+          name: 'first'
+        }]
       });
     });
 
