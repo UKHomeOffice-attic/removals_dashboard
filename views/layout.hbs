@@ -1,46 +1,21 @@
 {{{ topOfPage }}}
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="lte-ie8" lang="{{ htmlLang }}"><![endif]-->
-<!--[if gt IE 8]><!--><html lang="{{ htmlLang }}"><!--<![endif]-->
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
     <title>{{ title }}</title>
 
-    <script type="text/javascript">
-      (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
-    </script>
     <script src="__/env.js"></script>
     <script src="js/all.js"></script>
 
     <!--[if gt IE 8]><!--><link href="{{{ assetPath }}}css/govuk-template.css?0.16.0" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
-    <!--[if IE 6]><link href="{{{ assetPath }}}css/govuk-template-ie6.css?0.16.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
-    <!--[if IE 7]><link href="{{{ assetPath }}}css/govuk-template-ie7.css?0.16.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
-    <!--[if IE 8]><link href="{{{ assetPath }}}css/govuk-template-ie8.css?0.16.0" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
 
     <link href="{{{ assetPath }}}css/govuk-template-print.css?0.16.0" media="print" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/styles.css" />
 
-    <!--[if IE 8]>
-    <script type="text/javascript">
-      (function(){if(window.opera){return;}
-       setTimeout(function(){var a=document,g,b={families:(g=
-       ["nta"]),urls:["{{{ assetPath }}}css/fonts-ie8.css?0.16.0"]},
-       c="{{{ assetPath }}}javascripts/vendor/goog/webfont-debug.js?0.16.0",d="script",
-       e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
-       ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h=h-1;a.documentElement
-       .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
-      })()
-    </script>
-    <![endif]-->
     <!--[if gte IE 9]><!-->
       <link href="{{{ assetPath }}}css/fonts.css?0.16.0" media="all" rel="stylesheet" type="text/css" />
     <!--<![endif]-->
-
-
-    <!--[if lt IE 9]>
-      <script src="{{{ assetPath }}}javascripts/ie.js?0.16.0" type="text/javascript"></script>
-    <![endif]-->
 
     <link rel="shortcut icon" href="{{{ assetPath }}}images/favicon.ico?0.16.0" type="image/x-icon" />
 
@@ -61,9 +36,7 @@
 
   <body class="{{ bodyClasses }}">
     <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-
-    {{{ bodyStart }}}
-
+        {{{ bodyStart }}}
     <div id="skiplink-container">
       <div>
         <a href="#content" class="skiplink">{{ skipLinkMessage }}</a>
@@ -71,12 +44,9 @@
     </div>
 
     <div id="global-cookie-message">
-
         {{{ cookieMessage }}}
-
     </div>
     <!--end global-cookie-message-->
-
 
     <header role="banner" id="global-header" class="{{{ headerClass }}}">
       <div class="header-wrapper">
@@ -92,9 +62,9 @@
           <div class="content">
             <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
             <nav id="proposition-menu">
-              <a href="#availability" id="proposition-name">IRC Bed Management</a>
+              <a href="{{{ homepageUrl }}}" id="proposition-name">{{ title }}</a>
               <ul id="proposition-links" class="">
-                <li><a href="#availability" class="active">Bed availability</a></li>
+                <li><a href="{{{ homepageUrl }}}" class="active">Bed availability</a></li>
                 <li><a href="#statistics">Stats</a></li>
               </ul>
             </nav>
@@ -109,8 +79,6 @@
     <div id="global-header-bar"></div>
     <!--end global-header-bar-->
 
-
-
     <main id="page-container" role="main">
 
       <div class="phase-banner">
@@ -120,25 +88,20 @@
         </p>
       </div>
 
-      <div class="grid-row">
-        {{> index}}
+      <div id="content_container">
       </div>
+
     </main>
 
-
     <footer class="group js-footer" id="footer" role="contentinfo">
-
       <div class="footer-wrapper">
         {{{ footerTop }}}
       </div>
     </footer>
-
     <!--end footer-->
 
     <div id="global-app-error" class="app-error hidden"></div>
-
-    <script src="{{{ assetPath }}}js/govuk-template.js?0.16.0" type="text/javascript"></script>
-
     {{{ bodyEnd }}}
   </body>
+  <script src="{{{ assetPath }}}js/govuk-template.js?0.16.0" type="text/javascript"></script>
 </html>
