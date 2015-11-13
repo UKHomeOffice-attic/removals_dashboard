@@ -52,7 +52,11 @@ gulp.task('hbs', function() {
     "title": "IRC Bed Management",
     "headerClass": "with-proposition",
     "assetPath": "",
-    "cookieMessage": "This website uses cookies."
+    "cookieMessage": "This website uses cookies.",
+    "availabilityPath": "",
+    "availabilityLink": "Bed availability",
+    "statisticsPath": "#statistics",
+    "statisticsLink": "Stats"
   };
 
   var options = {
