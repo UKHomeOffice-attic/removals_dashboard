@@ -159,6 +159,7 @@ $padding: 1em;
         }
       }
     }
+    tfoot,
     tbody {
       background-color: $grey-3;
       tr {
@@ -196,14 +197,9 @@ $padding: 1em;
         &.row_centre_capacity {
           border-bottom: $padding/10 solid $grey-2;
         }
-        &.row_centre_availability {
-          th,
-          td {
-            border-bottom: none;
-          }
-        }
       }
     }
+    tfoot,
     tbody {
       tr {
         th {

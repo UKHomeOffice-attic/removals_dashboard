@@ -11,6 +11,14 @@
           {{/beds}}
         </tr>
       </thead>
+      <tfoot>
+        <tr class="row_centre_availability">
+          <th scope="row">Availability</th>
+          {{#beds}}
+          <td class="numeric">{{available}}</td>
+          {{/beds}}
+        </tr>
+      </tfoot>
       <tbody>
         <tr class="row_centre_capacity">
           <th scope="row">Capacity</th>
@@ -28,12 +36,6 @@
           <th scope="row">- Beds out of commission</th>
           {{#beds}}
           <td class="numeric">{{ooc}}</td>
-          {{/beds}}
-        </tr>
-        <tr class="row_centre_availability">
-          <th scope="row">Availability</th>
-          {{#beds}}
-          <td class="numeric">{{available}}</td>
           {{/beds}}
         </tr>
       </tbody>
