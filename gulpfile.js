@@ -69,7 +69,8 @@ gulp.task('hbs', function() {
 gulp.task('templates', function() {
   gulp.src('./assets/templates/**/*.html')
     .pipe(hogan('templates.js',{
-      wrapper: 'commonjs'
+      wrapper: 'commonjs',
+      hoganModule: 'hogan.js'
     }))
     .pipe(gulp.dest('./assets/generated'));
 });
