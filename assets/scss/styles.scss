@@ -139,7 +139,7 @@ $padding: 1em;
       margin: 0 0 2em;
       width: 100%;
     }
-    margin: 0 0 10% 15%;
+    margin: $padding $padding*5 $padding*3;
     border-collapse: collapse;
     border-spacing: 0;
     box-sizing: border-box;
@@ -152,7 +152,7 @@ $padding: 1em;
       tr {
         th,
         td {
-          padding: 0.75em 1.25em 0.5625em 0;
+          padding: 0 1.25em $padding/2 0;
           white-space: nowrap;
           vertical-align: bottom;
           &.numeric {
@@ -171,9 +171,9 @@ $padding: 1em;
           @include core-19;
           padding: 0.75em 1.25em 0.5625em 0;
           text-align: left;
-          width: 25%;
+          min-width: 25%;
           &:first-child {
-            width: 50%;
+            min-width: 50%;
             @include bold-19;
           }
         }
