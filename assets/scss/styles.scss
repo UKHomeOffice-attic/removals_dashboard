@@ -150,6 +150,7 @@ h1 {
     caption {
       text-align: left;
       @include bold-24;
+      text-transform: capitalize;
     }
     thead {
       tr {
