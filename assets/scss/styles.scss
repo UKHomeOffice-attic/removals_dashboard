@@ -67,7 +67,10 @@ $padding: 1em;
   text-align: right;
   color: $red;
   position: absolute;
-  top: 1.25em;
+  top: $padding;
+  @include media(320px, 640px) {
+    top: 0;
+  }
   right: 1.25em;
 }
 
