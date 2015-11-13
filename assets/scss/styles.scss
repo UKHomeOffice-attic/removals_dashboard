@@ -64,6 +64,7 @@ $padding: 1em;
 }
 
 @mixin updated_timestamp {
+  @include core-19;
   text-align: right;
   color: $red;
   position: absolute;
@@ -72,6 +73,10 @@ $padding: 1em;
     top: 0;
   }
   right: 1.25em;
+}
+
+h1 {
+  @include bold-36;
 }
 
 /* Dashboard */
