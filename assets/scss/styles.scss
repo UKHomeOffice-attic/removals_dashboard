@@ -140,7 +140,11 @@ $padding: 1em;
     border-collapse: collapse;
     border-spacing: 0;
     box-sizing: border-box;
-    width: 85%;
+    min-width: 85%;
+    caption {
+      text-align: left;
+      @include bold-24;
+    }
     thead {
       tr {
         th,
