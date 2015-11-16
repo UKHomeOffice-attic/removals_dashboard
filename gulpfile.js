@@ -50,13 +50,8 @@ gulp.task('sass', function() {
 gulp.task('hbs', function() {
   var templateData = {
     "title": "IRC Bed Management",
-    "headerClass": "with-proposition",
-    "assetPath": "",
-    "cookieMessage": "This website uses cookies.",
     "availabilityPath": "",
-    "availabilityLink": "Bed availability",
     "statisticsPath": "#statistics",
-    "statisticsLink": "Stats"
   };
 
   var options = {
