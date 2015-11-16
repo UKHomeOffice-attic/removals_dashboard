@@ -169,13 +169,13 @@ h1 {
       text-align: left;
       @include bold-24;
       text-transform: capitalize;
+      @include word-wrap();
     }
     thead {
       tr {
         th,
         td {
           padding: 0 1.25em $padding/2 0;
-          white-space: nowrap;
           vertical-align: bottom;
           &.numeric {
             @include bold-19($tabular-numbers: true);
@@ -194,6 +194,7 @@ h1 {
           padding: 0.75em 1.25em 0.5625em 0;
           text-align: left;
           min-width: 25%;
+          @include word-wrap();
           &:first-child {
             min-width: 50%;
             @include bold-19;
@@ -203,6 +204,7 @@ h1 {
           th,
           td {
             @include bold-19;
+            @include word-wrap();
           }
         }
         th,
