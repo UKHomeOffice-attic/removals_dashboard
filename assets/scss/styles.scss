@@ -207,6 +207,9 @@ h1 {
             @include word-wrap();
           }
         }
+        th {
+          padding-left: 2em;
+        }
         th,
         td {
           &.numeric {
@@ -223,14 +226,6 @@ h1 {
         &.row_centre_occupied,
         &.row_centre_capacity {
           border-bottom: $padding/10 solid $grey-2;
-        }
-      }
-    }
-    tfoot,
-    tbody {
-      tr {
-        th {
-          padding-left: 2em;
         }
       }
     }
