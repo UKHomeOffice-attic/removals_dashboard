@@ -49,9 +49,7 @@ gulp.task('sass', function() {
 
 gulp.task('hbs', function() {
   var templateData = {
-    "title": "IRC Bed Management",
-    "availabilityPath": "",
-    "statisticsPath": "#statistics",
+    "title": "IRC Bed Management"
   };
 
   var options = {
