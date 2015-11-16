@@ -160,10 +160,11 @@ h1 {
       margin: 0 0 2em;
       width: 100%;
     }
-    margin: $padding $padding*5 $padding*3;
+    margin: $padding $padding*5 $padding*3 $padding*5;
     border-collapse: collapse;
     border-spacing: 0;
     box-sizing: border-box;
+    width: calc(100% - #{$padding*10});
     caption {
       text-align: left;
       @include bold-24;
