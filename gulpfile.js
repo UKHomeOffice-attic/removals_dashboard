@@ -70,7 +70,7 @@ gulp.task('templates', function() {
   gulp.src('./assets/templates/**/*.html')
     .pipe(hogan('templates.js',{
       wrapper: 'commonjs',
-      hoganModule: 'hogan.js'
+      hoganModule: parseFloat(process.versions.node) >= 5 ? 'hogan.js': 'hogan'
     }))
     .pipe(gulp.dest('./assets/generated'));
 });
