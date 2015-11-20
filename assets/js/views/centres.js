@@ -14,14 +14,16 @@ module.exports = Backbone.View.extend({
     this.render();
 
     var self = this;
+
     _.each(this.payload.data, function(item,idx) {
 
-      self.$el.append('<div class="centre_data" id="centre_'+idx+'"></div>');
       var thisViewCentre = new viewCentre({
-        el: '#centre_'+idx,
         socket: self.socket
       });
+
       thisViewCentre.model.set(item);
+      self.$el.append(thisViewCentre.el);
+
     })
   },
 
