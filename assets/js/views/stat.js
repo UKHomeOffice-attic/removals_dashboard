@@ -16,6 +16,7 @@ module.exports = Backbone.View.extend({
 
   render: function() {
     this.$el.empty();
+
     this.$el.append(this.template.render(this.model.toJSON(), {
       stat: templates.stat,
     }));
