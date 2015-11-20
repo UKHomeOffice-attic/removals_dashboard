@@ -5,6 +5,7 @@ var models = require('../models');
 
 module.exports = Backbone.View.extend({
   template: templates.centre,
+  className: 'centre_data',
 
   initialize: function(options) {
     this.socket = options.socket;
