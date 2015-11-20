@@ -5,8 +5,6 @@ var sailsIOClient = require('sails.io.js');
 var Backbone = require('backbone');
 
 var views = require('./views');
-//var viewCentres = require('./views/centres');
-//var viewStats = require('./views/stats');
 
 var params = document.location.search.replace("?","").split("&");
 var simulatorParam = _.find(params, function(item) {
@@ -17,14 +15,6 @@ var staticParam = _.find(params, function(item) {
 });
 
 var DashboardRouter = Backbone.Router.extend({
-  /* routes: {
-    "": "handleRouteAvailability",
-    "?simulator": "handleRouteAvailability",
-    "?simulator&static": "handleRouteAvailability",
-    "availability": "handleRouteAvailability",
-    "statistics": "handleRouteStat"
-  }, */
-
   routes: {
     "": function() {
       this.handleRouter('Centres');
@@ -66,7 +56,6 @@ var DashboardRouter = Backbone.Router.extend({
 
   handleRouter: function(whatRoute) {
     var self = this;
-
     self.socket0.get('/centre', function serverResponded(payload) {
       new views[whatRoute]({
         el: '#content_container',
