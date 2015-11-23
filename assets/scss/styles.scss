@@ -63,15 +63,13 @@ $padding: 1em;
   }
 }
 
+/* mixins */
 @mixin updated_timestamp {
   @include core-19;
   text-align: right;
   color: $red;
   position: absolute;
   top: $padding;
-  @include media(320px, 640px) {
-    top: 0;
-  }
   right: 1.25em;
 }
 
@@ -111,6 +109,9 @@ h1 {
     box-sizing: border-box;
     width: 60%;
     position: relative;
+    .bed-count-updated {
+      @include updated_timestamp;
+    }
     ul {
       padding: 0;
       margin: 0;
@@ -121,32 +122,27 @@ h1 {
       padding-bottom: $padding*2;
       line-height: 1;
       white-space: nowrap;
+      .bed-count-figure {
+        @include bold-48;
+        line-height: 0.9;
+        display: inline-block;
+        vertical-align: initial;
+        padding-right: $padding/10;
+      }
+      .bed-count-label {
+        @include core-19;
+        line-height: 0.9;
+        display: inline-block;
+        white-space: normal;
+      }
     }
     strong {
       @include bold-48;
     }
-
     a {
       display: block;
     }
   }
-}
-
-.bed-count-updated {
-  @include updated_timestamp;
-}
-.bed-count-figure {
-  @include bold-48;
-  line-height: 0.9;
-  display: inline-block;
-  vertical-align: initial;
-  padding-right: $padding/10;
-}
-.bed-count-label {
-  @include core-19;
-  line-height: 0.9;
-  display: inline-block;
-  white-space: normal;
 }
 
 /* Stats page */
@@ -154,6 +150,11 @@ h1 {
   position: relative;
   .centre_updated {
     @include updated_timestamp;
+    float: right;
+    position: static;
+    top: 0;
+    right: 0;
+    display: inline;
   }
   table {
     @include media(320px, 640px) {
