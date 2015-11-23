@@ -158,7 +158,7 @@ h1 {
   }
   table {
     @include media(320px, 640px) {
-      margin: 0 0 2em;
+      margin: 1em 0 2em;
       width: 100%;
     }
     margin: $padding $padding*5 $padding*3 $padding*5;
