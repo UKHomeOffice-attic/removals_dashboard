@@ -31,7 +31,7 @@ $padding: 1em;
 .phase-banner  {
   @include phase-banner($state: beta);
 }
-@media (min-width: 480px) {
+@include media(480px) {
   #global-header {
     &.with-proposition {
       .header-wrapper {
@@ -201,7 +201,7 @@ h1 {
             @include bold-19;
           }
         }
-        @media (min-width: 641px) {
+        @include media(640px) {
           th,
           td {
             @include bold-19;
