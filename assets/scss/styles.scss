@@ -209,7 +209,10 @@ h1 {
           }
         }
         th {
-          padding-left: 2em;
+          padding-left: 1.25em;
+          @include media(640px) {
+            padding-left: 2em;
+          }
         }
         th,
         td {
