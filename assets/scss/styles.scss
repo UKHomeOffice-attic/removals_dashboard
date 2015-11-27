@@ -157,15 +157,15 @@ h1 {
     display: inline;
   }
   table {
-    @include media(320px, 640px) {
-      margin: 1em 0 2em;
-      width: 100%;
+    margin: 1em 0 2em;
+    width: 100%;
+    @include media(640px) {
+      margin: $padding $padding*5 $padding*3 $padding*5;
+      border-collapse: collapse;
+      border-spacing: 0;
+      box-sizing: border-box;
+      width: calc(100% - #{$padding*10});
     }
-    margin: $padding $padding*5 $padding*3 $padding*5;
-    border-collapse: collapse;
-    border-spacing: 0;
-    box-sizing: border-box;
-    width: calc(100% - #{$padding*10});
     caption {
       text-align: left;
       @include bold-24;
