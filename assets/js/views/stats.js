@@ -18,7 +18,8 @@ module.exports = Backbone.View.extend({
     _.each(this.payload.data, function(item,idx) {
 
       var thisViewStat = new viewStat({
-        socket: self.socket
+        socket: self.socket,
+        id: 'centre_'+idx
       });
 
       thisViewStat.model.set(item);
@@ -28,7 +29,6 @@ module.exports = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.empty();
-    this.$el.append(this.template.render());
+    this.$el.html(this.template.render());
   }
 });
