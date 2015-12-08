@@ -19,11 +19,11 @@ module.exports = function (environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-eval'",
+      'script-src': "'self' 'unsafe-inline'",
       'font-src': "'self'",
       'connect-src': "'self' http://localhost:8080",
       'img-src': "'self'",
-      'style-src': "'self unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     }
   };
@@ -34,7 +34,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.apiHost =  'http://localhost:8080'
+    ENV.apiHost = 'http://localhost:8080'
   }
 
   if (environment === 'test') {
