@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+/assets/generated/*
 
 # dependencies
 /node_modules
