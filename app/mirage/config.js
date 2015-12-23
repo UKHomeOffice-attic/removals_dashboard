@@ -10,9 +10,9 @@ export default function () {
   this.urlPrefix = 'http://localhost:8080';
 
   /**
-   * API is namespaced
+   * If API is namespaced is set:
+   * this.namespace = 'api';
    */
-  this.namespace = 'api';
 
   /**
    * Timing parameter of the response.
