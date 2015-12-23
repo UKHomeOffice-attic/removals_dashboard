@@ -37,8 +37,9 @@ module.exports = function (environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     /**
-     * Enable Ember CLI Mirage in development
-     *  To share a working prototype before Sails.js server is ready
+     * Ember CLI Mirage in development
+     *  Enable: To share a working prototype
+     *  Disable: To share Sails.js server prototype
      */
     ENV['ember-cli-mirage'] = {
       enabled: true
