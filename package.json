@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "ember build",
+    "postinstall": "node_modules/.bin/bower install",
     "start": "ember server",
     "test": "ember test"
   },
