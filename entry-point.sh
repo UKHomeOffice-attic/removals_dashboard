@@ -25,6 +25,11 @@ server {
     server_name  _;
     root         /usr/share/nginx/html;
 
+    location = /health {
+      return 200;
+      access_log off;
+    }
+
     location / {
     }
 
