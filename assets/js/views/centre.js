@@ -5,9 +5,12 @@ var models = require('../models');
 
 module.exports = Backbone.View.extend({
   template: templates.centre,
+  className: 'centre_data',
 
   initialize: function(options) {
     this.socket = options.socket;
+
+    this.id = options.id;
 
     this.model = new models.Centre([], options);
 
@@ -17,7 +20,7 @@ module.exports = Backbone.View.extend({
   render: function() {
     this.$el.empty();
 
-    this.$el.append(this.template.render(this.model.toJSON(), {
+    this.$el.html(this.template.render(this.model.toJSON(), {
       bed: templates.bed,
     }));
   }

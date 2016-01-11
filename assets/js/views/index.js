@@ -1,4 +1,6 @@
 module.exports = {
   Centre: require('./centre'),
-  Stat: require('./stat')
+  Centres: require('./centres'),
+  Stat: require('./stat'),
+  Stats: require('./stats')
 };

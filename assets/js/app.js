@@ -4,8 +4,7 @@ var socketio = require('socket.io-client');
 var sailsIOClient = require('sails.io.js');
 var Backbone = require('backbone');
 
-var viewCentre = require('./views/centre');
-var viewStat = require('./views/stat');
+var views = require('./views');
 
 var params = document.location.search.replace("?","").split("&");
 var simulatorParam = _.find(params, function(item) {
@@ -17,11 +16,21 @@ var staticParam = _.find(params, function(item) {
 
 var DashboardRouter = Backbone.Router.extend({
   routes: {
-    "": "handleRouteAvailability",
-    "?simulator": "handleRouteAvailability",
-    "?simulator&static": "handleRouteAvailability",
-    "availability": "handleRouteAvailability",
-    "statistics": "handleRouteStat"
+    "": function() {
+      this.handleRouter('Centres');
+    },
+    "?simulator": function() {
+      this.handleRouter('Centres');
+    },
+    "?simulator&static": function() {
+      this.handleRouter('Centres');
+    },
+    "availability": function() {
+      this.handleRouter('Centres');
+    },
+    "statistics": function() {
+      this.handleRouter('Stats');
+    },
   },
 
   initialize: function() {
@@ -42,42 +51,16 @@ var DashboardRouter = Backbone.Router.extend({
 
     if (!simulatorParam) io.sails.url = location.search.split('backend=')[1] || 'http://localhost:8080';
 
-    this.container = $('#content_container');
     this.socket0 = io.sails.connect();
   },
 
-  handleRouteAvailability: function() {
+  handleRouter: function(whatRoute) {
     var self = this;
-
-    self.container.empty();
-    self.container.append("<h1>IRC bed availability</h1>");
-
     self.socket0.get('/centre', function serverResponded(payload) {
-      _.each(payload.data, function(item,idx) {
-        self.container.append('<div class="centre_data" id="item'+idx+'"></div>');
-        var thisViewCentre = new viewCentre({
-          el: '#item'+idx,
-          socket: self.socket0
-        });
-        thisViewCentre.model.set(item);
-      })
-    });
-  },
-
-  handleRouteStat: function() {
-    var self = this;
-
-    self.container.empty();
-    self.container.append("<h1>IRC bed stats</h1>");
-
-    self.socket0.get('/centre', function serverResponded(payload) {
-      _.each(payload.data, function(item,idx) {
-        self.container.append('<div class="stat_data" id="stat'+idx+'"></div>');
-        var thisViewStat = new viewStat({
-          el: '#stat'+idx,
-          socket: self.socket0
-        });
-        thisViewStat.model.set(item);
+      new views[whatRoute]({
+        el: '#content_container',
+        payload: payload,
+        socket: self.socket0
       })
     });
   }
