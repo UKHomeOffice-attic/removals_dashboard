@@ -6,6 +6,7 @@ import DS from 'ember-data';
  */
 export default DS.Model.extend({
   name: DS.attr('string'),
+  updated: DS.attr(),
   maleCapacity: DS.attr('number'),
   femaleCapacity: DS.attr('number'),
   maleInUse: DS.attr('number'),

@@ -9,6 +9,7 @@ export default Mirage.Factory.extend({
   name: function(i) {
     return 'Centre ' + i;
   },
+  updated: '12:12:12',
   maleCapacity: 500,
   femaleCapacity: 500,
   maleInUse: faker.list.random(450, 475, 480, 490, 495, 500),

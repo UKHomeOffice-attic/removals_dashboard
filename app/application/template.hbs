@@ -1,7 +1,192 @@
-<h2 id="title">Welcome to Bed Space Management</h2>
-
 {{#each model as |centre|}}
-  {{#link-to 'centres' centre.id tagName='button'}}{{centre.name}}{{/link-to}}
+
+    <!-- Colnbrook Header (Shape) -->
+    <div id="u16" class="ax_h3 irc_title" data-label="Colnbrook Header">
+        <img id="u16_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u17" class="text">
+            <p><span>{{centre.name}}</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Shape) -->
+    <div id="u22" class="ax_paragraph time_stamp">
+        <img id="u22_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u23" class="text">
+            <p><span>{{centre.updated}}}</span></p>
+        </div>
+    </div>
+
+    <!-- Number (Shape) -->
+    <div id="u26" class="ax_h4" data-label="Number">
+        <img id="u26_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u27" class="text" style="top: 1px; transform-origin: 27.5px 27.5px 0px;">
+            <p><span>61</span></p>
+        </div>
+    </div>
+
+    <!-- Available Beds (Shape) -->
+    <div id="u28" class="ax_paragraph" data-label="Available Beds">
+        <img id="u28_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u29" class="text">
+            <p><span>Available Male Beds</span></p>
+        </div>
+    </div>
+
+    <!-- Number (Shape) -->
+    <div id="u30" class="ax_h4" data-label="Number">
+        <img id="u30_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u31" class="text" style="top: 1px; transform-origin: 14px 27.5px 0px;">
+            <p><span>3</span></p>
+        </div>
+    </div>
+
+    <!-- Available Beds (Shape) -->
+    <div id="u32" class="ax_paragraph" data-label="Available Beds">
+        <img id="u32_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u33" class="text">
+            <p><span>Available Female Beds</span></p>
+        </div>
+    </div>
+
+    <!-- Grey Box (Shape) -->
+    <div id="u50" class="ax_shape" data-label="Grey Box">
+        <img id="u50_img" class="img "
+             src="assets/images/grey_box.png">
+        <!-- Unnamed () -->
+        <div id="u51" class="text" style="top: 88px; transform-origin: 193px -0.5px 0px;">
+            <p><span></span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Shape) -->
+    <div id="u52" class="ax_paragraph availability_details">
+        <img id="u52_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u53" class="text">
+            <p><span>Capacity</span></p>
+
+            <p><span>&nbsp; &nbsp;&nbsp; - Occupied</span></p>
+
+            <p><span>&nbsp; &nbsp;&nbsp; - Beds out of commission</span></p>
+
+            <p><span>Availability</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Shape) -->
+    <div id="u54" class="ax_paragraph availability_details">
+        <img id="u54_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u55" class="text">
+            <p><span>{{centre.maleCapacity}}</span></p>
+
+            <p><span>{{centre.maleOccupied}}</span></p>
+
+            <p><span>{{centre.maleOutOfCommission}}</span></p>
+
+            <p><span>61</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Horizontal Line) -->
+    <div id="u56" class="ax_horizontal_line">
+        <img id="u56_start" class="img " src="assets/images/transparent.gif"
+             alt="u56_start">
+        <img id="u56_end" class="img " src="assets/images/transparent.gif"
+             alt="u56_end">
+        <img id="u56_line" class="img "
+             src="assets/images/line.png"
+             alt="u56_line">
+    </div>
+
+    <!-- Unnamed (Horizontal Line) -->
+    <div id="u57" class="ax_horizontal_line">
+        <img id="u57_start" class="img " src="assets/images/transparent.gif"
+             alt="u57_start">
+        <img id="u57_end" class="img " src="assets/images/transparent.gif"
+             alt="u57_end">
+        <img id="u57_line" class="img "
+             src="assets/images/line.png"
+             alt="u57_line">
+    </div>
+
+    <!-- Grey Box (Shape) -->
+    <div id="u58" class="ax_shape" data-label="Grey Box">
+        <img id="u58_img" class="img "
+             src="assets/images/grey_box.png">
+        <!-- Unnamed () -->
+        <div id="u59" class="text" style="top: 88px; transform-origin: 193px -0.5px 0px;">
+            <p><span></span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Shape) -->
+    <div id="u60" class="ax_paragraph availability_details">
+        <img id="u60_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u61" class="text">
+            <p><span>Capacity</span></p>
+
+            <p><span>&nbsp; &nbsp;&nbsp; - Occupied</span></p>
+
+            <p><span>&nbsp; &nbsp;&nbsp; - Beds out of commission</span></p>
+
+            <p><span>Availability</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Shape) -->
+    <div id="u62" class="ax_paragraph availability_details">
+        <img id="u62_img" class="img " src="assets/images/transparent.gif">
+        <!-- Unnamed () -->
+        <div id="u63" class="text">
+            <p><span>{{centre.femaleCapacity}}</span></p>
+
+            <p><span>{{centre.femaleOccupied}}</span></p>
+
+            <p><span>{{centre.femaleOutOfCommission}}</span></p>
+
+            <p><span>5</span></p>
+        </div>
+    </div>
+
+    <!-- Unnamed (Horizontal Line) -->
+    <div id="u64" class="ax_horizontal_line">
+        <img id="u64_start" class="img " src="assets/images/transparent.gif"
+             alt="u64_start">
+        <img id="u64_end" class="img " src="assets/images/transparent.gif"
+             alt="u64_end">
+        <img id="u64_line" class="img "
+             src="assets/images/line.png"
+             alt="u64_line">
+    </div>
+
+    <!-- Unnamed (Horizontal Line) -->
+    <div id="u65" class="ax_horizontal_line">
+        <img id="u65_start" class="img " src="assets/images/transparent.gif"
+             alt="u65_start">
+        <img id="u65_end" class="img " src="assets/images/transparent.gif"
+             alt="u65_end">
+        <img id="u65_line" class="img "
+             src="assets/images/line.png"
+             alt="u65_line">
+    </div>
+
+    <!-- Grey Box (Shape) -->
+    <div id="u66" class="ax_shape" data-label="Grey Box">
+        <img id="u66_img" class="img "
+             src="assets/images/grey_box.png">
+        <!-- Unnamed () -->
+        <div id="u67" class="text" style="top: 88px; transform-origin: 193px -0.5px 0px;">
+            <p><span></span></p>
+        </div>
+    </div>
 {{/each}}
-<br>
+
 {{outlet}}
