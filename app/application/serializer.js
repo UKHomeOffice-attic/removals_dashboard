@@ -8,13 +8,13 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
-  underscore: Ember.String.underscore,
+  camelize: Ember.String.camelize,
 
-  keyForAttribute: function (attr) {
-    return this.underscore(attr);
+  keyForAttribute: function(attr) {
+    return this.camelize(attr);
   },
 
-  keyForRelationship: function (rawKey) {
-    return this.underscore(rawKey);
+  keyForRelationship: function(rawKey) {
+    return this.camelize(rawKey);
   }
 });
