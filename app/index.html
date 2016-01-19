@@ -13,87 +13,42 @@
   <link rel="stylesheet" href="assets/ember-bedspacemanagement.css">
 
   {{content-for 'head-footer'}}
+
 </head>
 <body>
-<div id="base" class="">
+<header>
+  <img src="assets/images/header.png" style="left: 0px;
+    top: 0px;
+    width: 480px;
+    height: 53px;">
+  <img src="assets/images/transparent.gif">
 
-  <!-- Background (Shape) -->
-  <div id="u0" class="ax_shape" data-label="Background">
-    <img id="u0_img" class="img "
-         src="assets/images/background.png">
-    <!-- Unnamed () -->
-    <div id="u1" class="text" style="top: 718px; transform-origin: 238px -0.5px 0px;">
-      <p><span></span></p>
-    </div>
-  </div>
+  <h1>IRC Bed Management</h1>
+  <img class="crown" src="assets/images/crown_image.png">
+  <img class="beta" src="assets/images/beta_label.png">
 
-  <!-- Header (Shape) -->
-  <div id="u2" class="ax_shape" data-label="Header">
-    <img id="u2_img" class="img "
-         src="assets/images/header.png">
-    <!-- Unnamed () -->
-    <div id="u3" class="text" style="top: 26px; transform-origin: 238px 0.5px 0px;">
-      <p><span></span></p>
-    </div>
-  </div>
+  <h2>BETA</h2>
+  <img src="assets/images/transparent.gif">
 
-  <!-- Header Title (Shape) -->
-  <div id="u4" class="ax_h1" data-label="Header Title">
-    <img id="u4_img" class="img " src="assets/images/transparent.gif">
-    <!-- Unnamed () -->
-    <div id="u5" class="text">
-      <p><span>IRC Bed Management</span></p>
-    </div>
-  </div>
+  <p>
+    This service is in beta. Your
+    <a href="#" style="text-decoration:underline;color:#4A90E2;">
+      feedback
+    </a>
+    can help improve it.
+  </p>
+  <img src="assets/images/transparent.gif">
 
-  <!-- Crown Image (Image) -->
-  <div id="u6" class="ax_image" data-label="Crown Image">
-    <img id="u6_img" class="img "
-         src="assets/images/crown_image.png">
-    <!-- Unnamed () -->
-    <div id="u7" class="text" style="top: 13px; transform-origin: 15.5px 0px 0px;">
-      <p><span></span></p>
-    </div>
-  </div>
+  <h3>IRC bed availability</h3>
+</header>
 
-  <!-- Beta Label (Shape) -->
-  <div id="u8" class="ax_shape" data-label="Beta Label">
-    <img id="u8_img" class="img "
-         src="assets/images/beta_label.png">
-    <!-- Unnamed () -->
-    <div id="u9" class="text" style="top: 3px; transform-origin: 23px 7.5px 0px;">
-      <p><span>BETA</span></p>
-    </div>
-  </div>
-
-  <!-- Beta text (Shape) -->
-  <div id="u10" class="ax_paragraph" data-label="Beta text" style="cursor: pointer;">
-    <img id="u10_img" class="img " src="assets/images/transparent.gif"
-         tabindex="0">
-    <!-- Unnamed () -->
-    <div id="u11" class="text">
-      <p><span style="color:#333333;">This service is in beta. </span><span
-        style="text-decoration:underline;color:#4A90E2;">Your feedback</span><span style="color:#333333;"> can help improve it.</span>
-      </p>
-    </div>
-  </div>
-
-  <!-- Page header (Shape) -->
-  <div id="u12" class="ax_h2" data-label="Page header">
-    <img id="u12_img" class="img " src="assets/images/transparent.gif">
-    <!-- Unnamed () -->
-    <div id="u13" class="text">
-      <p><span>IRC bed availability</span></p>
-    </div>
-  </div>
-
-
-  {{content-for 'body'}}
+{{content-for 'body'}}
 
 </div>
 <script src="assets/vendor.js"></script>
 <script src="assets/ember-bedspacemanagement.js"></script>
 
 {{content-for 'body-footer'}}
+
 </body>
 </html>

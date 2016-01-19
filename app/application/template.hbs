@@ -1,192 +1,64 @@
-{{#each model as |centre|}}
+<div class="rescource-collection" xmlns="http://www.w3.org/1999/html">
+  {{#each model as |centre|}}
 
-    <!-- Colnbrook Header (Shape) -->
-    <div id="u16" class="ax_h3 irc_title" data-label="Colnbrook Header">
-        <img id="u16_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u17" class="text">
-            <p><span>{{centre.name}}</span></p>
-        </div>
-    </div>
+      <div class="rescource-instance">
+          <h4>{{centre.name}}<span class="time_stamp">{{centre.updated}}</span></h4>
 
-    <!-- Unnamed (Shape) -->
-    <div id="u22" class="ax_paragraph time_stamp">
-        <img id="u22_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u23" class="text">
-            <p><span>{{centre.updated}}</span></p>
-        </div>
-    </div>
 
-    <!-- Number (Shape) -->
-    <div id="u26" class="ax_h4" data-label="Number">
-        <img id="u26_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u27" class="text" style="top: 1px; transform-origin: 27.5px 27.5px 0px;">
-            <p><span>{{centre.maleAvailability}}</span></p>
-        </div>
-    </div>
+          <div class="male-availability">
+              <div class="title">
+                  <h1>{{centre.maleAvailability}}<span class="text">Available Make Beds</span></h1>
+              </div>
+              <div class="details">
+                  <p>
+                      Capacity <span class="value">{{centre.maleCapacity}}</span>
+                  </p>
 
-    <!-- Available Beds (Shape) -->
-    <div id="u28" class="ax_paragraph" data-label="Available Beds">
-        <img id="u28_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u29" class="text">
-            <p><span>Available Male Beds</span></p>
-        </div>
-    </div>
+                  <p>
+                      - Occupied<span>{{centre.maleOccupied}}</span></p>
 
-    <!-- Number (Shape) -->
-    <div id="u30" class="ax_h4" data-label="Number">
-        <img id="u30_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u31" class="text" style="top: 1px; transform-origin: 14px 27.5px 0px;">
-            <p><span>{{centre.femaleAvailability}}</span></p>
-        </div>
-    </div>
+                  <p>
+                      - Beds out of commission<span>{{centre.maleOutOfCommission}}</span>
+                  </p>
 
-    <!-- Available Beds (Shape) -->
-    <div id="u32" class="ax_paragraph" data-label="Available Beds">
-        <img id="u32_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u33" class="text">
-            <p><span>Available Female Beds</span></p>
-        </div>
-    </div>
+                  <img src="assets/images/line.png">
 
-    <!-- Grey Box (Shape) -->
-    <div id="u50" class="ax_shape" data-label="Grey Box">
-        <img id="u50_img" class="img "
-             src="assets/images/grey_box.png">
-        <!-- Unnamed () -->
-        <div id="u51" class="text" style="top: 88px; transform-origin: 193px -0.5px 0px;">
-            <p><span></span></p>
-        </div>
-    </div>
+                  <p>Availability<span>{{centre.maleAvailability}}</span></p>
+                  <img src="assets/images/line.png">
+              </div>
+          </div>
+        
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <!-- Unnamed (Shape) -->
-    <div id="u52" class="ax_paragraph availability_details">
-        <img id="u52_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u53" class="text">
-            <p><span>Capacity</span></p>
+          <div class="female-availability">
+              <div class="title">
+                  <h1>{{centre.femaleAvailability}}<span class="text">Available Female Beds</span></h1>
+              </div>
 
-            <p><span>&nbsp; &nbsp;&nbsp; - Occupied</span></p>
+              <div class="details">
+                  <p>
+                      Capacity<span>{{centre.femaleCapacity}}</span>
+                  </p>
 
-            <p><span>&nbsp; &nbsp;&nbsp; - Beds out of commission</span></p>
 
-            <p><span>Availability</span></p>
-        </div>
-    </div>
+                  <p>
+                      - Occupied<span>{{centre.femaleOccupied}}</span>
+                  </p>
 
-    <!-- Unnamed (Shape) -->
-    <div id="u54" class="ax_paragraph availability_details">
-        <img id="u54_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u55" class="text">
-            <p><span>{{centre.maleCapacity}}</span></p>
+                  <p>
+                      - Beds out of commission<span>{{centre.femaleOutOfCommission}}</span>
+                  </p>
 
-            <p><span>{{centre.maleOccupied}}</span></p>
 
-            <p><span>{{centre.maleOutOfCommission}}</span></p>
+                  <img src="assets/images/line.png">
 
-            <p><span>{{centre.maleAvailability}}</span></p>
-        </div>
-    </div>
-
-    <!-- Unnamed (Horizontal Line) -->
-    <div id="u56" class="ax_horizontal_line">
-        <img id="u56_start" class="img " src="assets/images/transparent.gif"
-             alt="u56_start">
-        <img id="u56_end" class="img " src="assets/images/transparent.gif"
-             alt="u56_end">
-        <img id="u56_line" class="img "
-             src="assets/images/line.png"
-             alt="u56_line">
-    </div>
-
-    <!-- Unnamed (Horizontal Line) -->
-    <div id="u57" class="ax_horizontal_line">
-        <img id="u57_start" class="img " src="assets/images/transparent.gif"
-             alt="u57_start">
-        <img id="u57_end" class="img " src="assets/images/transparent.gif"
-             alt="u57_end">
-        <img id="u57_line" class="img "
-             src="assets/images/line.png"
-             alt="u57_line">
-    </div>
-
-    <!-- Grey Box (Shape) -->
-    <div id="u58" class="ax_shape" data-label="Grey Box">
-        <img id="u58_img" class="img "
-             src="assets/images/grey_box.png">
-        <!-- Unnamed () -->
-        <div id="u59" class="text" style="top: 88px; transform-origin: 193px -0.5px 0px;">
-            <p><span></span></p>
-        </div>
-    </div>
-
-    <!-- Unnamed (Shape) -->
-    <div id="u60" class="ax_paragraph availability_details">
-        <img id="u60_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u61" class="text">
-            <p><span>Capacity</span></p>
-
-            <p><span>&nbsp; &nbsp;&nbsp; - Occupied</span></p>
-
-            <p><span>&nbsp; &nbsp;&nbsp; - Beds out of commission</span></p>
-
-            <p><span>Availability</span></p>
-        </div>
-    </div>
-
-    <!-- Unnamed (Shape) -->
-    <div id="u62" class="ax_paragraph availability_details">
-        <img id="u62_img" class="img " src="assets/images/transparent.gif">
-        <!-- Unnamed () -->
-        <div id="u63" class="text">
-            <p><span>{{centre.femaleCapacity}}</span></p>
-
-            <p><span>{{centre.femaleOccupied}}</span></p>
-
-            <p><span>{{centre.femaleOutOfCommission}}</span></p>
-
-            <p><span>{{centre.femaleAvailability}}</span></p>
-        </div>
-    </div>
-
-    <!-- Unnamed (Horizontal Line) -->
-    <div id="u64" class="ax_horizontal_line">
-        <img id="u64_start" class="img " src="assets/images/transparent.gif"
-             alt="u64_start">
-        <img id="u64_end" class="img " src="assets/images/transparent.gif"
-             alt="u64_end">
-        <img id="u64_line" class="img "
-             src="assets/images/line.png"
-             alt="u64_line">
-    </div>
-
-    <!-- Unnamed (Horizontal Line) -->
-    <div id="u65" class="ax_horizontal_line">
-        <img id="u65_start" class="img " src="assets/images/transparent.gif"
-             alt="u65_start">
-        <img id="u65_end" class="img " src="assets/images/transparent.gif"
-             alt="u65_end">
-        <img id="u65_line" class="img "
-             src="assets/images/line.png"
-             alt="u65_line">
-    </div>
-
-    <!-- Grey Box (Shape) -->
-    <div id="u66" class="ax_shape" data-label="Grey Box">
-        <img id="u66_img" class="img "
-             src="assets/images/grey_box.png">
-        <!-- Unnamed () -->
-        <div id="u67" class="text" style="top: 88px; transform-origin: 193px -0.5px 0px;">
-            <p><span></span></p>
-        </div>
-    </div>
-{{/each}}
-
+                  <p>
+                      Availability<span>{{centre.femaleAvailability}}</span>
+                  </p>
+                  <img src="assets/images/line.png">
+              </div>
+          </div>
+      </div>
+  {{/each}}
+</div>
 {{outlet}}
