@@ -12,5 +12,11 @@ export default DS.Model.extend({
   maleInUse: DS.attr('number'),
   femaleInUse: DS.attr('number'),
   maleOutOfCommission: DS.attr('number'),
-  femaleOutOfCommission: DS.attr('number')
+  femaleOutOfCommission: DS.attr('number'),
+  maleAvailability: Ember.computed('maleCapacity', 'maleInUse', 'maleOutOfCommission', function() {
+    return this.get('maleCapacity') - this.get('maleInUse') - this.get('maleOutOfCommission');
+  }),
+  femaleAvailability: Ember.computed('femaleCapacity', 'femaleInUse', 'femaleOutOfCommission', function() {
+    return this.get('femaleCapacity') - this.get('femaleInUse') - this.get('femaleOutOfCommission');
+  })
 });
