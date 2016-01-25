@@ -43,7 +43,7 @@ module.exports = function(environment) {
      *  Disable: To share Sails.js server prototype
      */
     ENV['ember-cli-mirage'] = {
-      enabled: true
+      enabled: false
     }
   }
 
