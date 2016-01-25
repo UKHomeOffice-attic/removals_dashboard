@@ -3,11 +3,13 @@
  * Mirage wraps Pretender, which intercepts requests that would normally hit your API, and allows you to specify
  * the response that should be sent back.
  */
-export default function () {
+import ENV from '../config/environment';
+
+export default function() {
   /**
    * As Sails.js API is on a different server
    */
-  this.urlPrefix = 'http://localhost:8080';
+  this.urlPrefix = ENV['apiURL'];
 
   /**
    * If API is namespaced is set:
@@ -28,7 +30,7 @@ export default function () {
   /**
    * Route will handle the URL '/api/centres'
    */
-  this.get('/centres', function (db) {
+  this.get('/centres', function(db) {
     return {
       data: db.centres.map(attrs => (
       {type: 'centres', id: attrs.id, attributes: attrs}
@@ -39,7 +41,7 @@ export default function () {
   /**
    * Route will handle the URL '/api/centre/{id}'
    */
-  this.get('/centres/:id', function (db, request) {
+  this.get('/centres/:id', function(db, request) {
     let id = request.params.id;
 
     return {

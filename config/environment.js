@@ -30,6 +30,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV['apiURL'] = 'http://localhost:8080';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -48,6 +49,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
+    ENV['apiURL'] = 'http://localhost:8080';
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
@@ -66,6 +68,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV['apiURL'] = 'https://api.ircbd.homeoffice.gov.uk:443';
     /**
      * Disable Ember CLI Mirage in production
      */

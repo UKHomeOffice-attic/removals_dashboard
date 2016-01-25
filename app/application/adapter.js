@@ -6,13 +6,19 @@
  * If required at a later stage add attribute namespace: 'api'
  */
 import DS from 'ember-data';
+import ENV from '../config/environment';
 
 export default DS. JSONAPIAdapter.extend({
-  host: 'http://localhost:8080',
+  host: ENV['apiURL'],
   shouldReloadAll() {
     return true;
   },
   shouldBackgroundReloadRecord() {
     return false;
+  },
+  init: function() {
+    /**
+     * To Do: Inject sails-io socket
+     */
   }
 });
