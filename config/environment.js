@@ -19,9 +19,9 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://rawgit.com ws://localhost:8080 http://localhost:8080",
       'font-src': "'self'",
-      'connect-src': "'self' http://localhost:8080",
+      'connect-src': "'self' http://localhost:8080 ws://localhost:8080",
       'img-src': "'self'",
       'report-uri': "'localhost'",
       'style-src': "'self' 'unsafe-inline'",
