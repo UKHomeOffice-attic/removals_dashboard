@@ -1,63 +1,77 @@
-<div class="rescource-collection" xmlns="http://www.w3.org/1999/html">
+<div class="container">
   {{#each model as |centre|}}
+      <div class="header">
+          <span class="header-row-zero">
+              <span class="title">{{centre.name}}</span>
+              <span class="time">{{centre.updated}}</span>
+          </span>
+          <span class="header-row-one">{{centre.maleAvailability}}</span>
+          <span class="header-row-two">
+              <span class="left-indent">Available Male Beds</span>
+              <span class="right"><a href="#">Hide Numbers</a></span>
+          </span>
+      </div>
 
-      <div class="rescource-instance">
-          <h4>{{centre.name}}<span class="time_stamp">{{centre.updated}}</span></h4>
+      <div class="details">
+          <span class="table-row">
+              <span class="left">Category</span>
+              <span class="right">Total</span>
+          </span>
 
+          <span class="table-row">
+              <span class="left">Contractual Capacity</span>
+              <span class="right">{{centre.maleCapacity}}</span>
+          </span>
 
-          <div class="male-availability">
-              <div class="title">
-                  <h1>{{centre.maleAvailability}}<span class="text">Available Make Beds</span></h1>
-              </div>
-              <div class="details">
-                  <p>
-                      Capacity <span class="value">{{centre.maleCapacity}}</span>
-                  </p>
+          <span class="table-row">
+              <span class="left-indent">Occupied</span>
+              <span class="right">{{centre.maleInUse}}</span>
+          </span>
 
-                  <p>
-                      - Occupied<span>{{centre.maleOccupied}}</span></p>
+          <span class="table-row">
+              <span class="left-indent">Beds out of commission</span>
+              <span class="right">{{centre.maleOutOfCommission}}</span>
+          </span>
 
-                  <p>
-                      - Beds out of commission<span>{{centre.maleOutOfCommission}}</span>
-                  </p>
+          <span class="table-row availability">
+              <span class="left">Availability</span>
+              <span class="right">{{centre.maleAvailability}}</span>
+          </span>
+      </div>
 
-                  <img src="assets/images/line.png">
+      <div class="header">
+          <span class="header-row-one">{{centre.femaleAvailability}}</span>
+          <span class="header-row-two">
+              <span class="left-indent">Available Female Beds</span>
+              <span class="right"><a href="#">Hide Numbers</a></span>
+          </span>
+      </div>
 
-                  <p>Availability<span>{{centre.maleAvailability}}</span></p>
-                  <img src="assets/images/line.png">
-              </div>
-          </div>
-        
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div class="details">
+          <span class="table-row">
+              <span class="left">Category</span>
+              <span class="right">Total</span>
+          </span>
 
-          <div class="female-availability">
-              <div class="title">
-                  <h1>{{centre.femaleAvailability}}<span class="text">Available Female Beds</span></h1>
-              </div>
+          <span class="table-row">
+              <span class="left">Contractual Capacity</span>
+              <span class="right">{{centre.femaleCapacity}}</span>
+          </span>
 
-              <div class="details">
-                  <p>
-                      Capacity<span>{{centre.femaleCapacity}}</span>
-                  </p>
+          <span class="table-row">
+              <span class="left-indent">Occupied</span>
+              <span class="right">{{centre.femaleInUse}}</span>
+          </span>
 
+          <span class="table-row">
+              <span class="left-indent">Beds out of commission</span>
+              <span class="right">{{centre.femaleOutOfCommission}}</span>
+          </span>
 
-                  <p>
-                      - Occupied<span>{{centre.femaleOccupied}}</span>
-                  </p>
-
-                  <p>
-                      - Beds out of commission<span>{{centre.femaleOutOfCommission}}</span>
-                  </p>
-
-
-                  <img src="assets/images/line.png">
-
-                  <p>
-                      Availability<span>{{centre.femaleAvailability}}</span>
-                  </p>
-                  <img src="assets/images/line.png">
-              </div>
-          </div>
+          <span class="table-row availability">
+              <span class="left">Availability</span>
+              <span class="right">{{centre.femaleAvailability}}</span>
+          </span>
       </div>
   {{/each}}
 </div>

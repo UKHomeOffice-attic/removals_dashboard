@@ -1,10 +1,7 @@
-div {
-  /*position: absolute;*/
-  /*left: 0px;*/
-  /*top: 0px;*/
-}
+/***************** Body Styling *****************/
 
-h1, h2, h3, h4, h5, h6 {
+body {
+  width: 480px;
   font-family: 'Arial Bold', 'Arial';
   font-weight: 700;
   font-style: normal;
@@ -13,166 +10,186 @@ h1, h2, h3, h4, h5, h6 {
   line-height: normal;
 }
 
-header h1 {
-  font-size: 48px;
-  color: #FFFFFF;
-  margin: 0px;
-  position: absolute;
-  left: 71px;
-  top: 10px;
-  width: 300px;
-  height: 34px;
-}
-
-.rescource-collection h1 {
-  font-size: 60px;
-  float: left;
-}
-
-h2 {
-  font-size: 13px;
-  color: #FFFFFF;
-  margin: 0px;
-  left: 28px;
-  z-index: 2000;
-  position: absolute;
-}
-
-h3 {
-  position: absolute;
-  left: 20px;
-  top: 137px;
-  width: 255px;
-  height: 33px;
-  font-size: 27px;
-}
-
-h4 {
-  font-weight: bold;
-  font-style: normal;
-  font-size: 24px;
-  width: 85%;
-  float: left;
-}
-
-h5 {
-  font-size: 13px;
-}
-
-h6 {
-  font-size: 10px;
-}
-
-a {
-  color: #0000FF;
-}
-
-p {
-  font-family: 'Arial Regular', 'Arial';
-  font-weight: 700;
-  font-style: normal;
-  line-height: 37px;
-  font-size: 16px;
-}
-
-header p {
-  color: #333333;
-  position: absolute;
-  left: 74px;
-  top: 71px;
-  width: 347px;
-  height: 16px;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 13px;
-"
-}
-
-.rescource-collection {
-  margin: 150px 10px;
-}
-
-.rescource-instance {
-  margin: 0px 50px;
-}
-
-.rescource-instance h4 {
-  margin: 40px 0;
-}
-
-.male-availability,
-.female-availability {
-  margin-top: 100px;
-  position: absolute;
-}
-
-.time_stamp {
-  font-size: 13px;
-  color: #D0021B;
-  font-weight: 400;
-  float: right;
-  margin-right: -50px;
-}
-
-.availability_details {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.link {
-  font-size: 12px;
-  color: #4A90E2;
-}
-
-.irc_title {
-  font-weight: bold;
-  font-size: 24px;
-}
+/***************** Header Styling *****************/
 
 header {
-  /*position: absolute;*/
-  /*z-index: 0;*/
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  margin: -19px 0 10px -8px;
 }
 
-body {
-  width: 480px;
-  font-size: 13px;
+header div.banner {
+  height: 60px;
+  width: 100%;
+  background-color: black;
 }
 
-.title .text {
-  font-size: 13px;
-  font-weight: 400;
-}
-
-img {
-
-}
-
-img.crown {
+header div.banner img {
   position: absolute;
   left: 20px;
-  top: 14px;
+  top: 12px;
   width: 35px;
   height: 26px;
 }
 
-img.beta {
+header div.banner h1 {
   position: absolute;
-  left: 20px;
-  top: 68px;
-  width: 50px;
-  height: 21px;
-  font-family: 'Arial Bold', 'Arial';
-  font-weight: 700;
-  font-style: normal;
+  left: 71px;
+  width: 300px;
+  height: 34px;
+  font-size: 29px;
   color: #FFFFFF;
 }
 
-.title {
-  position: absolute;
+header div.beta {
+  height: 30px;
+  width: 100%;
+  padding: 20px;
 }
 
+header div.beta .title {
+  width: 10%;
+  height: 30px;
+  background-image: url("/assets/images/beta_label.png");
+  background-repeat: no-repeat;
+  font-size: 13px;
+  color: #FFFFFF;
+  float: left;
+  padding: 3px 3px 3px 7px;
+}
+
+header div.beta .text {
+  height: 30px;
+  width: 100%;
+  font-size: 13px;
+  color: #333333;
+  font-weight: 400;
+  padding: 3px 3px 3px 7px;
+}
+
+header h2 {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+/***************** Container Styling *****************/
+
+.container {
+  width: 480px;
+  float: left;
+  overflow: hidden;
+  background-color: white;
+}
+
+/***************** Resource Instance Header Styling *****************/
+
+.header {
+  width: 468px;
+  float: left;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 0px 6px 0px 6px;
+  margin: 10px 0px 10px 0px;
+}
+
+.header-row-zero {
+  width: 462px;
+  background-color: #fff;
+  float: left;
+}
+
+.header-row-zero .title {
+  float: left;
+  font-family: Arial, sans-serif;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-row-zero .time {
+  float: right;
+  font-family: Arial, sans-serif;
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.header-row-one {
+  width: 423px;
+  background-color: #fff;
+  float: left;
+  margin-left: 45px;
+  font-family: Arial, sans-serif;
+  color: #000;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.header-row-two {
+  width: 462px;
+  float: left;
+  font-family: Arial, sans-serif;
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.header-row-two .left-indent {
+  float: left;
+  margin-left: 45px;
+}
+
+.header .right {
+  float: right;
+}
+
+.header a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.header a:hover, a:focus, a:active {
+  text-decoration: underline;
+}
+
+/***************** Resource Instance Details Styling *****************/
+
 .details {
-  background-image: url("/assets/images/grey_box.png");
-  margin: 50px 0;
+  width: 480px;
+  float: left;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  padding: 0px 6px 0px 6px;
+  color: #000;
+  font-size: 16px;
+  font-family: 'Arial Bold', 'Arial';
+  font-weight: 700;
+  font-style: normal;
+}
+
+.details .table-row {
+  width: 468px;
+  float: left;
+  border-top: 1px solid #ccc;
+  padding: 10px 0px 10px 0px;
+}
+
+.details .availability {
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+  margin-bottom: 10px;
+}
+
+.details .left {
+  float: left;
+}
+
+.details .right {
+  float: right;
+}
+
+.details .left-indent {
+  float: left;
+  margin-left: 45px;
 }
