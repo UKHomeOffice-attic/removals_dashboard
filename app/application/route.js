@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import DS from 'ember-data';
 
 export default Ember.Route.extend({
   beforeModel() {
@@ -17,7 +16,7 @@ export default Ember.Route.extend({
     return this.store.findAll('centre');
   },
   activate() {
-    this.io.socket.get('/centres', function serverResponded(body, JWR) {
+    this.io.socket.get('/centres', function serverResponded() {
     });
   },
   deactivate() {
