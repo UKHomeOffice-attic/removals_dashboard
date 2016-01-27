@@ -73,6 +73,17 @@ header h2 {
   padding: 10px 20px;
 }
 
+header #happybrowser {
+  width: 100%;
+  padding: 20px;
+  display: none;
+  color: #ff0000;
+  font-weight: normal;
+  font-size: 13px;
+  height: 20px;
+  text-align: center;
+}
+
 /***************** Container Styling *****************/
 
 .container {

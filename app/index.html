@@ -22,6 +22,10 @@
 
     <h1>IRC Bed Management</h1>
   </div>
+  <div id="happybrowser" style="display:none">
+    You are using a non-supported browser. Please <a href="http://chrome.com/">change your browser to
+    Chrome</a> to improve your experience.
+  </div>
   <div class="beta">
     <div class="title">BETA</div>
 
@@ -38,5 +42,10 @@
 
 {{content-for 'body-footer'}}
 
+<script>
+  if (!window.chrome) {
+    document.getElementById("happybrowser").style.display = "block";
+  }
+</script>
 </body>
 </html>
