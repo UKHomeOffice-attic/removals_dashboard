@@ -1,7 +1,6 @@
 # Ember-bedspacemanagement
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
 
 ## Prerequisites
 
@@ -13,14 +12,13 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 
-## Installation
+## Installation FE: Ember App
 
 * `git clone <repository-url>` this repository
 * change into the new directory
 * `npm install`
-* `bower install`
 
-## Running / Development
+## Running / Development FE: Ember App
 
 * `ember server`
 * Visit your app at [http://localhost:8000](http://localhost:8000).
@@ -41,13 +39,18 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+Chris to update ...
 
-## Further Reading / Useful Links
+### To Demo with an API
+#### Installation
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+* `git clone https://github.com/UKHomeOffice/removals_integration.git` this repository
+* change into the new directory
+* `npm install`
+
+#### Running / Development BE: Sails API App
+
+* `node utils/sails_in_memory.js`
+* Visit your app at [http://localhost:8080](http://localhost:8080).
+
 
