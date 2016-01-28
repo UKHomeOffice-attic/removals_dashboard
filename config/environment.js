@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'ember-bedspacemanagement',
     environment: environment,
@@ -19,9 +19,9 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://rawgit.com ws://localhost:8080 http://localhost:8080",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://rawgit.com ws://localhost:8080 http://localhost:8080 https://api.ircbd.homeoffice.gov.uk",
       'font-src': "'self'",
-      'connect-src': "'self' http://localhost:8080 ws://localhost:8080",
+      'connect-src': "'self' http://localhost:8080 ws://localhost:8080 https://api.ircbd.homeoffice.gov.uk",
       'img-src': "'self'",
       'report-uri': "'localhost'",
       'style-src': "'self' 'unsafe-inline'",
