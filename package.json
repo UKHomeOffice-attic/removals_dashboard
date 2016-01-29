@@ -8,10 +8,10 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "node_modules/.bin/ember build",
-    "postinstall": "node_modules/.bin/bower install && ./node_modules/.bin/precommit install",
-    "start": "node_modules/.bin/ember server",
-    "test": "node_modules/.bin/ember test"
+    "build": "ember build",
+    "postinstall": "bower install && precommit install",
+    "start": "ember server",
+    "test": "ember test"
   },
   "repository": "",
   "engines": {
