@@ -13,7 +13,8 @@ cat <<- EOF > /usr/share/nginx/html/config.json
 {
   "backend": "${BACKEND:-http://localhost:8000}",
   "keycloakUrl": "${KEYCLOAKURL:-http://localhost:8000}",
-  "clientId": "${CLIENTID:-ircbd-dev}"
+  "clientId": "${CLIENTID:-ircbd-dev}",
+  "keycloakAccountService": "${KEYCLOAKACCOUNTSERVICE:-http://localhost:8000}"
 }
 EOF
 
