@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "node_modules/.bin/ember build",
-    "postinstall": "node_modules/.bin/bower install",
+    "postinstall": "node_modules/.bin/bower install && ./node_modules/.bin/precommit install",
     "start": "node_modules/.bin/ember server",
     "test": "node_modules/.bin/ember test"
   },
@@ -40,6 +40,14 @@
     "ember-data": "1.13.15",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
-    "phantomjs": "^1.9.19"
+    "phantomjs": "^1.9.19",
+    "precommit": "^1.2.0"
+  },
+  "precommit": {
+    "tasks": [
+      "npm test"
+    ],
+    "onDirtyState": "ask",
+    "coloredOutput": true
   }
 }
