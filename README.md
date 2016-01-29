@@ -1,4 +1,4 @@
-# Ember-bedspacemanagement
+# Bedspace management frontend
 
 This README outlines the details of collaborating on this Ember application.
 
@@ -9,8 +9,6 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
 
 ## Installation FE: Ember App
 
@@ -20,26 +18,16 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development FE: Ember App
 
-* `ember server`
+* npm start`
 * Visit your app at [http://localhost:8000](http://localhost:8000).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
 
 ### Running Tests
 
-* `ember test`
-* `ember test --server`
+* `npm test`
 
 ### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Chris to update ...
+* `npm build`
 
 ### To Demo with an API
 #### Installation
@@ -48,9 +36,9 @@ Chris to update ...
 * change into the new directory
 * `npm install`
 
-#### Running / Development BE: Sails API App
+#### Running / Development BE: Sails API App (with fixtures)
 
-* `node utils/sails_in_memory.js`
+* `npm run start-with-fixtures`
 * Visit your app at [http://localhost:8080](http://localhost:8080).
 
 
