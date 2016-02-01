@@ -8,13 +8,12 @@ $color_concrete_approx: #f3f3f3;
 $color_celeste_approx: #ccc;
 
 //fonts
-$font_1: "Arial";
-$font_2: "Arial Bold";
-$font_3: "sans-serif";
+$font_generic: "Arial", "sans-serif";
+$font_bold: "Arial Bold", "Arial", "sans-serif";
 
 body {
   width: 480px;
-  font-family: $font_2, $font_1;
+  font-family: $font_bold;
   font-weight: 700;
   font-style: normal;
   color: $color_mine_shaft_approx;
@@ -23,8 +22,6 @@ body {
 }
 
 header {
-  left: 0;
-  top: 0;
   width: 100%;
   margin: -19px 0 10px -8px;
   div {
@@ -88,14 +85,14 @@ header {
   float: left;
   .title {
     float: left;
-    font-family: $font_1, $font_3;
+    font-family: $font_generic;
     color: $black;
     font-size: 18px;
     font-weight: bold;
   }
   .time {
     float: right;
-    font-family: $font_1, $font_3;
+    font-family: $font_generic;
     color: $black;
     font-size: 14px;
     font-weight: normal;
@@ -107,7 +104,7 @@ header {
   background-color: $white;
   float: left;
   margin-left: 45px;
-  font-family: $font_1, $font_3;
+  font-family: $font_generic;
   color: $black;
   font-size: 34px;
   font-weight: bold;
@@ -116,7 +113,7 @@ header {
 .header-row-two {
   width: 462px;
   float: left;
-  font-family: $font_1, $font_3;
+  font-family: $font_generic;
   color: $black;
   font-size: 14px;
   font-weight: normal;
@@ -143,7 +140,7 @@ a {
   padding: 0 6px;
   color: $black;
   font-size: 16px;
-  font-family: $font_2, $font_1;
+  font-family: $font_bold;
   font-weight: 700;
   font-style: normal;
   .table-row {
