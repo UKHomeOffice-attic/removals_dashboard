@@ -1,12 +1,4 @@
-{{foo}}
-{{foop}}
-
 {{#each arrangedContent as |centre|}}
-    <h3>{{centre.name}}</h3>
-{{/each}}
-
-
-{{#each model as |centre|}}
     <div class="centre" id="centre-{{centre.id}}">
         <h3>{{centre.name}}</h3>
         <span class="time">Last updated: {{moment-format centre.heartbeatRecieved "HH:mm:ss" allow-empty = true}}</span>
