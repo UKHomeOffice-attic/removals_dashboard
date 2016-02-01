@@ -6,7 +6,6 @@ $red: #ff0000;
 $blue: blue;
 $color_concrete_approx: #f3f3f3;
 $color_celeste_approx: #ccc;
-$beta_orange: #f57123;
 
 //fonts
 $font_1: "Arial";
@@ -47,25 +46,6 @@ header {
         height: 34px;
         font-size: 29px;
         color: $white;
-      }
-    }
-    &.beta {
-      height: 30px;
-      width: 100%;
-      padding: 20px;
-      font-size: 13px;
-      .title {
-        background: $beta_orange;
-        color: $white;
-        float: left;
-        padding: 3px 7px;
-        margin-right: 0.5em;
-      }
-      .text {
-        width: 100%;
-        color: $color_mine_shaft_approx;
-        font-weight: 400;
-        padding: 3px 0;
       }
     }
   }
