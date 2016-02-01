@@ -2,8 +2,8 @@
 $color_mine_shaft_approx: #333333;
 $black: black;
 $white: #ffffff;
-$red: #ff0000;
-$blue: blue;
+$red: #B1171D;
+$blue: #4A90E2;
 $color_concrete_approx: #f3f3f3;
 $color_celeste_approx: #ccc;
 
@@ -13,155 +13,112 @@ $font_bold: "Arial Bold", "Arial", "sans-serif";
 
 body {
   width: 480px;
-  font-family: $font_bold;
-  font-weight: 700;
-  font-style: normal;
+  font-family: $font_generic;
   color: $color_mine_shaft_approx;
-  text-align: left;
-  line-height: normal;
+  margin: 0;
 }
 
 header {
-  width: 100%;
-  margin: -19px 0 10px -8px;
-  div {
-    &.banner {
-      height: 60px;
-      width: 100%;
-      background-color: $black;
-      img {
-        position: absolute;
-        left: 20px;
-        top: 12px;
-        width: 35px;
-        height: 26px;
-      }
-      h1 {
-        position: absolute;
-        left: 71px;
-        width: 300px;
-        height: 34px;
-        font-size: 29px;
-        color: $white;
-      }
+  .banner {
+    background-color: $black;
+    img {
+      padding: 0.6em 1.2em;
+      float: left;
+    }
+    h1 {
+      margin: 0;
+      line-height: 1.5em;
+      font-size: 2em;
+      color: $white;
     }
   }
   h2 {
     margin: 0;
-    padding: 10px 20px;
+    font-size: 2.2em;
+    padding: 1em 0.5em;
   }
   #happybrowser {
-    width: 100%;
-    padding: 20px;
-    display: none;
     color: $red;
-    font-weight: normal;
-    font-size: 13px;
-    height: 20px;
+    padding: 3em 0;
+    font-size: 3em;
     text-align: center;
   }
 }
 
-.container {
-  width: 480px;
-  float: left;
-  overflow: hidden;
-}
-
-.header {
-  width: 468px;
-  float: left;
-  overflow: hidden;
-  padding: 0 6px;
-  margin: 10px 0;
-  .right {
-    float: right;
-  }
-}
-
-.header-row-zero {
-  width: 462px;
-  background-color: $white;
-  float: left;
-  .title {
+.centre {
+  padding-bottom: 2em;
+  h3 {
+    font-size: 3em;
+    margin: 0 0 0 0.3em;
     float: left;
-    font-family: $font_generic;
-    color: $black;
-    font-size: 18px;
-    font-weight: bold;
+    display: inline-block;
   }
   .time {
-    float: right;
-    font-family: $font_generic;
-    color: $black;
-    font-size: 14px;
-    font-weight: normal;
+    font-size: 0.8em;
+    text-align: right;
+    display: block;
+    padding-top: 1.5em;
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
   }
-}
-
-.header-row-one {
-  width: 423px;
-  background-color: $white;
-  float: left;
-  margin-left: 45px;
-  font-family: $font_generic;
-  color: $black;
-  font-size: 34px;
-  font-weight: bold;
-}
-
-.header-row-two {
-  width: 462px;
-  float: left;
-  font-family: $font_generic;
-  color: $black;
-  font-size: 14px;
-  font-weight: normal;
-  .left-indent {
-    float: left;
-    margin-left: 45px;
+  .summary {
+    margin: 1em 0 0 4em;
+    .availability {
+      display: block;
+      font-weight: 700;
+      font-family: $font_bold;
+      font-size: 4em;
+      &.highlight {
+        color: $red;
+      }
+    }
+    .detail-toggle {
+      cursor: pointer;
+      float: right;
+      color: $blue;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
-}
-
-a {
-  &:focus {
-    text-decoration: underline;
-  }
-  &:active {
-    text-decoration: underline;
-  }
-}
-
-.details {
-  width: 480px;
-  float: left;
-  overflow: hidden;
-  background-color: $color_concrete_approx;
-  padding: 0 6px;
-  color: $black;
-  font-size: 16px;
-  font-family: $font_bold;
-  font-weight: 700;
-  font-style: normal;
-  .table-row {
-    width: 468px;
-    float: left;
-    border-top: 1px solid $color_celeste_approx;
-    padding: 10px 0;
-  }
-  .availability {
-    border-top: 4px solid $black;
-    border-bottom: 4px solid $black;
-    margin-bottom: 10px;
-  }
-  .left {
-    float: left;
-  }
-  .right {
-    float: right;
-  }
-  .left-indent {
-    float: left;
-    margin-left: 45px;
+  .details {
+    margin: 1em 0;
+    background-color: $color_concrete_approx;
+    padding: 0.5em 1em 1em;
+    clear: both;
+    table {
+      border-collapse: collapse;
+      line-height: 2.5em;
+      width: 100%;
+      thead,
+      tfoot {
+        font-weight: 700;
+        font-family: $font_bold;
+      }
+      tr {
+        border-bottom: 1px solid $color_celeste_approx;
+        th,
+        td {
+          text-align: left;
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+      tbody {
+        .left-indent {
+          padding-left: 45px;
+        }
+      }
+      tfoot {
+        border-top: 4px solid $black;
+        border-bottom: 4px solid $black;
+        font-size: 2em;
+        line-height: 1.8em;
+      }
+    }
   }
 }

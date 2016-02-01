@@ -1,0 +1,42 @@
+{{# if display}}
+    <div class="summary">
+        <span class="availability {{if isFull 'highlight' ''}}">{{formattedAvailability}}</span>
+        <span>{{#if isFull}}No {{/if}}Available {{gender}} Beds</span>
+        <a class="detail-toggle" {{action "toggleDetails" on="click"}}>
+          {{# if showDetails}}Hide{{else}}Show{{/if}} numbers
+        </a>
+
+    </div>
+    {{# if showDetails}}
+        <div class="details">
+            <table>
+                <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Contractual Capacity</td>
+                    <td>{{capacity}}</td>
+                </tr>
+                <tr>
+                    <td class="left-indent">Occupied</td>
+                    <td>{{inUse}}</td>
+                </tr>
+                <tr>
+                    <td class="left-indent">Beds out of commission</td>
+                    <td>{{outOfCommission}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>Availability</td>
+                    <td>{{availability}}</td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    {{/if}}
+{{/if}}
