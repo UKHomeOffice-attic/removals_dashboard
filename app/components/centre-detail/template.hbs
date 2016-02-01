@@ -1,7 +1,7 @@
 {{# if display}}
     <div class="summary">
         <span class="availability {{if isFull 'highlight' ''}}">{{formattedAvailability}}</span>
-        <span>{{#if isFull}}No {{/if}}Available {{gender}} Beds</span>
+        <span class="status">{{#if isFull}}No {{/if}}Available {{gender}} Beds</span>
         <a class="detail-toggle" {{action "toggleDetails" on="click"}}>
           {{# if showDetails}}Hide{{else}}Show{{/if}} numbers
         </a>
