@@ -53,21 +53,19 @@ header {
       height: 30px;
       width: 100%;
       padding: 20px;
+      font-size: 13px;
       .title {
         background: $beta_orange;
-        font-size: 13px;
         color: $white;
         float: left;
         padding: 3px 7px;
         margin-right: 0.5em;
       }
       .text {
-        height: 30px;
         width: 100%;
-        font-size: 13px;
         color: $color_mine_shaft_approx;
         font-weight: 400;
-        padding: 3px 3px 3px 7px;
+        padding: 3px 0;
       }
     }
   }
@@ -91,25 +89,16 @@ header {
   width: 480px;
   float: left;
   overflow: hidden;
-  background-color: $white;
 }
 
 .header {
   width: 468px;
   float: left;
   overflow: hidden;
-  background-color: $white;
   padding: 0 6px;
   margin: 10px 0;
   .right {
     float: right;
-  }
-  a {
-    color: $blue;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
