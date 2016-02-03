@@ -13,7 +13,7 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/UKHomeOffice/removals_dashboard",
   "engines": {
     "node": ">= 0.10.0"
   },
