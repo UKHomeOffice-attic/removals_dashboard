@@ -4,7 +4,8 @@
     "document",
     "window",
     "-Promise",
-    "Ember"
+    "Ember",
+    "io"
   ],
   "browser": true,
   "boss": true,
