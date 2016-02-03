@@ -10,12 +10,6 @@ import ENV from '../config/environment';
 
 export default DS. JSONAPIAdapter.extend({
   host: ENV['apiURL'],
-  shouldReloadAll() {
-    return true;
-  },
-  shouldBackgroundReloadRecord() {
-    return false;
-  },
   ajax: function(url, method, hash) {
     hash.crossDomain = true;
     hash.xhrFields = {withCredentials: true};
