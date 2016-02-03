@@ -4,13 +4,13 @@ import socketIOClient from "npm:socket.io-client";
 
 export default {
   name: 'sails-io',
-  initialize: function (container, app) {
+  initialize: function(container, app) {
     var io = sailsIOClient(socketIOClient);
     io.sails.url = ENV.apiURL;
     io.sails.transports = ['polling'];
 
     io.sails.query = io.sails.query || {};
-    for (var sdkInfoKey in io.sails.sdk) {
+    for(var sdkInfoKey in io.sails.sdk) {
       io.sails.query['__sails_io_sdk_' + sdkInfoKey] = io.sails.sdk[sdkInfoKey];
     }
     app.register('io:main', io, {instantiate: false});
