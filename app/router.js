@@ -5,8 +5,7 @@ const Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function () {
-  //this.route('centres', {path: '/centres/:centre_id'});
+Router.map(function() {
 });
 
 export default Router;
