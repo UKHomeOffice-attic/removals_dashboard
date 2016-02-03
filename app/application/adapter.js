@@ -16,14 +16,9 @@ export default DS. JSONAPIAdapter.extend({
   shouldBackgroundReloadRecord() {
     return false;
   },
-  ajax: function (url, method, hash) {
+  ajax: function(url, method, hash) {
     hash.crossDomain = true;
     hash.xhrFields = {withCredentials: true};
     return this._super(url, method, hash);
-  },
-  init: function () {
-    /**
-     * To Do: Inject sails-io socket
-     */
   }
 });
