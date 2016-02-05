@@ -1,9 +1,9 @@
-import DS from 'ember-data';
-
 /**
- * Models our centre object.
+ * @file Models our centre object.
  *  This class relies on the Ember Data libraries to create an instance of a Model, with a multiple attributes.
  */
+import DS from 'ember-data';
+
 export default DS.Model.extend({
   name: DS.attr('string'),
   heartbeatRecieved: DS.attr(),

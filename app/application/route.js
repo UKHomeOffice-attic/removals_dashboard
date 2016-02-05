@@ -6,10 +6,9 @@ export default Ember.Route.extend({
 
     self.io.socket.get('/centres', () =>
       self.io.socket.on('centres', message => {
-        let data = message.data;
-        let modelClass = self.store.modelFor(data.type);
+        let modelClass = self.store.modelFor(message.data.type);
         let serializer = self.store.serializerFor('application');
-        let json = serializer.normalizeSingleResponse(self.store, modelClass, data, data.id);
+        var json = serializer.extractSingle(self.store, modelClass, message.data, message.data.id);
 
         self.store.push(json);
       })
