@@ -1,21 +1,23 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'ember-bedspacemanagement/tests/helpers/start-app';
+/*jshint unused:false*/
+import { SocketIO, Server } from 'ember-bedspacemanagement/helpers/mock-socket';
 
 let application;
 
 module('Acceptance | application', {
-  beforeEach: function () {
+  beforeEach: function() {
     application = startApp();
   },
-  afterEach: function () {
+  afterEach: function() {
     Ember.run(application, 'destroy');
   }
 });
 
-test('visiting /', function (assert) {
+test('visiting /', function(assert) {
   visit('/');
-  andThen(function () {
+  andThen(function() {
     assert.equal(currentURL(), '/');
   });
 });

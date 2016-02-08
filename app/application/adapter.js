@@ -9,21 +9,10 @@ import DS from 'ember-data';
 import ENV from '../config/environment';
 
 export default DS. JSONAPIAdapter.extend({
-  host: ENV['apiURL'],
-  shouldReloadAll() {
-    return true;
-  },
-  shouldBackgroundReloadRecord() {
-    return false;
-  },
-  ajax: function (url, method, hash) {
+  host: ENV.apiURL,
+  ajax: function(url, method, hash) {
     hash.crossDomain = true;
     hash.xhrFields = {withCredentials: true};
     return this._super(url, method, hash);
-  },
-  init: function () {
-    /**
-     * To Do: Inject sails-io socket
-     */
   }
 });

@@ -1,25 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  beforeModel() {
+  activate() {
     var self = this;
-    self.io.socket.on('centres', function(message) {
-      var data = message.data;
-      var modelClass = self.store.modelFor(data.type);
-      var serializer = self.store.serializerFor('application');
-      var json = serializer.normalizeSingleResponse(self.store, modelClass, data, data.id);
 
-      self.store.push(json);
-    });
+    self.io.socket.get('/centres', () =>
+      self.io.socket.on('centres', message => {
+        let modelClass = self.store.modelFor(message.data.type);
+        let serializer = self.store.serializerFor('application');
+        var json = serializer.extractSingle(self.store, modelClass, message.data, message.data.id);
+
+        self.store.push(json);
+      })
+    );
   },
   model() {
     return this.store.findAll('centre');
-  },
-  activate() {
-    this.io.socket.get('/centres', function serverResponded() {
-    });
-  },
-  deactivate() {
-    this.self.io.socket.disconnect();
   }
 });

@@ -9,7 +9,7 @@ export default function() {
   /**
    * As Sails.js API is on a different server
    */
-  this.urlPrefix = ENV['apiURL'];
+  this.urlPrefix = ENV.apiURL;
 
   /**
    * If API is namespaced is set:

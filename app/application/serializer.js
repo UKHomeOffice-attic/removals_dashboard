@@ -1,8 +1,10 @@
 /**
- * @file RESTSerializer implementation.
- * Ember CLI Mirage 0.1.x exposes a REST API and Ember Data should be aware. Furthermore, this implements a custom
- * Serializer by extending keyForAttribute and keyForRelationship. This does not match the JSONAPISerializer that
- * ships with Ember Data (matching the examples on http://jsonapi.org/format).
+ * @file JSONAPISerializer implementation.
+ *  The serializer takes the attributes defined in the relevant Ember model and converts them to match the JSON string
+ * returned from the backend.
+ *
+ * keyForAttribute currently matches what is received from the Sails API: camelCase, as the default is hyphened Key
+ * Attributes, which is not consistent with jsonapi.org.
  */
 import Ember from 'ember';
 import DS from 'ember-data';
@@ -16,5 +18,10 @@ export default DS.JSONAPISerializer.extend({
 
   keyForRelationship: function(rawKey) {
     return this.camelize(rawKey);
+  },
+
+  pushPayload: function() {
+
   }
 });
+

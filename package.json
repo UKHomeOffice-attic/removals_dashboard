@@ -13,7 +13,7 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/UKHomeOffice/removals_dashboard",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -33,15 +33,23 @@
     "ember-cli-ic-ajax": "0.2.4",
     "ember-cli-inject-live-reload": "^1.3.1",
     "ember-cli-mirage": "0.1.11",
+    "ember-cli-moment-shim": "1.0.0",
     "ember-cli-qunit": "^1.0.4",
     "ember-cli-release": "0.2.8",
+    "ember-cli-sass": "^5.2.1",
     "ember-cli-sri": "^1.2.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "1.13.15",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
+    "ember-moment": "6.0.0",
+    "mock-socket": "^2.0.0",
+    "moment": "2.11.1",
+    "moment-timezone": "0.5.0",
     "phantomjs": "^1.9.19",
-    "precommit": "^1.2.0"
+    "precommit": "^1.2.0",
+    "sails.io.js": "0.13.0",
+    "socket.io-client": "1.4.4"
   },
   "precommit": {
     "tasks": [
