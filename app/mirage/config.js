@@ -37,19 +37,4 @@ export default function() {
       ))
     };
   });
-
-  /**
-   * Route will handle the URL '/api/centre/{id}'
-   */
-  this.get('/centres/:id', function(db, request) {
-    let id = request.params.id;
-
-    return {
-      data: {
-        type: 'centres',
-        id: id,
-        attributes: db.centres.find(id)
-      }
-    };
-  });
 }
