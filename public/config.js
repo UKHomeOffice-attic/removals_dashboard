@@ -1,4 +1,4 @@
-{
+window.config = {
   "backend": "http://localhost:8080",
   "keycloakUrl": "http://localhost:8080",
   "clientId": "ircbd-dev",
