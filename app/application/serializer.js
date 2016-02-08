@@ -18,10 +18,6 @@ export default DS.JSONAPISerializer.extend({
 
   keyForRelationship: function(rawKey) {
     return this.camelize(rawKey);
-  },
-
-  pushPayload: function() {
-
   }
 });
 
