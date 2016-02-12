@@ -15,6 +15,8 @@ export default Ember.Route.extend({
     );
   },
   model() {
-    return this.store.findAll('centre');
+    // findAll would lead to the adapter making an http request (in addition to the socket connection above).
+    // peakAll only looks at the data currently in ember's store.
+    return this.store.peekAll('centre');
   }
 });
